@@ -28,7 +28,7 @@ export default function Menu() {
     right: false
   });
   const icons = [<Home />, <Style />, <Equalizer />, <PieChart />];
-  const scenesPaths = ["/operations", "/review", "/summary", "/report"];
+  const scenesPaths = ["/dashboard", "/review", "/summary", "/report"];
 
   const toggleDrawer = (side, open) => event => {
     if (
@@ -49,7 +49,7 @@ export default function Menu() {
       onKeyDown={toggleDrawer(side, false)}
     >
       <List>
-        {["Operations", "Review", "Summary", "Report"].map((text, index) => (
+        {["Dashboard", "Review", "Summary", "Report"].map((text, index) => (
           <NavLink key={index} to={scenesPaths[index]}>
             <ListItem button key={text}>
               <ListItemIcon>{icons[index]}</ListItemIcon>

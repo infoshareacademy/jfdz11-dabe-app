@@ -1,18 +1,24 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import "./App.css";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 import { Navigation } from "./components";
-import Summary from "./scenes/Summary/Summary";
+import { Dashboard, Review, Summary, Report, NoMatch } from "./scenes";
 
 function App() {
   return (
     <Router>
       <Navigation />
       <Switch>
-        <Route exact path="/operations" component={Summary} />
-        <Route exact path="/review" component={Summary} />
+        <Route exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/review" component={Review} />
         <Route exact path="/summary" component={Summary} />
-        <Route exact path="/report" component={Summary} />
+        <Route exact path="/report" component={Report} />
+        <Redirect exact from="/" to="/dashboard" />
+        <Route component={NoMatch} />
       </Switch>
     </Router>
   );

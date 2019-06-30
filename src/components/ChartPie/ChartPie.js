@@ -37,7 +37,7 @@ const renderCustomizedLabel = ({
   );
 };
 
-export default class Chart extends PureComponent {
+export default class ChartPie extends PureComponent {
   static jsfiddleUrl = "https://jsfiddle.net/alidingling/c9pL8k61/";
 
   render() {

@@ -1,6 +1,6 @@
 import React from "react";
-import Chart from "../../components/PieChart";
+import { ChartPie } from "../../components";
 
 export default function Summary(props) {
-  return <Chart />;
+  return <ChartPie />;
 }

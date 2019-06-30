@@ -1,6 +1,12 @@
 import React from "react";
-import { ChartPie } from "../../components";
+import { ChartPie, ChartLine, ChartBar } from "../../components";
 
 export default function Summary(props) {
-  return <ChartPie />;
+  return (
+    <>
+      <ChartPie />
+      <ChartLine />
+      <ChartBar />
+    </>
+  );
 }

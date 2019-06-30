@@ -11,6 +11,7 @@ import Home from "@material-ui/icons/Home";
 import Equalizer from "@material-ui/icons/Equalizer";
 import PieChart from "@material-ui/icons/PieChart";
 import Style from "@material-ui/icons/Style";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles({
   list: {
@@ -27,6 +28,7 @@ export default function Menu() {
     right: false
   });
   const icons = [<Home />, <Style />, <Equalizer />, <PieChart />];
+  const scenesPaths = ["/operations", "/review", "/summary", "/report"];
 
   const toggleDrawer = (side, open) => event => {
     if (
@@ -47,14 +49,14 @@ export default function Menu() {
       onKeyDown={toggleDrawer(side, false)}
     >
       <List>
-        {["Operacje", "Przegląd", "Podsumowanie", "Raporty"].map(
-          (text, index) => (
+        {["Operations", "Review", "Summary", "Report"].map((text, index) => (
+          <NavLink key={index} to={scenesPaths[index]}>
             <ListItem button key={text}>
               <ListItemIcon>{icons[index]}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
-          )
-        )}
+          </NavLink>
+        ))}
       </List>
       <Divider />
     </div>

@@ -1,11 +1,10 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import { height } from "@material-ui/system";
 
 const useStyles = makeStyles(theme => ({
   textField: {
-    margin: 0,
+    margin: 0
   }
 }));
 

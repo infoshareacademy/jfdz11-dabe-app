@@ -1,9 +1,11 @@
 import React from "react";
+import { toolbar } from "./Navigation.module.css";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "../Menu";
+import { InputForm } from "../../components";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,8 +24,11 @@ export default function Navigation(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
+      <AppBar
+        position="static"
+        style={{ backgroundColor: "rgba(19, 145, 135, 0.85)" }}
+      >
+        <Toolbar className={toolbar}>
           <IconButton
             edge="start"
             className={classes.menuButton}
@@ -32,6 +37,7 @@ export default function Navigation(props) {
           >
             <Menu />
           </IconButton>
+          <InputForm />
         </Toolbar>
       </AppBar>
     </div>

@@ -1,0 +1,27 @@
+.budgetInput {
+  margin: 40px 20px;
+  padding: 0 15px;
+  width: 300px;
+}
+.numericInput {
+  width: 100%;
+  display: flex;
+  font-size: 36px;
+  justify-content: space-between;
+  align-content: center;
+}
+.inputWrapper {
+  margin-right: 20px;
+  border-bottom: 1px solid black;
+}
+.input {
+  width: 60%;
+  margin-right: 10px;
+  border: 0px;
+  flex-basis: 1;
+  font-size: 36px;
+  text-align: end;
+}
+.input:focus {
+  outline: none;
+}

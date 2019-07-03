@@ -10,10 +10,11 @@ export default function NumericInput(props) {
         autoComplete="on"
         autoCorrect="on"
         required
-        size={6}
+        size={8}
+        maxLength={8}
         precision={2}
         value={0.0}
-        style={false}
+        noStyle
         className={input}
       />
       <span>PLN</span>

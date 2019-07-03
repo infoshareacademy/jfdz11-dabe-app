@@ -12,6 +12,7 @@ import NewOperationForm from "./NewOperationForm";
 import NumericInput from "./NumericInput";
 import CategoriesSelect from "./CategoriesSelect";
 import OperationTitle from "./OperationTitle";
+import BudgetInput from "./BudgetInput";
 
 export {
   Navigation,
@@ -27,5 +28,6 @@ export {
   NewOperationForm,
   NumericInput,
   CategoriesSelect,
-  OperationTitle
+  OperationTitle,
+  BudgetInput
 };

@@ -3,10 +3,15 @@ import Menu from "./Menu";
 import ChartPie from "./ChartPie";
 import ChartLine from "./ChartLine";
 import ChartBar from "./ChartBar";
-import InputForm from "./InputForm";
+import SignInForm from "./SignInForm";
 import EmailTextField from "./EmailTextField";
 import PasswordTextField from "./PasswordTextField";
 import ButtonSubmit from "./ButtonSubmit";
+import DatePicker from "./DatePicker";
+import NewOperationForm from "./NewOperationForm";
+import NumericInput from "./NumericInput";
+import CategoriesSelect from "./CategoriesSelect";
+import OperationTitle from "./OperationTitle";
 
 export {
   Navigation,
@@ -14,8 +19,13 @@ export {
   ChartPie,
   ChartLine,
   ChartBar,
-  InputForm,
+  SignInForm,
   EmailTextField,
   PasswordTextField,
-  ButtonSubmit
+  ButtonSubmit,
+  DatePicker,
+  NewOperationForm,
+  NumericInput,
+  CategoriesSelect,
+  OperationTitle
 };

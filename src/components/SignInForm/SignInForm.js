@@ -2,12 +2,8 @@ import React from "react";
 import { Formik, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { makeStyles } from "@material-ui/core/styles";
-import {
-  EmailTextField,
-  PasswordTextField,
-  ButtonSubmit
-} from "../../components";
-import { inputForm, textField, errorMassage } from "./InputForm.module.css";
+import { EmailTextField, PasswordTextField, ButtonSubmit } from "..";
+import { inputForm, textField, errorMassage } from "./SignInForm.module.css";
 
 const validate = yup.object().shape({
   email: yup
@@ -36,7 +32,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function InputForm(props) {
+export default function SignInForm(props) {
   const classes = useStyles();
   return (
     <div className={inputForm}>

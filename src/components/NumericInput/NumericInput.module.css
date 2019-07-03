@@ -1,0 +1,18 @@
+.numericInput {
+  width: 100%;
+  display: flex;
+  font-size: 26px;
+  border-bottom: 1px solid black;
+  justify-content: flex-end;
+}
+
+.input {
+  margin-right: 10px;
+  border: 0px;
+  flex-basis: 1;
+  font-size: 26px;
+  text-align: end;
+}
+.input:focus {
+  outline: none;
+}

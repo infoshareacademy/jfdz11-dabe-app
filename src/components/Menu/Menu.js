@@ -11,7 +11,7 @@ import Equalizer from "@material-ui/icons/Equalizer";
 import PieChart from "@material-ui/icons/PieChart";
 import Style from "@material-ui/icons/Style";
 import { NavLink } from "react-router-dom";
-import { list, navLink } from "./Menu.module.css";
+import { list, navLink, appTitle, versioning } from "./Menu.module.css";
 
 export default function Menu() {
   const [state, setState] = React.useState({
@@ -41,6 +41,9 @@ export default function Menu() {
       onClick={toggleDrawer(side, false)}
       onKeyDown={toggleDrawer(side, false)}
     >
+      <p className={appTitle}>Financial Planner</p>
+      <p className={versioning}>v0.0.0</p>
+      <Divider />
       <List>
         {["Dashboard", "Review", "Summary", "Report"].map((text, index) => (
           <NavLink key={text} to={scenesPaths[index]} className={navLink}>
@@ -51,16 +54,15 @@ export default function Menu() {
           </NavLink>
         ))}
       </List>
-      <Divider />
     </div>
   );
 
   return (
-    <div>
+    <>
       <MenuIcon onClick={toggleDrawer("left", true)} />
       <Drawer open={state.left} onClose={toggleDrawer("left", false)}>
         {sideList("left")}
       </Drawer>
-    </div>
+    </>
   );
 }

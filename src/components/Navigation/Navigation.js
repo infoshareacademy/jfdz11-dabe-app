@@ -5,7 +5,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "../Menu";
-import { InputForm } from "../../components";
+import { SignInForm } from "../../components";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -37,7 +37,7 @@ export default function Navigation(props) {
           >
             <Menu />
           </IconButton>
-          <InputForm />
+          <SignInForm />
         </Toolbar>
       </AppBar>
     </div>

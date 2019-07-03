@@ -1,5 +1,11 @@
 import React from "react";
+import { dashboard } from "./Dashboard.module.css";
+import { NewOperationForm } from "../../components";
 
 export default function Dashboard(props) {
-  return <h1>Dashboard</h1>;
+  return (
+    <div className={dashboard}>
+      <NewOperationForm />
+    </div>
+  );
 }

@@ -68,7 +68,7 @@ export default function SignInForm(props) {
                 <ErrorMessage name="password" className={errorMassage} />
               </div>
             </div>
-            <ButtonSubmit type="submit" />
+            <ButtonSubmit type="submit">Sign In</ButtonSubmit>
           </form>
         )}
       />

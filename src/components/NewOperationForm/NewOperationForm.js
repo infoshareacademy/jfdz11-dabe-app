@@ -4,16 +4,23 @@ import {
   DatePicker,
   NumericInput,
   CategoriesSelect,
-  OperationTitle
+  OperationTitle,
+  ButtonSubmit
 } from "../../components";
 
 export default function NewOperationForm(props) {
   return (
-    <div className={newOperationForm}>
+    <form className={newOperationForm}>
       <NumericInput />
       <CategoriesSelect />
       <DatePicker />
       <OperationTitle />
-    </div>
+      <ButtonSubmit
+        type="submit"
+        style={{ backgroundColor: "rgba(19, 145, 135, 0.85)" }}
+      >
+        Add
+      </ButtonSubmit>
+    </form>
   );
 }

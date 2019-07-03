@@ -11,9 +11,5 @@ const useStyles = makeStyles(theme => ({
 
 export default function ButtonSubmit(props) {
   const classes = useStyles();
-  return (
-    <Button variant="outlined" className={classes.button} {...props}>
-      Sign In
-    </Button>
-  );
+  return <Button variant="outlined" className={classes.button} {...props} />;
 }

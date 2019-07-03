@@ -3,7 +3,9 @@ import { dashboard } from "./Dashboard.module.css";
 import {
   NewOperationForm,
   BudgetInput,
-  ListOfExpenses
+  ListOfExpenses,
+  ChartPie,
+  ChartBar
 } from "../../components";
 
 export default function Dashboard(props) {
@@ -16,6 +18,21 @@ export default function Dashboard(props) {
       <div>
         <h2 style={{ margin: 30 }}>List of financial operations</h2>
         <ListOfExpenses />
+      </div>
+      <div
+        style={{
+          margin: 30,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center"
+        }}
+      >
+        <div>
+          <ChartPie />
+        </div>
+        <div>
+          <ChartBar />
+        </div>
       </div>
     </div>
   );

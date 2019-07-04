@@ -8,11 +8,21 @@ import {
   ChartBar
 } from "../../components";
 
-export default function Dashboard(props) {
+export default function Dashboard({
+  budgetPerMonth,
+  setBudgetPerMonth,
+  budgetDetermined,
+  setBudgetDetermined
+}) {
   return (
     <div className={dashboard}>
       <div>
-        <BudgetInput />
+        <BudgetInput
+          budgetPerMonth={budgetPerMonth}
+          setBudgetPerMonth={setBudgetPerMonth}
+          budgetDetermined={budgetDetermined}
+          setBudgetDetermined={setBudgetDetermined}
+        />
         <NewOperationForm />
       </div>
       <div>

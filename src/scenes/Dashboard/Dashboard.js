@@ -15,9 +15,10 @@ export default function Dashboard({
   setBudgetDetermined,
   expenses,
   setExpenses,
-  addExpense,
   requirements,
-  setRequirements
+  setRequirements,
+  onAddExpense,
+  onRemoveExpense
 }) {
   return (
     <div className={dashboard}>
@@ -31,14 +32,14 @@ export default function Dashboard({
           setExpenses={setExpenses}
         />
         <NewOperationForm
-          addExpense={addExpense}
+          onAddExpense={onAddExpense}
           requirements={requirements}
           setRequirements={setRequirements}
         />
       </div>
       <div>
         <h2 className={h2}>List of financial operations</h2>
-        <ListOfExpenses />
+        <ListOfExpenses expenses={expenses} onRemoveExpense={onRemoveExpense} />
       </div>
       <div className={charts}>
         <div>

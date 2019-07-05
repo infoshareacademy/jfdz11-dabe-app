@@ -32,6 +32,11 @@ function App(props) {
     setExpenses(newExpenses);
   }
 
+  function removeExpense(expenseID) {
+    const newExpenses = expenses.filter(expens => expens.id !== expenseID);
+    setExpenses(newExpenses);
+  }
+
   return (
     <Router>
       <Navigation />
@@ -42,9 +47,10 @@ function App(props) {
             setBudgetPerMonth={setBudgetPerMonth}
             budgetDetermined={budgetDetermined}
             setBudgetDetermined={setBudgetDetermined}
-            addExpense={addExpense}
             requirements={requirements}
             setRequirements={setRequirements}
+            onAddExpense={addExpense}
+            onRemoveExpense={removeExpense}
           />
         </Route>
         <Route exact path="/review" component={Review} />

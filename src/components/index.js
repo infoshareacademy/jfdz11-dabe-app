@@ -14,6 +14,7 @@ import CategoriesSelect from "./CategoriesSelect";
 import OperationTitle from "./OperationTitle";
 import BudgetInput from "./BudgetInput";
 import ListOfExpenses from "./ListOfExpenses";
+import ExpensesListItem from "./ExpensesListItem";
 
 export {
   Navigation,
@@ -31,5 +32,6 @@ export {
   CategoriesSelect,
   OperationTitle,
   BudgetInput,
-  ListOfExpenses
+  ListOfExpenses,
+  ExpensesListItem
 };

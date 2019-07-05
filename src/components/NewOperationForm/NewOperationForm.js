@@ -10,7 +10,7 @@ import {
 import uuid from "uuid/v4";
 
 export default function NewOperationForm({
-  addExpense,
+  onAddExpense,
   requirements,
   setRequirements
 }) {
@@ -25,7 +25,7 @@ export default function NewOperationForm({
   function addExpenseByClick(expense) {
     if (expense.cost !== 0 && expense.category && expense.title) {
       setRequirements(false);
-      addExpense(expense);
+      onAddExpense(expense);
       setExpense({
         id: uuid(),
         cost: 0,

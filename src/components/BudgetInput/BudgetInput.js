@@ -73,7 +73,12 @@ export default function BudgetInput({
             </div>
             <div>
               <ButtonSubmit
-                onClick={() => setBudgetDetermined(!budgetDetermined)}
+                onClick={() => {
+                  if (budgetPerMonth) {
+                    setBudgetDetermined(!budgetDetermined);
+                  }
+                  return;
+                }}
                 style={{ backgroundColor: "rgba(19, 145, 135, 0.85)" }}
               >
                 Save

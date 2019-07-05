@@ -2,3 +2,12 @@
   display: flex;
   height: calc(100vh-64px);
 }
+.h2 {
+  margin: 30px;
+}
+.charts {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

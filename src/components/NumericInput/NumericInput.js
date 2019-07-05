@@ -16,6 +16,7 @@ export default function NumericInput(props) {
         value={0.0}
         noStyle
         className={input}
+        {...props}
       />
       <span>PLN</span>
     </div>

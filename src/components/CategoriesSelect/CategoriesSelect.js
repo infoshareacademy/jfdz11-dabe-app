@@ -4,9 +4,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
-export default function CategoriesSelect(props) {
-  const [category, setCategory] = useState("");
-
+export default function CategoriesSelect({ expense, setExpense }) {
   const inputLabel = React.useRef(null);
   const [labelWidth, setLabelWidth] = useState(0);
 
@@ -21,8 +19,10 @@ export default function CategoriesSelect(props) {
       </InputLabel>
       <Select
         native
-        value={category}
-        onChange={event => setCategory(event.target.value)}
+        value={expense.category}
+        onChange={event =>
+          setExpense({ ...expense, category: event.target.value })
+        }
         input={
           <OutlinedInput
             name="Category"

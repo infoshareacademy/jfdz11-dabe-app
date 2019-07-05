@@ -15,22 +15,22 @@ function App(props) {
   const [budgetDetermined, setBudgetDetermined] = useState(
     getFromLocalStorage("budgetDetermined", false)
   );
-  const [expenses, setExpenses] = useState(
-    getFromLocalStorage("budgetPerMonth", [
-      {
-        id: "",
-        cost: 0,
-        category: "",
-        date: "",
-        title: ""
-      }
-    ])
+  const [expenses, setExpenses] = useState(getFromLocalStorage("expenses", []));
+  const [requirements, setRequirements] = useState(
+    getFromLocalStorage("requirements", false)
   );
 
   useEffect(() => {
     setLocalStorage("budgetPerMonth", budgetPerMonth);
     setLocalStorage("budgetDetermined", budgetDetermined);
-  }, [budgetPerMonth, budgetDetermined]);
+    setLocalStorage("expenses", expenses);
+    setLocalStorage("requirements", requirements);
+  }, [budgetPerMonth, budgetDetermined, expenses, requirements]);
+
+  function addExpense(expense) {
+    const newExpenses = [...expenses, expense];
+    setExpenses(newExpenses);
+  }
 
   return (
     <Router>
@@ -42,6 +42,9 @@ function App(props) {
             setBudgetPerMonth={setBudgetPerMonth}
             budgetDetermined={budgetDetermined}
             setBudgetDetermined={setBudgetDetermined}
+            addExpense={addExpense}
+            requirements={requirements}
+            setRequirements={setRequirements}
           />
         </Route>
         <Route exact path="/review" component={Review} />

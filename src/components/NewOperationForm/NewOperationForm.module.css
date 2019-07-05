@@ -10,3 +10,8 @@
   flex-direction: column;
   justify-content: space-around;
 }
+
+.required {
+  color: red;
+  font-size: 10px;
+}

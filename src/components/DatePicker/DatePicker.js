@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 import { KeyboardDatePicker } from "@material-ui/pickers";
@@ -35,9 +35,7 @@ const materialTheme = createMuiTheme({
   }
 });
 
-export default function DatePicker(props) {
-  const [selectedDate, handleDateChange] = useState(new Date());
-
+export default function DatePicker({ expense, setExpense }) {
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <ThemeProvider theme={materialTheme}>
@@ -47,9 +45,11 @@ export default function DatePicker(props) {
           inputVariant="outlined"
           label="Date"
           format="MM/dd/yyyy"
-          value={selectedDate}
-          InputAdornmentProps={{ position: "start" }}
-          onChange={date => handleDateChange(date)}
+          value={expense.date}
+          InputAdornmentProps={{ position: "end" }}
+          onChange={date =>
+            setExpense({ ...expense, date: date.toLocaleDateString() })
+          }
         />
       </ThemeProvider>
     </MuiPickersUtilsProvider>

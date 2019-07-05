@@ -1,5 +1,5 @@
 import React from "react";
-import { dashboard } from "./Dashboard.module.css";
+import { dashboard, h2, charts } from "./Dashboard.module.css";
 import {
   NewOperationForm,
   BudgetInput,
@@ -12,7 +12,12 @@ export default function Dashboard({
   budgetPerMonth,
   setBudgetPerMonth,
   budgetDetermined,
-  setBudgetDetermined
+  setBudgetDetermined,
+  expenses,
+  setExpenses,
+  addExpense,
+  requirements,
+  setRequirements
 }) {
   return (
     <div className={dashboard}>
@@ -22,21 +27,20 @@ export default function Dashboard({
           setBudgetPerMonth={setBudgetPerMonth}
           budgetDetermined={budgetDetermined}
           setBudgetDetermined={setBudgetDetermined}
+          expenses={expenses}
+          setExpenses={setExpenses}
         />
-        <NewOperationForm />
+        <NewOperationForm
+          addExpense={addExpense}
+          requirements={requirements}
+          setRequirements={setRequirements}
+        />
       </div>
       <div>
-        <h2 style={{ margin: 30 }}>List of financial operations</h2>
+        <h2 className={h2}>List of financial operations</h2>
         <ListOfExpenses />
       </div>
-      <div
-        style={{
-          margin: 30,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center"
-        }}
-      >
+      <div className={charts}>
         <div>
           <ChartPie />
         </div>

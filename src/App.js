@@ -7,15 +7,18 @@ import {
 } from "react-router-dom";
 import { Navigation } from "./components";
 import { Dashboard, Review, Summary, Report, NoMatch } from "./scenes";
+import uuid from "uuid/v4";
 
 function App(props) {
+  const [expenses, setExpenses] = useState(
+    getFromLocalStorage("expenses", initialExpenses)
+  );
   const [budgetPerMonth, setBudgetPerMonth] = useState(
     getFromLocalStorage("budgetPerMonth", 0)
   );
   const [budgetDetermined, setBudgetDetermined] = useState(
     getFromLocalStorage("budgetDetermined", false)
   );
-  const [expenses, setExpenses] = useState(getFromLocalStorage("expenses", []));
   const [requirements, setRequirements] = useState(
     getFromLocalStorage("requirements", false)
   );
@@ -43,6 +46,7 @@ function App(props) {
       <Switch>
         <Route exact path="/dashboard">
           <Dashboard
+            expenses={expenses}
             budgetPerMonth={budgetPerMonth}
             setBudgetPerMonth={setBudgetPerMonth}
             budgetDetermined={budgetDetermined}
@@ -73,3 +77,41 @@ function getFromLocalStorage(key, value) {
 function setLocalStorage(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 }
+
+const initialExpenses = [
+  {
+    id: uuid(),
+    cost: 80,
+    date: "2.07.2019",
+    category: "HealthAndBeauty",
+    title: "Joga."
+  },
+  {
+    id: uuid(),
+    cost: 50,
+    date: "3.07.2019",
+    category: "Food",
+    title: "SurfBurger."
+  },
+  {
+    id: uuid(),
+    cost: 80,
+    date: "1.07.2019",
+    category: "Entertainment",
+    title: "CinemaCity: Avangers - End Game."
+  },
+  {
+    id: uuid(),
+    cost: 45,
+    date: "2.07.2019",
+    category: "House",
+    title: "Door handles replacement."
+  },
+  {
+    id: uuid(),
+    cost: 120,
+    date: "4.07.2019",
+    category: "Clothing",
+    title: "New hat."
+  }
+];

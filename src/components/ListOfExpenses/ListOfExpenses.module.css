@@ -1,0 +1,10 @@
+.listOfExpenses {
+  margin: 0 30px;
+  padding: 0;
+  width: 500px;
+  height: 500px;
+  list-style: none;
+  border: 1px solid grey;
+  box-shadow: 1px 1px 10px gray;
+  overflow-y: auto;
+}

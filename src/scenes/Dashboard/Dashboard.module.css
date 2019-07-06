@@ -2,8 +2,15 @@
   display: flex;
   height: calc(100vh-64px);
 }
-.h2 {
+.list {
   margin: 30px;
+  border: 1px solid grey;
+  box-shadow: 1px 1px 10px gray;
+}
+.h2 {
+  margin: 0;
+  padding: 10px;
+  border-bottom: 1px solid grey;
 }
 .charts {
   margin: 30px;

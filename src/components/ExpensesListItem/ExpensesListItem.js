@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import {
   li,
-  view,
   remove,
-  i,
+  tit,
   unassigned,
   food,
   entertainment,
@@ -46,19 +45,14 @@ export default function ExpensesListItem({
 
   return (
     <li className={li}>
-      <div className={view}>
-        <label className={labelClass}>{labelShortcut}</label>
-        <label>
-          <i className={i}>Title: </i>
-          {title}
-        </label>
-        <button
-          className={remove}
-          onClick={() => {
-            onRemoveExpense(id);
-          }}
-        />
-      </div>
+      <div className={labelClass}>{labelShortcut}</div>
+      <div className={tit}>{title}</div>
+      <button
+        className={remove}
+        onClick={() => {
+          onRemoveExpense(id);
+        }}
+      />
     </li>
   );
 }

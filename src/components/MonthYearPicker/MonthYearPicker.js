@@ -1,7 +1,6 @@
 import React from "react";
-import { MuiPickersUtilsProvider } from "@material-ui/pickers";
+import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
-import { KeyboardDatePicker } from "@material-ui/pickers";
 import { createMuiTheme } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
 import { blueGrey } from "@material-ui/core/colors";
@@ -26,34 +25,22 @@ const materialTheme = createMuiTheme({
       current: {
         color: "rgba(19, 145, 135, 0.85)"
       }
-    },
-    MuiPickersModal: {
-      dialogAction: {
-        color: "rgba(19, 145, 135, 0.85)"
-      }
     }
   }
 });
 
-export default function DatePicker({ expense, setExpense }) {
+export default function MonthYearPicker({ selectedMonth, setSelectedMonth }) {
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <ThemeProvider theme={materialTheme}>
-        <KeyboardDatePicker
-          autoOk
-          variant="inline"
+        <DatePicker
+          style={{ width: 85 }}
           inputVariant="outlined"
-          label="Date"
-          format="dd/MM/yyyy"
-          value={expense.date}
-          InputAdornmentProps={{ position: "end" }}
-          onChange={date =>
-            setExpense({
-              ...expense,
-              date,
-              monthYear: date.toLocaleDateString().slice(-7)
-            })
-          }
+          openTo="month"
+          views={["year", "month"]}
+          format="MM.yyyy"
+          value={selectedMonth}
+          onChange={date => setSelectedMonth(date)}
         />
       </ThemeProvider>
     </MuiPickersUtilsProvider>

@@ -10,11 +10,12 @@ import { Dashboard, Review, Summary, Report, NoMatch } from "./scenes";
 import uuid from "uuid/v4";
 
 function App(props) {
+  const [selectedMonth, setSelectedMonth] = useState(new Date());
   const [expenses, setExpenses] = useState(
     getFromLocalStorage("expenses", initialExpenses)
   );
-  const [budgetPerMonth, setBudgetPerMonth] = useState(
-    getFromLocalStorage("budgetPerMonth", 0)
+  const [monthlyBudgets, setMonthlyBudgets] = useState(
+    getFromLocalStorage("budgetPerMonth", initialMonthlyBudgets)
   );
   const [budgetDetermined, setBudgetDetermined] = useState(
     getFromLocalStorage("budgetDetermined", false)
@@ -24,11 +25,16 @@ function App(props) {
   );
 
   useEffect(() => {
-    setLocalStorage("budgetPerMonth", budgetPerMonth);
+    setLocalStorage("monthlyBudgets", monthlyBudgets);
     setLocalStorage("budgetDetermined", budgetDetermined);
     setLocalStorage("expenses", expenses);
     setLocalStorage("requirements", requirements);
-  }, [budgetPerMonth, budgetDetermined, expenses, requirements]);
+  }, [monthlyBudgets, budgetDetermined, expenses, requirements]);
+
+  function addMonthlyBudget(monthlyBudget) {
+    const newMonthlyBudgets = [...monthlyBudgets, monthlyBudget];
+    setMonthlyBudgets(newMonthlyBudgets);
+  }
 
   function addExpense(expense) {
     const newExpenses = [...expenses, expense];
@@ -42,13 +48,16 @@ function App(props) {
 
   return (
     <Router>
-      <Navigation />
+      <Navigation
+        selectedMonth={selectedMonth}
+        setSelectedMonth={setSelectedMonth}
+      />
       <Switch>
         <Route exact path="/dashboard">
           <Dashboard
             expenses={expenses}
-            budgetPerMonth={budgetPerMonth}
-            setBudgetPerMonth={setBudgetPerMonth}
+            monthlyBudgets={monthlyBudgets}
+            onAddMonthlyBudget={addMonthlyBudget}
             budgetDetermined={budgetDetermined}
             setBudgetDetermined={setBudgetDetermined}
             requirements={requirements}
@@ -78,40 +87,93 @@ function setLocalStorage(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 }
 
+const initialMonthlyBudgets = [
+  { budgetPerMonth: 1300, monthYear: "02.2019", month: "1" },
+  { budgetPerMonth: 1500, monthYear: "03.2019", month: "2" },
+  { budgetPerMonth: 1700, monthYear: "04.2019", month: "3" },
+  { budgetPerMonth: 1900, monthYear: "05.2019", month: "4" },
+  { budgetPerMonth: 2100, monthYear: "06.2019", month: "5" }
+];
+
 const initialExpenses = [
   {
     id: uuid(),
     cost: 80,
-    date: "2.07.2019",
+    date: "2.06.2019",
+    monthYear: "06.2019",
     category: "HealthAndBeauty",
     title: "Joga."
   },
   {
     id: uuid(),
     cost: 50,
-    date: "3.07.2019",
+    date: "3.06.2019",
+    monthYear: "06.2019",
     category: "Food",
     title: "SurfBurger."
   },
   {
     id: uuid(),
     cost: 80,
-    date: "1.07.2019",
+    date: "1.05.2019",
+    monthYear: "05.2019",
     category: "Entertainment",
     title: "CinemaCity: Avangers - End Game."
   },
   {
     id: uuid(),
     cost: 45,
-    date: "2.07.2019",
+    date: "2.05.2019",
+    monthYear: "05.2019",
     category: "House",
     title: "Door handles replacement."
   },
   {
     id: uuid(),
     cost: 120,
-    date: "4.07.2019",
+    date: "4.04.2019",
+    monthYear: "04.2019",
     category: "Clothing",
     title: "New hat."
+  },
+  {
+    id: uuid(),
+    cost: 150,
+    date: "21.04.2019",
+    monthYear: "04.2019",
+    category: "Clothing",
+    title: "Skirt."
+  },
+  {
+    id: uuid(),
+    cost: 220,
+    date: "12.03.2019",
+    monthYear: "03.2019",
+    category: "Car",
+    title: "New gear."
+  },
+  {
+    id: uuid(),
+    cost: 440,
+    date: "24.03.2019",
+    monthYear: "03.2019",
+    category: "House",
+    title: "New door."
+  },
+  {
+    id: uuid(),
+    cost: 342,
+    date: "28.02.2019",
+    monthYear: "02.2019",
+    category: "House",
+    title: "New carpet."
+  },
+  {
+    id: uuid(),
+    cost: 320,
+    date: "24.02.2019",
+    monthYear: "02.2019",
+    category: "Clothing",
+    title: "New jacket."
   }
 ];

@@ -18,6 +18,7 @@ export default function NewOperationForm({
     id: uuid(),
     cost: 0,
     date: new Date().toLocaleDateString(),
+    monthYear: new Date().toLocaleDateString().slice(-7),
     category: "",
     title: ""
   });
@@ -30,6 +31,7 @@ export default function NewOperationForm({
         id: uuid(),
         cost: 0,
         date: new Date().toLocaleDateString(),
+        monthYear: new Date().toLocaleDateString().slice(-7),
         category: "",
         title: ""
       });

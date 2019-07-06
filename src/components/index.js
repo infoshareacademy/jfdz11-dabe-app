@@ -15,6 +15,7 @@ import OperationTitle from "./OperationTitle";
 import BudgetInput from "./BudgetInput";
 import ListOfExpenses from "./ListOfExpenses";
 import ExpensesListItem from "./ExpensesListItem";
+import MonthYearPicker from "./MonthYearPicker";
 
 export {
   Navigation,
@@ -33,5 +34,6 @@ export {
   OperationTitle,
   BudgetInput,
   ListOfExpenses,
-  ExpensesListItem
+  ExpensesListItem,
+  MonthYearPicker
 };

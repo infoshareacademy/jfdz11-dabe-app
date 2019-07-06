@@ -9,8 +9,8 @@ import {
 } from "../../components";
 
 export default function Dashboard({
-  budgetPerMonth,
-  setBudgetPerMonth,
+  monthlyBudgets,
+  onAddMonthlyBudget,
   budgetDetermined,
   setBudgetDetermined,
   expenses,
@@ -24,8 +24,8 @@ export default function Dashboard({
     <div className={dashboard}>
       <div>
         <BudgetInput
-          budgetPerMonth={budgetPerMonth}
-          setBudgetPerMonth={setBudgetPerMonth}
+          monthlyBudgets={monthlyBudgets}
+          onAddMonthlyBudget={onAddMonthlyBudget}
           budgetDetermined={budgetDetermined}
           setBudgetDetermined={setBudgetDetermined}
           expenses={expenses}

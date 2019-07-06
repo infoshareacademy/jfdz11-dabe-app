@@ -13,6 +13,9 @@
 .tit {
   flex-grow: 1;
 }
+.price {
+  color: #af5b5e;
+}
 .remove {
   display: none;
   width: 35px;

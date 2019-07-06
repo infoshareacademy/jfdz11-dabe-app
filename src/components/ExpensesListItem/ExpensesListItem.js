@@ -3,6 +3,7 @@ import {
   li,
   remove,
   tit,
+  price,
   unassigned,
   food,
   entertainment,
@@ -17,6 +18,7 @@ export default function ExpensesListItem({
   onRemoveExpense,
   id,
   category,
+  cost,
   title
 }) {
   const [labelClass, setLabelClass] = useState("");
@@ -47,6 +49,7 @@ export default function ExpensesListItem({
     <li className={li}>
       <div className={labelClass}>{labelShortcut}</div>
       <div className={tit}>{title}</div>
+      <div className={price}>{cost} pln</div>
       <button
         className={remove}
         onClick={() => {

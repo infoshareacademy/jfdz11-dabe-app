@@ -12,16 +12,15 @@ import * as Numeric from "react-numeric-input";
 import { ButtonSubmit } from "../../components";
 
 export default function BudgetInput({
+  selectedMonth,
   monthlyBudgets,
   onAddMonthlyBudget,
-  budgetDetermined,
-  setBudgetDetermined
+  setMonthlyBudgets
 }) {
   const [monthlyBudget, setMonthlyBudget] = useState({
-    budgetPerMonth: 0,
-    monthYear: new Date().toLocaleDateString().slice(-7),
-    month: new Date().getMonth()
+    budgetPerMonth: 0
   });
+
   const monthArr = [
     "January",
     "February",
@@ -39,20 +38,42 @@ export default function BudgetInput({
 
   return (
     <>
-      {budgetDetermined ? (
+      {monthlyBudgets.filter(
+        budget => budget.monthYear === selectedMonth.monthYear
+      ).length ? (
         <div className={budgetInput_edit}>
           <h2>
-            The budget in <strong>TO DO Daniel !!!</strong> is
+            The budget in{" "}
+            {
+              monthArr[
+                monthlyBudgets.filter(
+                  budget => budget.monthYear === selectedMonth.monthYear
+                )[0].month
+              ]
+            }{" "}
+            is
           </h2>
           <div className={header}>
             <h1 className={h1}>
               <u>
-                <strong>TO DO Daniel !!!</strong> PLN
-              </u>
+                {
+                  monthlyBudgets.filter(
+                    budget => budget.monthYear === selectedMonth.monthYear
+                  )[0].budgetPerMonth
+                }{" "}
+              </u>{" "}
+              PLN
             </h1>
             <div>
               <ButtonSubmit
-                onClick={() => setBudgetDetermined(!budgetDetermined)}
+                onClick={() => {
+                  const indexToRemove = monthlyBudgets.findIndex(
+                    budget => budget.monthYear === selectedMonth.monthYear
+                  );
+                  monthlyBudgets.splice(indexToRemove, 1);
+                  const newMonthlyBudgets = [...monthlyBudgets];
+                  setMonthlyBudgets(newMonthlyBudgets);
+                }}
                 style={{ backgroundColor: "rgba(19, 145, 135, 0.85)" }}
               >
                 Edit
@@ -77,7 +98,12 @@ export default function BudgetInput({
                 noStyle
                 className={input}
                 onChange={value =>
-                  setMonthlyBudget({ ...monthlyBudget, budgetPerMonth: value })
+                  setMonthlyBudget({
+                    ...monthlyBudget,
+                    budgetPerMonth: value,
+                    monthYear: selectedMonth.monthYear,
+                    month: selectedMonth.date.getMonth()
+                  })
                 }
               />
               <span>PLN</span>
@@ -86,8 +112,10 @@ export default function BudgetInput({
               <ButtonSubmit
                 onClick={() => {
                   if (monthlyBudget.budgetPerMonth) {
-                    setBudgetDetermined(!budgetDetermined);
                     onAddMonthlyBudget(monthlyBudget);
+                    setMonthlyBudget({
+                      budgetPerMonth: 0
+                    });
                   }
                   return;
                 }}

@@ -17,7 +17,7 @@ export default function NewOperationForm({
   const [expense, setExpense] = useState({
     id: uuid(),
     cost: 0,
-    date: new Date().toLocaleDateString(),
+    date: new Date(),
     monthYear: new Date().toLocaleDateString().slice(-7),
     category: "",
     title: ""
@@ -30,7 +30,7 @@ export default function NewOperationForm({
       setExpense({
         id: uuid(),
         cost: 0,
-        date: new Date().toLocaleDateString(),
+        date: new Date(),
         monthYear: new Date().toLocaleDateString().slice(-7),
         category: "",
         title: ""

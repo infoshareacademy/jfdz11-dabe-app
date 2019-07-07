@@ -10,15 +10,16 @@ import { Dashboard, Review, Summary, Report, NoMatch } from "./scenes";
 import uuid from "uuid/v4";
 
 function App(props) {
-  const [selectedMonth, setSelectedMonth] = useState(new Date());
+  const [selectedMonth, setSelectedMonth] = useState({
+    date: new Date(),
+    monthYear: new Date().toLocaleDateString().slice(-7)
+  });
+
   const [expenses, setExpenses] = useState(
     getFromLocalStorage("expenses", initialExpenses)
   );
   const [monthlyBudgets, setMonthlyBudgets] = useState(
-    getFromLocalStorage("budgetPerMonth", initialMonthlyBudgets)
-  );
-  const [budgetDetermined, setBudgetDetermined] = useState(
-    getFromLocalStorage("budgetDetermined", false)
+    getFromLocalStorage("monthlyBudgets", initialMonthlyBudgets)
   );
   const [requirements, setRequirements] = useState(
     getFromLocalStorage("requirements", false)
@@ -26,10 +27,9 @@ function App(props) {
 
   useEffect(() => {
     setLocalStorage("monthlyBudgets", monthlyBudgets);
-    setLocalStorage("budgetDetermined", budgetDetermined);
     setLocalStorage("expenses", expenses);
     setLocalStorage("requirements", requirements);
-  }, [monthlyBudgets, budgetDetermined, expenses, requirements]);
+  }, [monthlyBudgets, expenses, requirements]);
 
   function addMonthlyBudget(monthlyBudget) {
     const newMonthlyBudgets = [...monthlyBudgets, monthlyBudget];
@@ -55,11 +55,11 @@ function App(props) {
       <Switch>
         <Route exact path="/dashboard">
           <Dashboard
+            selectedMonth={selectedMonth}
             expenses={expenses}
             monthlyBudgets={monthlyBudgets}
             onAddMonthlyBudget={addMonthlyBudget}
-            budgetDetermined={budgetDetermined}
-            setBudgetDetermined={setBudgetDetermined}
+            setMonthlyBudgets={setMonthlyBudgets}
             requirements={requirements}
             setRequirements={setRequirements}
             onAddExpense={addExpense}
@@ -88,11 +88,31 @@ function setLocalStorage(key, value) {
 }
 
 const initialMonthlyBudgets = [
-  { budgetPerMonth: 1300, monthYear: "02.2019", month: "1" },
-  { budgetPerMonth: 1500, monthYear: "03.2019", month: "2" },
-  { budgetPerMonth: 1700, monthYear: "04.2019", month: "3" },
-  { budgetPerMonth: 1900, monthYear: "05.2019", month: "4" },
-  { budgetPerMonth: 2100, monthYear: "06.2019", month: "5" }
+  {
+    budgetPerMonth: 1300,
+    monthYear: "02.2019",
+    month: 1
+  },
+  {
+    budgetPerMonth: 1500,
+    monthYear: "03.2019",
+    month: 2
+  },
+  {
+    budgetPerMonth: 1700,
+    monthYear: "04.2019",
+    month: 3
+  },
+  {
+    budgetPerMonth: 1900,
+    monthYear: "05.2019",
+    month: 4
+  },
+  {
+    budgetPerMonth: 2100,
+    monthYear: "06.2019",
+    month: 5
+  }
 ];
 
 const initialExpenses = [

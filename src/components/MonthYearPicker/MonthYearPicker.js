@@ -39,8 +39,13 @@ export default function MonthYearPicker({ selectedMonth, setSelectedMonth }) {
           openTo="month"
           views={["year", "month"]}
           format="MM.yyyy"
-          value={selectedMonth}
-          onChange={date => setSelectedMonth(date)}
+          value={selectedMonth.date}
+          onChange={date =>
+            setSelectedMonth({
+              date,
+              monthYear: date.toLocaleDateString().slice(-7)
+            })
+          }
         />
       </ThemeProvider>
     </MuiPickersUtilsProvider>

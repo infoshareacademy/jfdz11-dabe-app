@@ -9,10 +9,10 @@ import {
 } from "../../components";
 
 export default function Dashboard({
+  selectedMonth,
   monthlyBudgets,
+  setMonthlyBudgets,
   onAddMonthlyBudget,
-  budgetDetermined,
-  setBudgetDetermined,
   expenses,
   setExpenses,
   requirements,
@@ -24,12 +24,10 @@ export default function Dashboard({
     <div className={dashboard}>
       <div>
         <BudgetInput
+          selectedMonth={selectedMonth}
           monthlyBudgets={monthlyBudgets}
           onAddMonthlyBudget={onAddMonthlyBudget}
-          budgetDetermined={budgetDetermined}
-          setBudgetDetermined={setBudgetDetermined}
-          expenses={expenses}
-          setExpenses={setExpenses}
+          setMonthlyBudgets={setMonthlyBudgets}
         />
         <NewOperationForm
           onAddExpense={onAddExpense}
@@ -39,7 +37,11 @@ export default function Dashboard({
       </div>
       <div className={list}>
         <h2 className={h2}>List of financial operations</h2>
-        <ListOfExpenses expenses={expenses} onRemoveExpense={onRemoveExpense} />
+        <ListOfExpenses
+          selectedMonth={selectedMonth}
+          expenses={expenses}
+          onRemoveExpense={onRemoveExpense}
+        />
       </div>
       <div className={charts}>
         <div>

@@ -35,16 +35,6 @@
 li:hover .remove {
   display: inline;
 }
-.unassigned {
-  margin: 0 10px;
-  text-align: center;
-  width: 35px;
-  height: 35px;
-  border-radius: 17.5px;
-  font-size: 24px;
-  color: white;
-  background-color: darkslateblue;
-}
 .food {
   margin: 0 10px;
   text-align: center;

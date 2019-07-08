@@ -4,7 +4,6 @@ import {
   remove,
   tit,
   price,
-  unassigned,
   food,
   entertainment,
   car,
@@ -61,7 +60,6 @@ export default function ExpensesListItem({
 }
 
 const categories = [
-  { class: unassigned, shortcut: "U", cat: "Unassigned" },
   { class: food, shortcut: "F", cat: "Food" },
   { class: entertainment, shortcut: "S", cat: "Entertainment" },
   { class: car, shortcut: "M", cat: "Car" },

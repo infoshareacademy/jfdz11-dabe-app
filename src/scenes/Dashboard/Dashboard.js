@@ -1,5 +1,12 @@
 import React from "react";
-import { dashboard, h2, charts, list } from "./Dashboard.module.css";
+import {
+  dashboard,
+  h2,
+  charts,
+  list,
+  piechart,
+  barchart
+} from "./Dashboard.module.css";
 import {
   NewOperationForm,
   BudgetInput,
@@ -44,11 +51,14 @@ export default function Dashboard({
         />
       </div>
       <div className={charts}>
-        <div>
-          <ChartPie />
+        <div className={barchart}>
+          <ChartBar
+            selectedMonth={selectedMonth}
+            monthlyBudgets={monthlyBudgets}
+          />
         </div>
-        <div>
-          <ChartBar />
+        <div className={piechart}>
+          <ChartPie selectedMonth={selectedMonth} expenses={expenses} />
         </div>
       </div>
     </div>

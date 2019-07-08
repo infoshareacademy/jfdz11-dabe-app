@@ -24,7 +24,12 @@ export default function NewOperationForm({
   });
 
   function addExpenseByClick(expense) {
-    if (expense.cost !== 0 && expense.category && expense.title) {
+    if (
+      expense.cost !== 0 &&
+      expense.category &&
+      expense.category !== "Unassigned" &&
+      expense.title
+    ) {
       setRequirements(false);
       onAddExpense(expense);
       setExpense({

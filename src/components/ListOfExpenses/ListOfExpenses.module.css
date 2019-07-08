@@ -1,7 +1,7 @@
 .listOfExpenses {
   margin: 0;
   padding: 0;
-  width: 550px;
+  width: 500px;
   height: 530px;
   list-style: none;
   overflow-y: scroll;

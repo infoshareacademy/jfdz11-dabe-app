@@ -1,14 +1,43 @@
-import React, { PureComponent } from "react";
-import { PieChart, Pie, Tooltip,Legend, Cell } from "recharts";
+import React from "react";
+import { PieChart, Pie, Tooltip, Legend, Cell } from "recharts";
+import { customTooltip, header } from "./ChartPie.module.css";
 
-const data = [
-  { name: "Group A", value: 400 },
-  { name: "Group B", value: 300 },
-  { name: "Group C", value: 300 },
-  { name: "Group D", value: 200 }
+function data(selectedMonth, expenses) {
+  const categories = [
+    "Food",
+    "Entertainment",
+    "Car",
+    "House",
+    "Clothing",
+    "Electronics",
+    "HealthAndBeauty"
+  ];
+
+  return Array(categories.length)
+    .fill({ name: "", value: 0 })
+    .map((e, index) => ({
+      name: categories[index],
+      value: expenses.reduce(
+        (sum, expense) =>
+          expense.category === categories[index] &&
+          expense.monthYear === selectedMonth.monthYear
+            ? (sum += expense.cost)
+            : sum,
+        0
+      )
+    }))
+    .filter(item => item.value > 0);
+}
+
+const COLORS = [
+  "darkslategrey",
+  "olivedrab",
+  "royalblue",
+  "indianred",
+  "rgba(19, 145, 135, 0.85)",
+  "saddlebrown",
+  "mediumpurple"
 ];
-
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({
@@ -37,28 +66,49 @@ const renderCustomizedLabel = ({
   );
 };
 
-export default class ChartPie extends PureComponent {
-  render() {
+function CustomTooltip({ payload, active }) {
+  if (active) {
     return (
-      <PieChart width={300} height={300}>
-      <Tooltip />
-      <Legend/>
+      <div className={customTooltip}>
+        <p>{`${payload[0].name} : ${payload[0].value} PLN`}</p>
+      </div>
+    );
+  }
+
+  return null;
+}
+
+export default function ChartPie({ selectedMonth, expenses }) {
+  return (
+    <>
+      <h3 className={header}>
+        Percentage share of each category in a selected month.
+      </h3>
+      <PieChart width={565} height={310}>
+        <Tooltip content={<CustomTooltip />} />
+        <Legend
+          layout="vertical"
+          align="right"
+          verticalAlign="middle"
+          width={160}
+          height={185}
+        />
         <Pie
-          data={data}
+          data={data(selectedMonth, expenses)}
           dataKey="value"
           nameKey="name"
-          cx="50%" 
-          cy="50%"
-          outerRadius={130}
+          cx={200}
+          cy={150}
+          outerRadius={150}
           fill="#8884d8"
           label={renderCustomizedLabel}
           labelLine={false}
         >
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+          {data(selectedMonth, expenses).map((entry, index) => (
+            <Cell key={`cell-${index}`} fill={COLORS[index]} />
           ))}
         </Pie>
       </PieChart>
-    );
-  }
+    </>
+  );
 }

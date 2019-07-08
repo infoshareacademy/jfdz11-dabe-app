@@ -60,7 +60,7 @@ export default function BudgetInput({
                   monthlyBudgets.filter(
                     budget => budget.monthYear === selectedMonth.monthYear
                   )[0].budgetPerMonth
-                }{" "}
+                }
               </u>{" "}
               PLN
             </h1>

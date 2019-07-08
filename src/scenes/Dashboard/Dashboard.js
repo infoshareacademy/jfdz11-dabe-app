@@ -55,6 +55,7 @@ export default function Dashboard({
           <ChartBar
             selectedMonth={selectedMonth}
             monthlyBudgets={monthlyBudgets}
+            expenses={expenses}
           />
         </div>
         <div className={piechart}>

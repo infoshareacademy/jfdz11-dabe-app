@@ -16,7 +16,7 @@ function App(props) {
   });
 
   const [expenses, setExpenses] = useState(
-    getFromLocalStorage("expenses", initialExpenses)
+    getFromLocalStorage("expenses", initialExpenses())
   );
   const [monthlyBudgets, setMonthlyBudgets] = useState(
     getFromLocalStorage("monthlyBudgets", initialMonthlyBudgets)
@@ -89,111 +89,78 @@ function setLocalStorage(key, value) {
 
 const initialMonthlyBudgets = [
   {
-    budgetPerMonth: 1300,
+    budgetPerMonth: 5000,
+    monthYear: "01.2019",
+    month: 0
+  },
+  {
+    budgetPerMonth: 4500,
     monthYear: "02.2019",
     month: 1
   },
   {
-    budgetPerMonth: 1500,
+    budgetPerMonth: 5500,
     monthYear: "03.2019",
     month: 2
   },
   {
-    budgetPerMonth: 1700,
+    budgetPerMonth: 4400,
     monthYear: "04.2019",
     month: 3
   },
   {
-    budgetPerMonth: 1900,
+    budgetPerMonth: 5200,
     monthYear: "05.2019",
     month: 4
   },
   {
-    budgetPerMonth: 2100,
+    budgetPerMonth: 5300,
     monthYear: "06.2019",
     month: 5
+  },
+  {
+    budgetPerMonth: 4300,
+    monthYear: "07.2019",
+    month: 6
+  },
+  {
+    budgetPerMonth: 3500,
+    monthYear: "08.2019",
+    month: 7
   }
 ];
 
-const initialExpenses = [
-  {
-    id: uuid(),
-    cost: 80,
-    date: "2.06.2019",
-    monthYear: "06.2019",
-    category: "HealthAndBeauty",
-    title: "Joga."
-  },
-  {
-    id: uuid(),
-    cost: 50,
-    date: "3.06.2019",
-    monthYear: "06.2019",
-    category: "Food",
-    title: "SurfBurger."
-  },
-  {
-    id: uuid(),
-    cost: 80,
-    date: "1.05.2019",
-    monthYear: "05.2019",
-    category: "Entertainment",
-    title: "CinemaCity: Avangers - End Game."
-  },
-  {
-    id: uuid(),
-    cost: 45,
-    date: "2.05.2019",
-    monthYear: "05.2019",
-    category: "House",
-    title: "Door handles replacement."
-  },
-  {
-    id: uuid(),
-    cost: 120,
-    date: "4.04.2019",
-    monthYear: "04.2019",
-    category: "Clothing",
-    title: "New hat."
-  },
-  {
-    id: uuid(),
-    cost: 150,
-    date: "21.04.2019",
-    monthYear: "04.2019",
-    category: "Clothing",
-    title: "Skirt."
-  },
-  {
-    id: uuid(),
-    cost: 220,
-    date: "12.03.2019",
-    monthYear: "03.2019",
-    category: "Car",
-    title: "New gear."
-  },
-  {
-    id: uuid(),
-    cost: 440,
-    date: "24.03.2019",
-    monthYear: "03.2019",
-    category: "House",
-    title: "New door."
-  },
-  {
-    id: uuid(),
-    cost: 342,
-    date: "28.02.2019",
-    monthYear: "02.2019",
-    category: "House",
-    title: "New carpet."
-  },
-  {
-    id: uuid(),
-    cost: 320,
-    date: "24.02.2019",
-    monthYear: "02.2019",
-    category: "Clothing",
-    title: "New jacket."
-  }
-];
+function initialExpenses() {
+  const categories = [
+    "Food",
+    "Entertainment",
+    "Car",
+    "House",
+    "Clothing",
+    "Electronics",
+    "HealthAndBeauty"
+  ];
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+
+  return Array(300)
+    .fill(1)
+    .map(item => {
+      const date = new Date(
+        new Date(2019, 0, 1).getTime() +
+          Math.random() *
+            (new Date(2019, 7, 31).getTime() - new Date(2019, 0, 1).getTime())
+      );
+      const obj = {
+        id: uuid(),
+        cost: Math.round(Math.random() * 2000),
+        date,
+        monthYear: date.toLocaleDateString().slice(-7),
+        category: categories[Math.round(Math.random() * 6.5)],
+        title: Array(5)
+          .fill(null)
+          .map(i => alphabet[Math.round(Math.random() * 26.5)])
+          .join("")
+      };
+      return obj;
+    });
+}

@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { PieChart, Pie, Sector, Cell } from "recharts";
+import { PieChart, Pie, Tooltip,Legend, Cell } from "recharts";
 
 const data = [
   { name: "Group A", value: 400 },
@@ -38,20 +38,21 @@ const renderCustomizedLabel = ({
 };
 
 export default class ChartPie extends PureComponent {
-  static jsfiddleUrl = "https://jsfiddle.net/alidingling/c9pL8k61/";
-
   render() {
     return (
       <PieChart width={300} height={300}>
+      <Tooltip />
+      <Legend/>
         <Pie
           data={data}
-          cx={150}
-          cy={150}
-          labelLine={false}
-          label={renderCustomizedLabel}
+          dataKey="value"
+          nameKey="name"
+          cx="50%" 
+          cy="50%"
           outerRadius={130}
           fill="#8884d8"
-          dataKey="value"
+          label={renderCustomizedLabel}
+          labelLine={false}
         >
           {data.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />

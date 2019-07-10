@@ -8,7 +8,7 @@ import {
   Tooltip,
   Legend
 } from "recharts";
-import { header, customTooltip } from "./ChartBar.module.css";
+import { customTooltip } from "./ChartBar.module.css";
 
 function data(selectedMonth, monthlyBudgets, expenses) {
   return [
@@ -49,7 +49,6 @@ function CustomTooltip({ payload, active }) {
 export default function CartBar({ selectedMonth, monthlyBudgets, expenses }) {
   return (
     <>
-      <h3 className={header}>Comparison budget to expenses.</h3>
       <BarChart
         layout="vertical"
         width={565}

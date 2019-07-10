@@ -1,15 +1,17 @@
 .budgetInput_save {
-  margin: 40px 0 40px 30px;
+  margin: 40px 0 40px 20px;
   padding: 0 15px;
   width: 300px;
 }
 .budgetInput_edit {
-  margin: 30px 0 30px 30px;
-  padding: 0 15px 25px;
+  margin: 30px 0 10px 20px;
+  padding: 0 15px 15px;
   width: 300px;
   border: 1px solid grey;
   border-radius: 15px;
   box-shadow: 1px 1px 10px gray;
+  display: flex;
+  flex-direction: column;
 }
 .numericInput {
   width: 100%;
@@ -18,16 +20,8 @@
   justify-content: space-between;
   align-content: center;
 }
-.header {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  font-size: 20px;
-}
-.h1 {
-  margin: 0;
-  padding: 0;
+.h2 {
+  margin-bottom: 0;
 }
 .inputWrapper {
   margin-right: 20px;

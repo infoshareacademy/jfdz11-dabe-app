@@ -5,8 +5,7 @@ import {
   numericInput,
   inputWrapper,
   input,
-  header,
-  h1
+  h2
 } from "./BudgetInput.module.css";
 import * as Numeric from "react-numeric-input";
 import { ButtonSubmit } from "../../components";
@@ -15,7 +14,8 @@ export default function BudgetInput({
   selectedMonth,
   monthlyBudgets,
   onAddMonthlyBudget,
-  setMonthlyBudgets
+  setMonthlyBudgets,
+  expenses
 }) {
   const [monthlyBudget, setMonthlyBudget] = useState({
     budgetPerMonth: 0
@@ -41,46 +41,65 @@ export default function BudgetInput({
       {monthlyBudgets.filter(
         budget => budget.monthYear === selectedMonth.monthYear
       ).length ? (
-        <div className={budgetInput_edit}>
-          <h2>
-            The budget in{" "}
-            {
-              monthArr[
-                monthlyBudgets.filter(
-                  budget => budget.monthYear === selectedMonth.monthYear
-                )[0].month
-              ]
-            }{" "}
-            is
-          </h2>
-          <div className={header}>
-            <h1 className={h1}>
-              <u>
-                {
+        <>
+          <div className={budgetInput_edit}>
+            <h2 className={h2}>
+              The budget in{" "}
+              {
+                monthArr[
                   monthlyBudgets.filter(
                     budget => budget.monthYear === selectedMonth.monthYear
-                  )[0].budgetPerMonth
-                }
-              </u>{" "}
+                  )[0].month
+                ]
+              }{" "}
+              is{" "}
+              {
+                monthlyBudgets.filter(
+                  budget => budget.monthYear === selectedMonth.monthYear
+                )[0].budgetPerMonth
+              }{" "}
               PLN
-            </h1>
-            <div>
-              <ButtonSubmit
-                onClick={() => {
-                  const indexToRemove = monthlyBudgets.findIndex(
-                    budget => budget.monthYear === selectedMonth.monthYear
-                  );
-                  monthlyBudgets.splice(indexToRemove, 1);
-                  const newMonthlyBudgets = [...monthlyBudgets];
-                  setMonthlyBudgets(newMonthlyBudgets);
-                }}
-                style={{ backgroundColor: "rgba(19, 145, 135, 0.85)" }}
-              >
-                Edit
-              </ButtonSubmit>
-            </div>
+            </h2>
+
+            <h2 style={{ color: "indianred", margin: 0 }}>
+              Saldo:{" "}
+              {monthlyBudgets.reduce(
+                (result, budget) =>
+                  budget.monthYear === selectedMonth.monthYear
+                    ? (result += budget.budgetPerMonth)
+                    : result,
+                0
+              ) -
+                expenses.reduce(
+                  (result, expens) =>
+                    expens.monthYear === selectedMonth.monthYear
+                      ? (result += expens.cost)
+                      : result,
+                  0
+                )}{" "}
+              PLN
+            </h2>
+            <ButtonSubmit
+              style={{
+                backgroundColor: "rgba(19, 145, 135, 0.85)",
+                padding: 0,
+                height: 25,
+                width: 40,
+                alignSelf: "flex-end"
+              }}
+              onClick={() => {
+                const indexToRemove = monthlyBudgets.findIndex(
+                  budget => budget.monthYear === selectedMonth.monthYear
+                );
+                monthlyBudgets.splice(indexToRemove, 1);
+                const newMonthlyBudgets = [...monthlyBudgets];
+                setMonthlyBudgets(newMonthlyBudgets);
+              }}
+            >
+              Edit
+            </ButtonSubmit>
           </div>
-        </div>
+        </>
       ) : (
         <div className={budgetInput_save}>
           <h3>Please enter budget for current month:</h3>

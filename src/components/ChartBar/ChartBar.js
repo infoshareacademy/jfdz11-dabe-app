@@ -52,7 +52,7 @@ export default function CartBar({ selectedMonth, monthlyBudgets, expenses }) {
       <BarChart
         layout="vertical"
         width={565}
-        height={220}
+        height={260}
         data={data(selectedMonth, monthlyBudgets, expenses)}
         margin={{
           top: 30,

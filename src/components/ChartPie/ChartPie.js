@@ -81,7 +81,7 @@ function CustomTooltip({ payload, active }) {
 export default function ChartPie({ selectedMonth, expenses }) {
   return (
     <>
-      <PieChart width={565} height={310}>
+      <PieChart width={565} height={340}>
         <Tooltip content={<CustomTooltip />} />
         <Legend
           layout="vertical"
@@ -95,8 +95,8 @@ export default function ChartPie({ selectedMonth, expenses }) {
           dataKey="value"
           nameKey="name"
           cx={200}
-          cy={150}
-          outerRadius={150}
+          cy={165}
+          outerRadius={160}
           fill="#8884d8"
           label={renderCustomizedLabel}
           labelLine={false}

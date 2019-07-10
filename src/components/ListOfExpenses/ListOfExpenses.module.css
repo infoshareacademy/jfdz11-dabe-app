@@ -1,8 +1,43 @@
 .listOfExpenses {
+  margin-top: 30px;
+  margin-left: 30px;
+  padding: 0;
+  height: 600px;
+  width: 540px;
+  border: 1px solid grey;
+  box-shadow: 1px 1px 10px gray;
+  list-style: none;
+}
+.ul {
   margin: 0;
   padding: 0;
-  width: 520px;
-  height: 527px;
-  list-style: none;
+  height: 549px;
   overflow-y: scroll;
+}
+.header {
+  width: 100%;
+  display: flex;
+  height: 50px;
+  border-bottom: 1px solid black;
+  background-color: rgba(19, 145, 135, 0.85);
+}
+.p1 {
+  margin: auto 0;
+  flex-basis: 15%;
+  cursor: default;
+}
+.p2 {
+  margin: auto 0;
+  flex-basis: 10%;
+  cursor: default;
+}
+.p3 {
+  margin: auto 0;
+  flex-basis: 45%;
+  cursor: default;
+}
+.p4 {
+  margin: auto 0;
+  flex-basis: 20%;
+  cursor: default;
 }

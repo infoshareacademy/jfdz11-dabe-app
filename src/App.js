@@ -161,9 +161,9 @@ function initialExpenses() {
       ).toLocaleDateString();
       const obj = {
         id: uuid(),
-        cost: Math.round(Math.random() * 2000),
+        cost: Math.round(Math.random() * 500),
         date,
-        monthYear: date.slice(2),
+        monthYear: date.slice(-7),
         category: categories[Math.round(Math.random() * 6.5)],
         title: Array(5)
           .fill(null)

@@ -20,7 +20,8 @@ export default function NewOperationForm({
     date: new Date(),
     monthYear: new Date().toLocaleDateString().slice(-7),
     category: "",
-    title: ""
+    title: "",
+    desc: false
   });
 
   function addExpenseByClick(expense) {
@@ -38,7 +39,8 @@ export default function NewOperationForm({
         date: new Date(),
         monthYear: new Date().toLocaleDateString().slice(-7),
         category: "",
-        title: ""
+        title: "",
+        desc: false
       });
     } else {
       setRequirements(true);
@@ -62,7 +64,12 @@ export default function NewOperationForm({
       />
       <ButtonSubmit
         style={{ backgroundColor: "rgba(19, 145, 135, 0.85)" }}
-        onClick={() => addExpenseByClick(expense)}
+        onClick={() =>
+          addExpenseByClick({
+            ...expense,
+            date: expense.date.toLocaleDateString()
+          })
+        }
       >
         Add
       </ButtonSubmit>

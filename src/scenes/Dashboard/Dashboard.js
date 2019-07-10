@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  dashboard,
-  h2,
-  charts,
-  list,
-  piechart,
-  barchart
-} from "./Dashboard.module.css";
+import { dashboard, charts, piechart, barchart } from "./Dashboard.module.css";
 import {
   NewOperationForm,
   BudgetInput,
@@ -21,11 +14,11 @@ export default function Dashboard({
   setMonthlyBudgets,
   onAddMonthlyBudget,
   expenses,
-  setExpenses,
   requirements,
   setRequirements,
   onAddExpense,
-  onRemoveExpense
+  onRemoveExpense,
+  setExpenses
 }) {
   return (
     <div className={dashboard}>
@@ -35,6 +28,7 @@ export default function Dashboard({
           monthlyBudgets={monthlyBudgets}
           onAddMonthlyBudget={onAddMonthlyBudget}
           setMonthlyBudgets={setMonthlyBudgets}
+          expenses={expenses}
         />
         <NewOperationForm
           onAddExpense={onAddExpense}
@@ -42,9 +36,9 @@ export default function Dashboard({
           setRequirements={setRequirements}
         />
       </div>
-      <div className={list}>
-        <h2 className={h2}>List of financial operations</h2>
+      <div>
         <ListOfExpenses
+          setExpenses={setExpenses}
           selectedMonth={selectedMonth}
           expenses={expenses}
           onRemoveExpense={onRemoveExpense}

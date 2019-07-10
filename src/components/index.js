@@ -1,7 +1,6 @@
 import Navigation from "./Navigation";
 import Menu from "./Menu";
 import ChartPie from "./ChartPie";
-import ChartLine from "./ChartLine";
 import ChartBar from "./ChartBar";
 import SignInForm from "./SignInForm";
 import EmailTextField from "./EmailTextField";
@@ -16,12 +15,12 @@ import BudgetInput from "./BudgetInput";
 import ListOfExpenses from "./ListOfExpenses";
 import ExpensesListItem from "./ExpensesListItem";
 import MonthYearPicker from "./MonthYearPicker";
+import ReviewList from "./ReviewList";
 
 export {
   Navigation,
   Menu,
   ChartPie,
-  ChartLine,
   ChartBar,
   SignInForm,
   EmailTextField,
@@ -35,5 +34,6 @@ export {
   BudgetInput,
   ListOfExpenses,
   ExpensesListItem,
-  MonthYearPicker
+  MonthYearPicker,
+  ReviewList
 };

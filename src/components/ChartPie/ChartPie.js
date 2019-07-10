@@ -1,6 +1,6 @@
 import React from "react";
 import { PieChart, Pie, Tooltip, Legend, Cell } from "recharts";
-import { customTooltip, header } from "./ChartPie.module.css";
+import { customTooltip } from "./ChartPie.module.css";
 
 function data(selectedMonth, expenses) {
   const categories = [
@@ -81,9 +81,6 @@ function CustomTooltip({ payload, active }) {
 export default function ChartPie({ selectedMonth, expenses }) {
   return (
     <>
-      <h3 className={header}>
-        Percentage share of each category in a selected month.
-      </h3>
       <PieChart width={565} height={310}>
         <Tooltip content={<CustomTooltip />} />
         <Legend

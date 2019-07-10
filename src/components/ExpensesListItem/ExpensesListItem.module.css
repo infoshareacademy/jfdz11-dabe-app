@@ -1,4 +1,5 @@
 .li {
+  position: relative;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -10,13 +11,24 @@
 .li:hover {
   background-color: rgb(243, 243, 243);
 }
+.dates {
+  font-size: 20px;
+  color: indianred;
+  flex-basis: 15%;
+  text-align: center;
+}
 .tit {
-  flex-grow: 1;
+  flex-basis: 45%;
+  padding-left: 10px;
 }
 .price {
   color: #af5b5e;
+  flex-basis: 19%;
+  text-align: end;
 }
 .remove {
+  position: absolute;
+  right: 3px;
   display: none;
   width: 35px;
   height: 35px;

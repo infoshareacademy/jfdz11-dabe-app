@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {
   li,
+  dates,
   remove,
   tit,
   price,
@@ -18,7 +19,8 @@ export default function ExpensesListItem({
   id,
   category,
   cost,
-  title
+  title,
+  date
 }) {
   const [labelClass, setLabelClass] = useState("");
   const [labelShortcut, setLabelShortcut] = useState("");
@@ -46,6 +48,7 @@ export default function ExpensesListItem({
 
   return (
     <li className={li}>
+      <div className={dates}>{date.slice(0, -5)}</div>
       <div className={labelClass}>{labelShortcut}</div>
       <div className={tit}>{title}</div>
       <div className={price}>{cost} pln</div>

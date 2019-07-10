@@ -64,11 +64,20 @@ function App(props) {
             setRequirements={setRequirements}
             onAddExpense={addExpense}
             onRemoveExpense={removeExpense}
+            setExpenses={setExpenses}
           />
         </Route>
-        <Route exact path="/review" component={Review} />
+        <Route exact path="/review">
+          <Review
+            selectedMonth={selectedMonth}
+            expenses={expenses}
+            onRemoveExpense={removeExpense}
+          />
+        </Route>
         <Route exact path="/summary" component={Summary} />
-        <Route exact path="/report" component={Report} />
+        <Route exact path="/report">
+          <Report />
+        </Route>
         <Redirect exact from="/" to="/dashboard" />
         <Route component={NoMatch} />
       </Switch>
@@ -142,24 +151,25 @@ function initialExpenses() {
   ];
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
 
-  return Array(300)
+  return Array(200)
     .fill(1)
     .map(item => {
       const date = new Date(
         new Date(2019, 0, 1).getTime() +
           Math.random() *
             (new Date(2019, 7, 31).getTime() - new Date(2019, 0, 1).getTime())
-      );
+      ).toLocaleDateString();
       const obj = {
         id: uuid(),
         cost: Math.round(Math.random() * 2000),
         date,
-        monthYear: date.toLocaleDateString().slice(-7),
+        monthYear: date.slice(2),
         category: categories[Math.round(Math.random() * 6.5)],
         title: Array(5)
           .fill(null)
           .map(i => alphabet[Math.round(Math.random() * 26.5)])
-          .join("")
+          .join(""),
+        desc: false
       };
       return obj;
     });

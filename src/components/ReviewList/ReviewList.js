@@ -99,8 +99,14 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
         HealthAndBeauty: "HealthAndBeauty"
       }
     },
-    { title: "Title", field: "title" },
-    { title: "Cost(PLN)", field: "cost" },
+    {
+      title: "Title",
+      field: "title"
+    },
+    {
+      title: "Cost(PLN)",
+      field: "cost"
+    },
     {
       title: "Date",
       field: "date",
@@ -160,7 +166,6 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
 
   return (
     <MaterialTable
-      title="All financial operations"
       columns={columns}
       data={expenses}
       options={{
@@ -169,21 +174,13 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
       components={{
         Toolbar: props => (
           <div>
-            <h1
-              style={{
-                fontWeight: 400,
-                paddingLeft: 45,
-                textAlign: "center",
-                color: "indianred"
-              }}
-            >
-              Operations review.
-            </h1>
             <div
               style={{
+                height: 175,
                 display: "flex",
                 flexWrap: "wrap",
-                justifyContent: "space-around"
+                justifyContent: "space-around",
+                alignItems: "center"
               }}
             >
               <div
@@ -195,10 +192,10 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
                 }}
               >
                 <div>{icons[0]}</div>
-                <div style={{ fontSize: 35, paddingLeft: 15, fontWeight: 500 }}>
+                <div style={{ fontSize: 24, paddingLeft: 15, fontWeight: 500 }}>
                   {String.fromCharCode(931)} :
                 </div>
-                <div style={{ fontSize: 30, paddingLeft: 10 }}>
+                <div style={{ fontSize: 24, paddingLeft: 10 }}>
                   {expenses.reduce((sum, expense) => (sum += expense.cost), 0)}{" "}
                   PLN
                 </div>
@@ -213,10 +210,10 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
                 }}
               >
                 <div>{icons[1]}</div>
-                <div style={{ fontSize: 35, paddingLeft: 15, fontWeight: 500 }}>
+                <div style={{ fontSize: 24, paddingLeft: 15, fontWeight: 500 }}>
                   {String.fromCharCode(931)} :
                 </div>
-                <div style={{ fontSize: 30, paddingLeft: 10 }}>
+                <div style={{ fontSize: 24, paddingLeft: 10 }}>
                   {expenses.reduce(
                     (sum, expense) =>
                       expense.category === "Car" ? (sum += expense.cost) : sum,
@@ -234,10 +231,10 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
                 }}
               >
                 <div>{icons[2]}</div>
-                <div style={{ fontSize: 35, paddingLeft: 15, fontWeight: 500 }}>
+                <div style={{ fontSize: 24, paddingLeft: 15, fontWeight: 500 }}>
                   {String.fromCharCode(931)} :
                 </div>
-                <div style={{ fontSize: 30, paddingLeft: 10 }}>
+                <div style={{ fontSize: 24, paddingLeft: 10 }}>
                   {expenses.reduce(
                     (sum, expense) =>
                       expense.category === "House"
@@ -258,10 +255,10 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
                 }}
               >
                 <div>{icons[3]}</div>
-                <div style={{ fontSize: 35, paddingLeft: 15, fontWeight: 500 }}>
+                <div style={{ fontSize: 24, paddingLeft: 15, fontWeight: 500 }}>
                   {String.fromCharCode(931)} :
                 </div>
-                <div style={{ fontSize: 30, paddingLeft: 10 }}>
+                <div style={{ fontSize: 24, paddingLeft: 10 }}>
                   {expenses.reduce(
                     (sum, expense) =>
                       expense.category === "Food" ? (sum += expense.cost) : sum,
@@ -280,10 +277,10 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
                 }}
               >
                 <div>{icons[4]}</div>
-                <div style={{ fontSize: 35, paddingLeft: 15, fontWeight: 500 }}>
+                <div style={{ fontSize: 24, paddingLeft: 15, fontWeight: 500 }}>
                   {String.fromCharCode(931)} :
                 </div>
-                <div style={{ fontSize: 30, paddingLeft: 10 }}>
+                <div style={{ fontSize: 24, paddingLeft: 10 }}>
                   {expenses.reduce(
                     (sum, expense) =>
                       expense.category === "Entertainment"
@@ -304,10 +301,10 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
                 }}
               >
                 <div>{icons[5]}</div>
-                <div style={{ fontSize: 35, paddingLeft: 15, fontWeight: 500 }}>
+                <div style={{ fontSize: 24, paddingLeft: 15, fontWeight: 500 }}>
                   {String.fromCharCode(931)} :
                 </div>
-                <div style={{ fontSize: 30, paddingLeft: 10 }}>
+                <div style={{ fontSize: 24, paddingLeft: 10 }}>
                   {expenses.reduce(
                     (sum, expense) =>
                       expense.category === "Clothing"
@@ -328,10 +325,10 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
                 }}
               >
                 <div>{icons[6]}</div>
-                <div style={{ fontSize: 35, paddingLeft: 15, fontWeight: 500 }}>
+                <div style={{ fontSize: 24, paddingLeft: 15, fontWeight: 500 }}>
                   {String.fromCharCode(931)} :
                 </div>
-                <div style={{ fontSize: 30, paddingLeft: 10 }}>
+                <div style={{ fontSize: 24, paddingLeft: 10 }}>
                   {expenses.reduce(
                     (sum, expense) =>
                       expense.category === "HealthAndBeauty"
@@ -352,10 +349,10 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
                 }}
               >
                 <div>{icons[7]}</div>
-                <div style={{ fontSize: 35, paddingLeft: 15, fontWeight: 500 }}>
+                <div style={{ fontSize: 24, paddingLeft: 15, fontWeight: 500 }}>
                   {String.fromCharCode(931)} :
                 </div>
-                <div style={{ fontSize: 30, paddingLeft: 10 }}>
+                <div style={{ fontSize: 24, paddingLeft: 10 }}>
                   {expenses.reduce(
                     (sum, expense) =>
                       expense.category === "Electronics"

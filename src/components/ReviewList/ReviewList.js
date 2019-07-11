@@ -87,9 +87,21 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
         </div>
       )
     },
-    { title: "Category", field: "category" },
+    {
+      title: "Category",
+      field: "category",
+      lookup: {
+        Food: "Food",
+        Entertainment: "Entertainment",
+        Car: "Car",
+        House: "House",
+        Clothing: "Clothing",
+        Electronics: "Electronics",
+        HealthAndBeauty: "HealthAndBeauty"
+      }
+    },
     { title: "Title", field: "title" },
-    { title: "Cost(PLN)", field: "cost" },
+    { title: "Cost(PLN)", field: "cost", type: "numeric" },
     { title: "Date", field: "date" }
   ];
 
@@ -141,6 +153,9 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
       title="All financial operations"
       columns={columns}
       data={expenses}
+      options={{
+        filtering: true
+      }}
       components={{
         Toolbar: props => (
           <div>

@@ -1,0 +1,70 @@
+.food {
+  margin: 0 10px;
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 17.5px;
+  font-size: 24px;
+  color: white;
+  background-color: darkslategrey;
+}
+.entertainment {
+  margin: 0 10px;
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 17.5px;
+  font-size: 24px;
+  color: white;
+  background-color: olivedrab;
+}
+.car {
+  margin: 0 10px;
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 17.5px;
+  font-size: 24px;
+  color: white;
+  background-color: royalblue;
+}
+.house {
+  margin: 0 10px;
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 17.5px;
+  font-size: 24px;
+  color: white;
+  background-color: indianred;
+}
+.clothing {
+  margin: 0 10px;
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 17.5px;
+  font-size: 24px;
+  color: white;
+  background-color: rgba(19, 145, 135, 0.85);
+}
+.electronics {
+  margin: 0 10px;
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 17.5px;
+  font-size: 24px;
+  color: white;
+  background-color: saddlebrown;
+}
+.healthAndBeauty {
+  margin: 0 10px;
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 17.5px;
+  font-size: 24px;
+  color: white;
+  background-color: mediumpurple;
+}

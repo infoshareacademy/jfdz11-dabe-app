@@ -9,6 +9,15 @@ import ShoppingCart from "@material-ui/icons/ShoppingCart";
 import DirectionsBike from "@material-ui/icons/DirectionsBike";
 import LaptopMac from "@material-ui/icons/LaptopMac";
 import { makeStyles } from "@material-ui/core/styles";
+import {
+  food,
+  entertainment,
+  car,
+  house,
+  clothing,
+  electronics,
+  healthAndBeauty
+} from "./ReviewList.module.css";
 
 const useStylesPrimary = makeStyles({
   root: {
@@ -34,11 +43,50 @@ const useStyles = makeStyles({
   }
 });
 
+function setLabelClass(categories, rowData) {
+  return categories.reduce((r, c) => {
+    if (c.cat === rowData.category) {
+      r = c.class;
+      return r;
+    }
+    return r;
+  }, "");
+}
+
+function setLabelShortcut(categories, rowData) {
+  return categories.reduce((r, c) => {
+    if (c.cat === rowData.category) {
+      r = c.shortcut;
+      return r;
+    }
+    return r;
+  }, "");
+}
+
+const categories = [
+  { class: food, shortcut: "F", cat: "Food" },
+  { class: entertainment, shortcut: "S", cat: "Entertainment" },
+  { class: car, shortcut: "M", cat: "Car" },
+  { class: house, shortcut: "H", cat: "House" },
+  { class: clothing, shortcut: "C", cat: "Clothing" },
+  { class: electronics, shortcut: "E", cat: "Electronics" },
+  { class: healthAndBeauty, shortcut: "B", cat: "HealthAndBeauty" }
+];
+
 export default function ReviewList({ expenses, onRemoveExpense }) {
   const classesPrimary = useStylesPrimary();
   const classes = useStyles();
 
   const columns = [
+    {
+      title: "",
+      field: "",
+      render: rowData => (
+        <div className={setLabelClass(categories, rowData)}>
+          {setLabelShortcut(categories, rowData)}
+        </div>
+      )
+    },
     { title: "Category", field: "category" },
     { title: "Title", field: "title" },
     { title: "Cost(PLN)", field: "cost" },

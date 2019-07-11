@@ -1,6 +1,6 @@
 import React from "react";
 import MaterialTable from "material-table";
-import Category from "@material-ui/icons/Category";
+import Functions from "@material-ui/icons/Functions";
 import DirectionsCar from "@material-ui/icons/DirectionsCar";
 import Home from "@material-ui/icons/Home";
 import Fastfood from "@material-ui/icons/Fastfood";
@@ -33,7 +33,7 @@ const useStylesPrimary = makeStyles({
 
 const useStyles = makeStyles({
   root: {
-    padding: 10,
+    padding: 12,
     margin: 0,
     fontSize: 45,
     border: "1px solid rgba(19, 145, 135, 0.85)",
@@ -122,7 +122,7 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
   ];
 
   const icons = [
-    <Category
+    <Functions
       classes={{
         root: classesPrimary.root
       }}

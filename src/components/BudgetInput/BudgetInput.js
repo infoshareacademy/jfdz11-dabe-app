@@ -1,11 +1,15 @@
 import React, { useState } from "react";
+import moment from "moment";
 import {
   budgetInput_edit,
   budgetInput_save,
   numericInput,
   inputWrapper,
   input,
-  h2
+  p1,
+  p2,
+  p3,
+  p4
 } from "./BudgetInput.module.css";
 import * as Numeric from "react-numeric-input";
 import { ButtonSubmit } from "../../components";
@@ -43,42 +47,45 @@ export default function BudgetInput({
       ).length ? (
         <>
           <div className={budgetInput_edit}>
-            <h2 className={h2}>
-              The budget in{" "}
+            <p className={p1}>
+              Budget in{" "}
               {
                 monthArr[
                   monthlyBudgets.filter(
                     budget => budget.monthYear === selectedMonth.monthYear
                   )[0].month
                 ]
-              }{" "}
-              is{" "}
-              {
+              }
+            </p>
+            <p className={p2}>
+              {new Intl.NumberFormat("de-DE").format(
                 monthlyBudgets.filter(
                   budget => budget.monthYear === selectedMonth.monthYear
                 )[0].budgetPerMonth
-              }{" "}
+              )}{" "}
               PLN
-            </h2>
-
-            <h2 style={{ color: "indianred", margin: 0 }}>
-              Saldo:{" "}
-              {monthlyBudgets.reduce(
-                (result, budget) =>
-                  budget.monthYear === selectedMonth.monthYear
-                    ? (result += budget.budgetPerMonth)
-                    : result,
-                0
-              ) -
-                expenses.reduce(
-                  (result, expens) =>
-                    expens.monthYear === selectedMonth.monthYear
-                      ? (result += expens.cost)
+            </p>
+            <p className={p3}>
+              Saldo{" "}
+              {new Intl.NumberFormat("de-DE").format(
+                monthlyBudgets.reduce(
+                  (result, budget) =>
+                    budget.monthYear === selectedMonth.monthYear
+                      ? (result += budget.budgetPerMonth)
                       : result,
                   0
-                )}{" "}
+                ) -
+                  expenses.reduce(
+                    (result, expens) =>
+                      expens.monthYear === selectedMonth.monthYear
+                        ? (result += expens.cost)
+                        : result,
+                    0
+                  )
+              )}{" "}
               PLN
-            </h2>
+            </p>
+            <p className={p4}>on {moment().format("MMMM Do, YYYY")}</p>
             <ButtonSubmit
               style={{
                 backgroundColor: "rgba(19, 145, 135, 0.85)",

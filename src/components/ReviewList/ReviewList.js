@@ -76,7 +76,6 @@ const categories = [
 export default function ReviewList({ expenses, onRemoveExpense }) {
   const classesPrimary = useStylesPrimary();
   const classes = useStyles();
-
   const columns = [
     {
       title: "",
@@ -101,8 +100,19 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
       }
     },
     { title: "Title", field: "title" },
-    { title: "Cost(PLN)", field: "cost", type: "numeric" },
-    { title: "Date", field: "date" }
+    { title: "Cost(PLN)", field: "cost" },
+    {
+      title: "Date",
+      field: "date",
+      customSort: (a, b) =>
+        new Date(a.monthYear.replace(".", `.${a.date.slice(0, 3)}`)) >
+        new Date(b.monthYear.replace(".", `.${b.date.slice(0, 3)}`))
+          ? -1
+          : new Date(a.monthYear.replace(".", `.${a.date.slice(0, 3)}`)) <
+            new Date(b.monthYear.replace(".", `.${b.date.slice(0, 3)}`))
+          ? 1
+          : 0
+    }
   ];
 
   const icons = [
@@ -159,13 +169,21 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
       components={{
         Toolbar: props => (
           <div>
-            <h1 style={{ fontWeight: 400, paddingLeft: 45 }}>
+            <h1
+              style={{
+                fontWeight: 400,
+                paddingLeft: 45,
+                textAlign: "center",
+                color: "indianred"
+              }}
+            >
               Operations review.
             </h1>
             <div
               style={{
                 display: "flex",
-                flexWrap: "wrap"
+                flexWrap: "wrap",
+                justifyContent: "space-around"
               }}
             >
               <div

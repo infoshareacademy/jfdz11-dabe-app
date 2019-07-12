@@ -10,17 +10,13 @@ import {
 } from "recharts";
 import { customTooltip } from "./ChartBar.module.css";
 
-function data(selectedMonth, monthlyBudgets, expenses) {
+function data(selectedMonth, expenses) {
   return [
     {
       name: "",
-      budget: monthlyBudgets.reduce(
-        (result, budget) =>
-          budget.monthYear === selectedMonth.monthYear
-            ? (result += budget.budgetPerMonth)
-            : result,
-        0
-      ),
+      budget: expenses.find(
+        expense => expense.monthYear === selectedMonth.monthYear
+      ).budgetPerMonth,
       expenses: expenses.reduce(
         (result, expens) =>
           expens.monthYear === selectedMonth.monthYear
@@ -36,24 +32,22 @@ function CustomTooltip({ payload, active }) {
   if (active) {
     return (
       <div className={customTooltip}>
-        <p>
-          The difference between the assumed and realized budget is:{" "}
-          <strong>{`${payload[0].value - payload[1].value}`}</strong> PLN
-        </p>
+        <p>{`${payload[0].name} : ${payload[0].value}`} PLN</p>
+        <p>{`${payload[1].name} : ${payload[1].value}`} PLN</p>
       </div>
     );
   }
   return null;
 }
 
-export default function CartBar({ selectedMonth, monthlyBudgets, expenses }) {
+export default function CartBar({ selectedMonth, expenses }) {
   return (
     <>
       <BarChart
         layout="vertical"
         width={565}
         height={260}
-        data={data(selectedMonth, monthlyBudgets, expenses)}
+        data={data(selectedMonth, expenses)}
         margin={{
           top: 30,
           right: 20,

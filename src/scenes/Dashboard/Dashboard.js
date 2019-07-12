@@ -11,8 +11,6 @@ import {
 export default function Dashboard({
   selectedMonth,
   monthlyBudgets,
-  setMonthlyBudgets,
-  onAddMonthlyBudget,
   expenses,
   onAddExpense,
   onRemoveExpense,
@@ -23,12 +21,10 @@ export default function Dashboard({
       <div>
         <BudgetInput
           selectedMonth={selectedMonth}
-          monthlyBudgets={monthlyBudgets}
-          onAddMonthlyBudget={onAddMonthlyBudget}
-          setMonthlyBudgets={setMonthlyBudgets}
           expenses={expenses}
+          setExpenses={setExpenses}
         />
-        <NewOperationForm onAddExpense={onAddExpense} />
+        <NewOperationForm expenses={expenses} onAddExpense={onAddExpense} />
       </div>
       <div>
         <ListOfExpenses
@@ -40,11 +36,7 @@ export default function Dashboard({
       </div>
       <div className={charts}>
         <div className={barchart}>
-          <ChartBar
-            selectedMonth={selectedMonth}
-            monthlyBudgets={monthlyBudgets}
-            expenses={expenses}
-          />
+          <ChartBar selectedMonth={selectedMonth} expenses={expenses} />
         </div>
         <div className={piechart}>
           <ChartPie selectedMonth={selectedMonth} expenses={expenses} />

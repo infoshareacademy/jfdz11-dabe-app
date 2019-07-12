@@ -18,19 +18,10 @@ function App(props) {
   const [expenses, setExpenses] = useState(
     getFromLocalStorage("expenses", initialExpenses())
   );
-  const [monthlyBudgets, setMonthlyBudgets] = useState(
-    getFromLocalStorage("monthlyBudgets", initialMonthlyBudgets)
-  );
 
   useEffect(() => {
-    setLocalStorage("monthlyBudgets", monthlyBudgets);
     setLocalStorage("expenses", expenses);
-  }, [monthlyBudgets, expenses]);
-
-  function addMonthlyBudget(monthlyBudget) {
-    const newMonthlyBudgets = [...monthlyBudgets, monthlyBudget];
-    setMonthlyBudgets(newMonthlyBudgets);
-  }
+  }, [expenses]);
 
   function addExpense(expense) {
     const newExpenses = [...expenses, expense];
@@ -53,9 +44,6 @@ function App(props) {
           <Dashboard
             selectedMonth={selectedMonth}
             expenses={expenses}
-            monthlyBudgets={monthlyBudgets}
-            onAddMonthlyBudget={addMonthlyBudget}
-            setMonthlyBudgets={setMonthlyBudgets}
             onAddExpense={addExpense}
             onRemoveExpense={removeExpense}
             setExpenses={setExpenses}
@@ -89,49 +77,6 @@ function getFromLocalStorage(key, value) {
 function setLocalStorage(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 }
-
-const initialMonthlyBudgets = [
-  {
-    budgetPerMonth: 5000,
-    monthYear: "01.2019",
-    month: 0
-  },
-  {
-    budgetPerMonth: 4500,
-    monthYear: "02.2019",
-    month: 1
-  },
-  {
-    budgetPerMonth: 5500,
-    monthYear: "03.2019",
-    month: 2
-  },
-  {
-    budgetPerMonth: 4400,
-    monthYear: "04.2019",
-    month: 3
-  },
-  {
-    budgetPerMonth: 5200,
-    monthYear: "05.2019",
-    month: 4
-  },
-  {
-    budgetPerMonth: 5300,
-    monthYear: "06.2019",
-    month: 5
-  },
-  {
-    budgetPerMonth: 4300,
-    monthYear: "07.2019",
-    month: 6
-  },
-  {
-    budgetPerMonth: 3500,
-    monthYear: "08.2019",
-    month: 7
-  }
-];
 
 function initialExpenses() {
   const categories = [
@@ -169,6 +114,7 @@ function initialExpenses() {
           .fill(null)
           .map(i => alphabet[Math.round(Math.random() * 26.5)])
           .join(""),
+        budgetPerMonth: 0,
         desc: false
       };
       return obj;

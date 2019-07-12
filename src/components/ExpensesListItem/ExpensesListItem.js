@@ -14,6 +14,7 @@ import {
   healthAndBeauty
 } from "./ExpensesListItem.module.css";
 import moment from "moment";
+import numeral from "numeral";
 
 export default function ExpensesListItem({
   onRemoveExpense,
@@ -52,7 +53,7 @@ export default function ExpensesListItem({
       <div className={dates}>{moment(date).format("MMM Do")}</div>
       <div className={labelClass}>{labelShortcut}</div>
       <div className={tit}>{title}</div>
-      <div className={price}>{cost} pln</div>
+      <div className={price}>{numeral(cost).format("0,0.00")}</div>
       <button
         className={remove}
         onClick={() => {

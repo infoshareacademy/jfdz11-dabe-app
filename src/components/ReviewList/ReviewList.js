@@ -19,6 +19,7 @@ import {
   healthAndBeauty
 } from "./ReviewList.module.css";
 import moment from "moment";
+import numeral from "numeral";
 
 const useStylesPrimary = makeStyles({
   root: {
@@ -81,6 +82,10 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
     {
       title: "",
       field: "",
+      cellStyle: {
+        textAlign: "center",
+        width: "10%"
+      },
       render: rowData => (
         <div className={setLabelClass(categories, rowData)}>
           {setLabelShortcut(categories, rowData)}
@@ -98,20 +103,36 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
         Clothing: "Clothing",
         Electronics: "Electronics",
         HealthAndBeauty: "HealthAndBeauty"
+      },
+      cellStyle: {
+        textAlign: "center",
+        width: "15%"
       }
     },
     {
       title: "Title",
-      field: "title"
+      field: "title",
+      cellStyle: {
+        textAlign: "start"
+      }
     },
     {
       title: "Cost(PLN)",
-      field: "cost"
+      field: "cost",
+      cellStyle: {
+        textAlign: "end",
+        width: "10%"
+      },
+      render: rowData => numeral(rowData.cost).format("0,0.00")
     },
     {
       title: "Date",
       field: "date",
       type: "date",
+      cellStyle: {
+        textAlign: "end",
+        width: "15%"
+      },
       render: rowData => moment(rowData.date).format("MMMM Do, YYYY"),
       customSort: (a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0)
     }
@@ -165,7 +186,15 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
       columns={columns}
       data={expenses}
       options={{
-        filtering: true
+        filtering: true,
+        headerStyle: {
+          fontSize: "16px",
+          textAlign: "center",
+          backgroundColor: "rgba(19, 145, 135, 0.35)"
+        },
+        rowStyle: {
+          backgroundColor: "rgba(19, 145, 135, 0.05)"
+        }
       }}
       components={{
         Toolbar: props => (
@@ -192,7 +221,9 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
                   {String.fromCharCode(931)} :
                 </div>
                 <div style={{ fontSize: 24, paddingLeft: 10 }}>
-                  {expenses.reduce((sum, expense) => (sum += expense.cost), 0)}{" "}
+                  {numeral(
+                    expenses.reduce((sum, expense) => (sum += expense.cost), 0)
+                  ).format("0,0.")}{" "}
                   PLN
                 </div>
               </div>
@@ -210,11 +241,15 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
                   {String.fromCharCode(931)} :
                 </div>
                 <div style={{ fontSize: 24, paddingLeft: 10 }}>
-                  {expenses.reduce(
-                    (sum, expense) =>
-                      expense.category === "Car" ? (sum += expense.cost) : sum,
-                    0
-                  )}{" "}
+                  {numeral(
+                    expenses.reduce(
+                      (sum, expense) =>
+                        expense.category === "Car"
+                          ? (sum += expense.cost)
+                          : sum,
+                      0
+                    )
+                  ).format("0,0.")}{" "}
                   PLN
                 </div>
               </div>
@@ -231,13 +266,15 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
                   {String.fromCharCode(931)} :
                 </div>
                 <div style={{ fontSize: 24, paddingLeft: 10 }}>
-                  {expenses.reduce(
-                    (sum, expense) =>
-                      expense.category === "House"
-                        ? (sum += expense.cost)
-                        : sum,
-                    0
-                  )}{" "}
+                  {numeral(
+                    expenses.reduce(
+                      (sum, expense) =>
+                        expense.category === "House"
+                          ? (sum += expense.cost)
+                          : sum,
+                      0
+                    )
+                  ).format("0,0.")}{" "}
                   PLN
                 </div>
               </div>
@@ -255,11 +292,15 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
                   {String.fromCharCode(931)} :
                 </div>
                 <div style={{ fontSize: 24, paddingLeft: 10 }}>
-                  {expenses.reduce(
-                    (sum, expense) =>
-                      expense.category === "Food" ? (sum += expense.cost) : sum,
-                    0
-                  )}{" "}
+                  {numeral(
+                    expenses.reduce(
+                      (sum, expense) =>
+                        expense.category === "Food"
+                          ? (sum += expense.cost)
+                          : sum,
+                      0
+                    )
+                  ).format("0,0.")}{" "}
                   PLN
                 </div>
               </div>
@@ -277,13 +318,15 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
                   {String.fromCharCode(931)} :
                 </div>
                 <div style={{ fontSize: 24, paddingLeft: 10 }}>
-                  {expenses.reduce(
-                    (sum, expense) =>
-                      expense.category === "Entertainment"
-                        ? (sum += expense.cost)
-                        : sum,
-                    0
-                  )}{" "}
+                  {numeral(
+                    expenses.reduce(
+                      (sum, expense) =>
+                        expense.category === "Entertainment"
+                          ? (sum += expense.cost)
+                          : sum,
+                      0
+                    )
+                  ).format("0,0.")}{" "}
                   PLN
                 </div>
               </div>
@@ -301,13 +344,15 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
                   {String.fromCharCode(931)} :
                 </div>
                 <div style={{ fontSize: 24, paddingLeft: 10 }}>
-                  {expenses.reduce(
-                    (sum, expense) =>
-                      expense.category === "Clothing"
-                        ? (sum += expense.cost)
-                        : sum,
-                    0
-                  )}{" "}
+                  {numeral(
+                    expenses.reduce(
+                      (sum, expense) =>
+                        expense.category === "Clothing"
+                          ? (sum += expense.cost)
+                          : sum,
+                      0
+                    )
+                  ).format("0,0.")}{" "}
                   PLN
                 </div>
               </div>
@@ -325,13 +370,15 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
                   {String.fromCharCode(931)} :
                 </div>
                 <div style={{ fontSize: 24, paddingLeft: 10 }}>
-                  {expenses.reduce(
-                    (sum, expense) =>
-                      expense.category === "HealthAndBeauty"
-                        ? (sum += expense.cost)
-                        : sum,
-                    0
-                  )}{" "}
+                  {numeral(
+                    expenses.reduce(
+                      (sum, expense) =>
+                        expense.category === "HealthAndBeauty"
+                          ? (sum += expense.cost)
+                          : sum,
+                      0
+                    )
+                  ).format("0,0.")}{" "}
                   PLN
                 </div>
               </div>
@@ -346,16 +393,18 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
               >
                 <div>{icons[7]}</div>
                 <div style={{ fontSize: 24, paddingLeft: 15, fontWeight: 500 }}>
-                  {String.fromCharCode(931)} :
+                  {String.fromCharCode(931)}:
                 </div>
                 <div style={{ fontSize: 24, paddingLeft: 10 }}>
-                  {expenses.reduce(
-                    (sum, expense) =>
-                      expense.category === "Electronics"
-                        ? (sum += expense.cost)
-                        : sum,
-                    0
-                  )}{" "}
+                  {numeral(
+                    expenses.reduce(
+                      (sum, expense) =>
+                        expense.category === "Electronics"
+                          ? (sum += expense.cost)
+                          : sum,
+                      0
+                    )
+                  ).format("0,0.")}{" "}
                   PLN
                 </div>
               </div>

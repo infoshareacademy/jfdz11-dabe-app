@@ -117,7 +117,7 @@ export default function ListOfExpenses({
             {icon[0]}title
           </p>
           <p className={p4} onClick={() => sortByPrice(expenses)}>
-            {icon[0]}cost
+            {icon[0]}cost(PLN)
           </p>
         </div>
         <ul className={ul}>

@@ -12,10 +12,11 @@
   background-color: rgb(243, 243, 243);
 }
 .dates {
+  padding: 0 0 0 10px;
   font-size: 20px;
   color: indianred;
-  flex-basis: 17%;
-  text-align: center;
+  flex-basis: 15%;
+  text-align: start;
 }
 .tit {
   flex-basis: 45%;

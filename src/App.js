@@ -21,15 +21,11 @@ function App(props) {
   const [monthlyBudgets, setMonthlyBudgets] = useState(
     getFromLocalStorage("monthlyBudgets", initialMonthlyBudgets)
   );
-  const [requirements, setRequirements] = useState(
-    getFromLocalStorage("requirements", false)
-  );
 
   useEffect(() => {
     setLocalStorage("monthlyBudgets", monthlyBudgets);
     setLocalStorage("expenses", expenses);
-    setLocalStorage("requirements", requirements);
-  }, [monthlyBudgets, expenses, requirements]);
+  }, [monthlyBudgets, expenses]);
 
   function addMonthlyBudget(monthlyBudget) {
     const newMonthlyBudgets = [...monthlyBudgets, monthlyBudget];
@@ -60,8 +56,6 @@ function App(props) {
             monthlyBudgets={monthlyBudgets}
             onAddMonthlyBudget={addMonthlyBudget}
             setMonthlyBudgets={setMonthlyBudgets}
-            requirements={requirements}
-            setRequirements={setRequirements}
             onAddExpense={addExpense}
             onRemoveExpense={removeExpense}
             setExpenses={setExpenses}

@@ -23,12 +23,12 @@
 }
 .p1 {
   margin: auto 0;
-  flex-basis: 17%;
+  flex-basis: 15%;
   cursor: default;
 }
 .p2 {
   margin: auto 0;
-  flex-basis: 8%;
+  flex-basis: 9%;
   cursor: default;
 }
 .p3 {

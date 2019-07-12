@@ -14,8 +14,6 @@ export default function Dashboard({
   setMonthlyBudgets,
   onAddMonthlyBudget,
   expenses,
-  requirements,
-  setRequirements,
   onAddExpense,
   onRemoveExpense,
   setExpenses
@@ -30,11 +28,7 @@ export default function Dashboard({
           setMonthlyBudgets={setMonthlyBudgets}
           expenses={expenses}
         />
-        <NewOperationForm
-          onAddExpense={onAddExpense}
-          requirements={requirements}
-          setRequirements={setRequirements}
-        />
+        <NewOperationForm onAddExpense={onAddExpense} />
       </div>
       <div>
         <ListOfExpenses

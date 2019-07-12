@@ -9,11 +9,9 @@ import {
 } from "../../components";
 import uuid from "uuid/v4";
 
-export default function NewOperationForm({
-  onAddExpense,
-  requirements,
-  setRequirements
-}) {
+export default function NewOperationForm({ onAddExpense }) {
+  const [requirements, setRequirements] = useState(false);
+
   const [expense, setExpense] = useState({
     id: uuid(),
     cost: 0,

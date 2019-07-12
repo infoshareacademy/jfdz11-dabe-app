@@ -67,7 +67,7 @@ export default function NewOperationForm({
         onClick={() =>
           addExpenseByClick({
             ...expense,
-            date: expense.date.toLocaleDateString()
+            date: expense.date.toISOString().slice(0, 10)
           })
         }
       >

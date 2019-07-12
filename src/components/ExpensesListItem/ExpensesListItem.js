@@ -13,6 +13,7 @@ import {
   electronics,
   healthAndBeauty
 } from "./ExpensesListItem.module.css";
+import moment from "moment";
 
 export default function ExpensesListItem({
   onRemoveExpense,
@@ -48,7 +49,7 @@ export default function ExpensesListItem({
 
   return (
     <li className={li}>
-      <div className={dates}>{date.slice(0, -5)}</div>
+      <div className={dates}>{moment(date).format("MMM Do")}</div>
       <div className={labelClass}>{labelShortcut}</div>
       <div className={tit}>{title}</div>
       <div className={price}>{cost} pln</div>

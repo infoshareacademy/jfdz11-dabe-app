@@ -158,12 +158,18 @@ function initialExpenses() {
         new Date(2019, 0, 1).getTime() +
           Math.random() *
             (new Date(2019, 7, 31).getTime() - new Date(2019, 0, 1).getTime())
-      ).toLocaleDateString();
+      )
+        .toISOString()
+        .slice(0, 10);
       const obj = {
         id: uuid(),
         cost: Math.round(Math.random() * 500),
         date,
-        monthYear: date.slice(-7),
+        monthYear: date
+          .split("-")
+          .reverse()
+          .join(".")
+          .slice(3),
         category: categories[Math.round(Math.random() * 6.5)],
         title: Array(5)
           .fill(null)

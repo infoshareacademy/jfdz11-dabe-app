@@ -14,7 +14,7 @@
 .dates {
   font-size: 20px;
   color: indianred;
-  flex-basis: 15%;
+  flex-basis: 17%;
   text-align: center;
 }
 .tit {
@@ -23,7 +23,7 @@
 }
 .price {
   color: #af5b5e;
-  flex-basis: 19%;
+  flex-basis: 20%;
   text-align: end;
 }
 .remove {
@@ -49,7 +49,7 @@ li:hover .remove {
   display: inline;
 }
 .food {
-  margin: 0 10px;
+  margin: 0 5px;
   text-align: center;
   width: 35px;
   height: 35px;
@@ -59,7 +59,7 @@ li:hover .remove {
   background-color: darkslategrey;
 }
 .entertainment {
-  margin: 0 10px;
+  margin: 0 5px;
   text-align: center;
   width: 35px;
   height: 35px;
@@ -69,7 +69,7 @@ li:hover .remove {
   background-color: olivedrab;
 }
 .car {
-  margin: 0 10px;
+  margin: 0 5px;
   text-align: center;
   width: 35px;
   height: 35px;
@@ -79,7 +79,7 @@ li:hover .remove {
   background-color: royalblue;
 }
 .house {
-  margin: 0 10px;
+  margin: 0 5px;
   text-align: center;
   width: 35px;
   height: 35px;
@@ -89,7 +89,7 @@ li:hover .remove {
   background-color: indianred;
 }
 .clothing {
-  margin: 0 10px;
+  margin: 0 5px;
   text-align: center;
   width: 35px;
   height: 35px;
@@ -99,7 +99,7 @@ li:hover .remove {
   background-color: rgba(19, 145, 135, 0.85);
 }
 .electronics {
-  margin: 0 10px;
+  margin: 0 5px;
   text-align: center;
   width: 35px;
   height: 35px;
@@ -109,7 +109,7 @@ li:hover .remove {
   background-color: saddlebrown;
 }
 .healthAndBeauty {
-  margin: 0 10px;
+  margin: 0 5px;
   text-align: center;
   width: 35px;
   height: 35px;

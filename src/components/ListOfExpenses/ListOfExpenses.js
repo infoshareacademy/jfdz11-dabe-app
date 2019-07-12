@@ -43,30 +43,14 @@ export default function ListOfExpenses({
     let newExpensesList = expenses;
     if (expenses[0].desc) {
       newExpensesList = expenses
-        .sort((a, b) =>
-          new Date(a.monthYear.replace(".", `.${a.date.slice(0, 3)}`)) <
-          new Date(b.monthYear.replace(".", `.${b.date.slice(0, 3)}`))
-            ? -1
-            : new Date(a.monthYear.replace(".", `.${a.date.slice(0, 3)}`)) >
-              new Date(b.monthYear.replace(".", `.${b.date.slice(0, 3)}`))
-            ? 1
-            : 0
-        )
+        .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0))
         .map(expens => ({
           ...expens,
           desc: !expens.desc
         }));
     } else {
       newExpensesList = expenses
-        .sort((a, b) =>
-          new Date(a.monthYear.replace(".", `.${a.date.slice(0, 3)}`)) >
-          new Date(b.monthYear.replace(".", `.${b.date.slice(0, 3)}`))
-            ? -1
-            : new Date(a.monthYear.replace(".", `.${a.date.slice(0, 3)}`)) <
-              new Date(b.monthYear.replace(".", `.${b.date.slice(0, 3)}`))
-            ? 1
-            : 0
-        )
+        .sort((a, b) => (a.date > b.date ? -1 : a.date < b.date ? 1 : 0))
         .map(expens => ({
           ...expens,
           desc: !expens.desc

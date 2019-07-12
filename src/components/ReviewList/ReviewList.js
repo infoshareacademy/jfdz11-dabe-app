@@ -18,6 +18,7 @@ import {
   electronics,
   healthAndBeauty
 } from "./ReviewList.module.css";
+import moment from "moment";
 
 const useStylesPrimary = makeStyles({
   root: {
@@ -110,14 +111,9 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
     {
       title: "Date",
       field: "date",
-      customSort: (a, b) =>
-        new Date(a.monthYear.replace(".", `.${a.date.slice(0, 3)}`)) >
-        new Date(b.monthYear.replace(".", `.${b.date.slice(0, 3)}`))
-          ? -1
-          : new Date(a.monthYear.replace(".", `.${a.date.slice(0, 3)}`)) <
-            new Date(b.monthYear.replace(".", `.${b.date.slice(0, 3)}`))
-          ? 1
-          : 0
+      type: "date",
+      render: rowData => moment(rowData.date).format("MMMM Do, YYYY"),
+      customSort: (a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0)
     }
   ];
 

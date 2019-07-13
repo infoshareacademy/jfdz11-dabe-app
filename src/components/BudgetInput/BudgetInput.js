@@ -13,10 +13,16 @@ import {
 } from "./BudgetInput.module.css";
 import * as Numeric from "react-numeric-input";
 import { ButtonSubmit } from "../../components";
-
-export default function BudgetInput({ selectedMonth, expenses, setExpenses }) {
-  const [monthlyBudget, setMonthlyBudget] = useState(0);
-
+export default function BudgetInput({
+  selectedMonth,
+  monthlyBudgets,
+  onAddMonthlyBudget,
+  onRemoveMonthlyBudget,
+  expenses
+}) {
+  const [monthlyBudget, setMonthlyBudget] = useState({
+    budgetPerMonth: 0
+  });
   const monthArr = [
     "January",
     "February",
@@ -31,41 +37,41 @@ export default function BudgetInput({ selectedMonth, expenses, setExpenses }) {
     "November",
     "December"
   ];
-
   return (
     <>
-      {expenses.find(expens => expens.monthYear === selectedMonth.monthYear)
-        .budgetPerMonth ? (
+      {monthlyBudgets.filter(
+        budget => budget.monthYear === selectedMonth.monthYear
+      ).length ? (
         <>
           <div className={budgetInput_edit}>
             <p className={p1}>
               Budget in{" "}
               {
                 monthArr[
-                  Number(
-                    expenses
-                      .find(
-                        expens => expens.monthYear === selectedMonth.monthYear
-                      )
-                      .monthYear.slice(0, 2)
-                  ) - 1
+                  monthlyBudgets.filter(
+                    budget => budget.monthYear === selectedMonth.monthYear
+                  )[0].month
                 ]
               }
             </p>
             <p className={p2}>
               {new Intl.NumberFormat("de-DE").format(
-                expenses.find(
-                  expens => expens.monthYear === selectedMonth.monthYear
-                ).budgetPerMonth
+                monthlyBudgets.filter(
+                  budget => budget.monthYear === selectedMonth.monthYear
+                )[0].budgetPerMonth
               )}{" "}
               PLN
             </p>
             <p className={p3}>
               Saldo{" "}
               {new Intl.NumberFormat("de-DE").format(
-                expenses.find(
-                  expense => expense.monthYear === selectedMonth.monthYear
-                ).budgetPerMonth -
+                monthlyBudgets.reduce(
+                  (result, budget) =>
+                    budget.monthYear === selectedMonth.monthYear
+                      ? (result += budget.budgetPerMonth)
+                      : result,
+                  0
+                ) -
                   expenses.reduce(
                     (result, expens) =>
                       expens.monthYear === selectedMonth.monthYear
@@ -86,13 +92,10 @@ export default function BudgetInput({ selectedMonth, expenses, setExpenses }) {
                 alignSelf: "flex-end"
               }}
               onClick={() => {
-                const newExpenses = expenses.map(expense => {
-                  if (expense.monthYear === selectedMonth.monthYear) {
-                    return { ...expense, budgetPerMonth: 0 };
-                  }
-                  return expense;
-                });
-                setExpenses(newExpenses);
+                const budgetToRemoveID = monthlyBudgets.find(
+                  budget => budget.monthYear === selectedMonth.monthYear
+                ).id;
+                onRemoveMonthlyBudget(budgetToRemoveID);
               }}
             >
               Edit
@@ -112,24 +115,24 @@ export default function BudgetInput({ selectedMonth, expenses, setExpenses }) {
                 size={8}
                 maxLength={6}
                 precision={0}
-                value={monthlyBudget}
+                value={monthlyBudget.budgetPerMonth}
                 noStyle
                 className={input}
-                onChange={value => setMonthlyBudget(value)}
+                onChange={value =>
+                  setMonthlyBudget({
+                    budgetPerMonth: value,
+                    monthYear: selectedMonth.monthYear,
+                    month: selectedMonth.date.getMonth()
+                  })
+                }
               />
               <span>PLN</span>
             </div>
             <div>
               <ButtonSubmit
                 onClick={() => {
-                  if (monthlyBudget) {
-                    const newExpenses = expenses.map(expense => {
-                      if (expense.monthYear === selectedMonth.monthYear) {
-                        return { ...expense, budgetPerMonth: monthlyBudget };
-                      }
-                      return expense;
-                    });
-                    setExpenses(newExpenses);
+                  if (monthlyBudget.budgetPerMonth) {
+                    onAddMonthlyBudget(monthlyBudget);
                     setMonthlyBudget({
                       budgetPerMonth: 0
                     });

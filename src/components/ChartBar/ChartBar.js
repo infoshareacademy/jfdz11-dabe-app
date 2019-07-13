@@ -10,13 +10,17 @@ import {
 } from "recharts";
 import { customTooltip } from "./ChartBar.module.css";
 
-function data(selectedMonth, expenses) {
+function data(selectedMonth, monthlyBudgets, expenses) {
   return [
     {
       name: "",
-      budget: expenses.find(
-        expense => expense.monthYear === selectedMonth.monthYear
-      ).budgetPerMonth,
+      budget: monthlyBudgets.reduce(
+        (result, budget) =>
+          budget.monthYear === selectedMonth.monthYear
+            ? (result += budget.budgetPerMonth)
+            : result,
+        0
+      ),
       expenses: expenses.reduce(
         (result, expens) =>
           expens.monthYear === selectedMonth.monthYear
@@ -40,14 +44,14 @@ function CustomTooltip({ payload, active }) {
   return null;
 }
 
-export default function CartBar({ selectedMonth, expenses }) {
+export default function CartBar({ selectedMonth, monthlyBudgets, expenses }) {
   return (
     <>
       <BarChart
         layout="vertical"
         width={565}
         height={260}
-        data={data(selectedMonth, expenses)}
+        data={data(selectedMonth, monthlyBudgets, expenses)}
         margin={{
           top: 30,
           right: 20,

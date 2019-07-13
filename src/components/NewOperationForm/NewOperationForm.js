@@ -7,20 +7,17 @@ import {
   OperationTitle,
   ButtonSubmit
 } from "../../components";
-import uuid from "uuid/v4";
 
 export default function NewOperationForm({ expenses, onAddExpense }) {
   const [requirements, setRequirements] = useState(false);
 
   const [expense, setExpense] = useState({
-    id: uuid(),
     cost: 0,
     date: new Date(),
     monthYear: new Date().toLocaleDateString().slice(-7),
     category: "",
     title: "",
-    desc: false,
-    budgetPerMonth: 0
+    desc: false
   });
 
   function addExpenseByClick(expense) {
@@ -33,14 +30,12 @@ export default function NewOperationForm({ expenses, onAddExpense }) {
       setRequirements(false);
       onAddExpense(expense);
       setExpense({
-        id: uuid(),
         cost: 0,
         date: new Date(),
         monthYear: new Date().toLocaleDateString().slice(-7),
         category: "",
         title: "",
-        desc: false,
-        budgetPerMonth: 0
+        desc: false
       });
     } else {
       setRequirements(true);
@@ -67,8 +62,7 @@ export default function NewOperationForm({ expenses, onAddExpense }) {
         onClick={() =>
           addExpenseByClick({
             ...expense,
-            date: expense.date.toISOString().slice(0, 10),
-            budgetPerMonth: valueBudgetPerMonth(expenses, expense.monthYear)
+            date: expense.date.toISOString().slice(0, 10)
           })
         }
       >
@@ -77,9 +71,4 @@ export default function NewOperationForm({ expenses, onAddExpense }) {
       {requirements ? <p className={required}>* All fields required</p> : null}
     </form>
   );
-}
-
-function valueBudgetPerMonth(expenses, monthYear) {
-  return expenses.find(expense => expense.monthYear === monthYear)
-    .budgetPerMonth;
 }

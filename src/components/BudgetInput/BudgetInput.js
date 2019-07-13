@@ -18,7 +18,7 @@ export default function BudgetInput({
   selectedMonth,
   monthlyBudgets,
   onAddMonthlyBudget,
-  setMonthlyBudgets,
+  onRemoveMonthlyBudget,
   expenses
 }) {
   const [monthlyBudget, setMonthlyBudget] = useState({
@@ -95,12 +95,10 @@ export default function BudgetInput({
                 alignSelf: "flex-end"
               }}
               onClick={() => {
-                const indexToRemove = monthlyBudgets.findIndex(
+                const budgetToRemoveID = monthlyBudgets.find(
                   budget => budget.monthYear === selectedMonth.monthYear
-                );
-                monthlyBudgets.splice(indexToRemove, 1);
-                const newMonthlyBudgets = [...monthlyBudgets];
-                setMonthlyBudgets(newMonthlyBudgets);
+                ).id;
+                onRemoveMonthlyBudget(budgetToRemoveID);
               }}
             >
               Edit
@@ -125,7 +123,6 @@ export default function BudgetInput({
                 className={input}
                 onChange={value =>
                   setMonthlyBudget({
-                    ...monthlyBudget,
                     budgetPerMonth: value,
                     monthYear: selectedMonth.monthYear,
                     month: selectedMonth.date.getMonth()

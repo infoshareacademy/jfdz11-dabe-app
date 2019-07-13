@@ -7,13 +7,11 @@ import {
   OperationTitle,
   ButtonSubmit
 } from "../../components";
-import uuid from "uuid/v4";
 
 export default function NewOperationForm({ onAddExpense }) {
   const [requirements, setRequirements] = useState(false);
 
   const [expense, setExpense] = useState({
-    id: uuid(),
     cost: 0,
     date: new Date(),
     monthYear: new Date().toLocaleDateString().slice(-7),
@@ -32,7 +30,6 @@ export default function NewOperationForm({ onAddExpense }) {
       setRequirements(false);
       onAddExpense(expense);
       setExpense({
-        id: uuid(),
         cost: 0,
         date: new Date(),
         monthYear: new Date().toLocaleDateString().slice(-7),

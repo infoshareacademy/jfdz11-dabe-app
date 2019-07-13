@@ -11,7 +11,7 @@ import {
 export default function Dashboard({
   selectedMonth,
   monthlyBudgets,
-  setMonthlyBudgets,
+  onRemoveMonthlyBudget,
   onAddMonthlyBudget,
   expenses,
   onAddExpense,
@@ -25,7 +25,7 @@ export default function Dashboard({
           selectedMonth={selectedMonth}
           monthlyBudgets={monthlyBudgets}
           onAddMonthlyBudget={onAddMonthlyBudget}
-          setMonthlyBudgets={setMonthlyBudgets}
+          onRemoveMonthlyBudget={onRemoveMonthlyBudget}
           expenses={expenses}
         />
         <NewOperationForm onAddExpense={onAddExpense} />

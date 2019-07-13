@@ -15,16 +15,16 @@
   padding: 0 0 0 10px;
   font-size: 20px;
   color: indianred;
-  flex-basis: 15%;
+  flex-basis: 17%;
   text-align: start;
 }
 .tit {
-  flex-basis: 45%;
+  flex-basis: 44%;
   padding-left: 10px;
 }
 .price {
   color: #af5b5e;
-  flex-basis: 20%;
+  flex-basis: 19%;
   text-align: end;
 }
 .remove {

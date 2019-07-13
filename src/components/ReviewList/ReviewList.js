@@ -131,7 +131,8 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
       type: "date",
       cellStyle: {
         textAlign: "end",
-        width: "15%"
+        width: "15%",
+        paddingRight: 45
       },
       render: rowData => moment(rowData.date).format("MMMM Do, YYYY"),
       customSort: (a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0)

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   li,
   dates,
@@ -24,34 +24,28 @@ export default function ExpensesListItem({
   title,
   date
 }) {
-  const [labelClass, setLabelClass] = useState("");
-  const [labelShortcut, setLabelShortcut] = useState("");
+  const labelClass = () =>
+    categories.reduce((r, c) => {
+      if (c.cat === category) {
+        r = c.class;
+        return r;
+      }
+      return r;
+    }, "");
 
-  useEffect(() => {
-    setLabelClass(
-      categories.reduce((r, c) => {
-        if (c.cat === category) {
-          r = c.class;
-          return r;
-        }
+  const labelShortcut = () =>
+    categories.reduce((r, c) => {
+      if (c.cat === category) {
+        r = c.shortcut;
         return r;
-      }, "")
-    );
-    setLabelShortcut(
-      categories.reduce((r, c) => {
-        if (c.cat === category) {
-          r = c.shortcut;
-          return r;
-        }
-        return r;
-      }, "")
-    );
-  }, [category]);
+      }
+      return r;
+    }, "");
 
   return (
     <li className={li}>
       <div className={dates}>{moment(date).format("MMM Do")}</div>
-      <div className={labelClass}>{labelShortcut}</div>
+      <div className={labelClass()}>{labelShortcut()}</div>
       <div className={tit}>{title}</div>
       <div className={price}>{numeral(cost).format("0,0.00")}</div>
       <button

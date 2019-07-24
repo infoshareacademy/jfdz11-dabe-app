@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 import { createMuiTheme } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
 import { teal } from "@material-ui/core/colors";
 import { makeStyles } from "@material-ui/core/styles";
+import { ExpensesContext } from "../../contexts/ExpensesContext";
 
 const materialTheme = createMuiTheme({
   palette: {
@@ -45,8 +46,10 @@ const useStyles = makeStyles({
   }
 });
 
-export default function MonthYearPicker({ selectedMonth, setSelectedMonth }) {
+export default function MonthYearPicker(props) {
   const classes = useStyles();
+  const expensesContext = useContext(ExpensesContext);
+
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <ThemeProvider theme={materialTheme}>
@@ -59,9 +62,9 @@ export default function MonthYearPicker({ selectedMonth, setSelectedMonth }) {
           openTo="month"
           views={["year", "month"]}
           format="MM/yyyy"
-          value={selectedMonth.date}
+          value={expensesContext.selectedMonth.date}
           onChange={date =>
-            setSelectedMonth({
+            expensesContext.setSelectedMonth({
               date,
               monthYear: date.toLocaleDateString().slice(-7)
             })

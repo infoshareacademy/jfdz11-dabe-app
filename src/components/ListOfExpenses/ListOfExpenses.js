@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import SwapVert from "@material-ui/icons/SwapVert";
 import {
   listOfExpenses,
@@ -10,79 +10,77 @@ import {
   p4
 } from "./ListOfExpenses.module.css";
 import { ExpensesListItem } from "../../components";
+import { ExpensesContext } from "../../contexts/ExpensesContext";
 
-export default function ListOfExpenses({
-  selectedMonth,
-  expenses,
-  onRemoveExpense,
-  setExpenses
-}) {
+export default function ListOfExpenses(props) {
+  const expensesContext = useContext(ExpensesContext);
+
   const icon = [<SwapVert />];
 
   function sortByPrice() {
-    let newExpensesList = expenses;
-    if (expenses[0].desc) {
-      newExpensesList = expenses
+    let newExpensesList = expensesContext.expenses;
+    if (expensesContext.expenses[0].desc) {
+      newExpensesList = expensesContext.expenses
         .sort((a, b) => a.cost - b.cost)
         .map(expens => ({
           ...expens,
           desc: !expens.desc
         }));
     } else {
-      newExpensesList = expenses
+      newExpensesList = expensesContext.expenses
         .sort((a, b) => b.cost - a.cost)
         .map(expens => ({
           ...expens,
           desc: !expens.desc
         }));
     }
-    setExpenses(newExpensesList);
+    expensesContext.setExpenses(newExpensesList);
   }
 
   function sortByDate() {
-    let newExpensesList = expenses;
-    if (expenses[0].desc) {
-      newExpensesList = expenses
+    let newExpensesList = expensesContext.expenses;
+    if (expensesContext.expenses[0].desc) {
+      newExpensesList = expensesContext.expenses
         .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0))
         .map(expens => ({
           ...expens,
           desc: !expens.desc
         }));
     } else {
-      newExpensesList = expenses
+      newExpensesList = expensesContext.expenses
         .sort((a, b) => (a.date > b.date ? -1 : a.date < b.date ? 1 : 0))
         .map(expens => ({
           ...expens,
           desc: !expens.desc
         }));
     }
-    setExpenses(newExpensesList);
+    expensesContext.setExpenses(newExpensesList);
   }
 
   function sortByTitle() {
-    let newExpensesList = expenses;
-    if (expenses[0].desc) {
-      newExpensesList = expenses
+    let newExpensesList = expensesContext.expenses;
+    if (expensesContext.expenses[0].desc) {
+      newExpensesList = expensesContext.expenses
         .sort((a, b) => (a.title < b.title ? -1 : a.title > b.title ? 1 : 0))
         .map(expens => ({
           ...expens,
           desc: !expens.desc
         }));
     } else {
-      newExpensesList = expenses
+      newExpensesList = expensesContext.expenses
         .sort((a, b) => (a.title > b.title ? -1 : a.title < b.title ? 1 : 0))
         .map(expens => ({
           ...expens,
           desc: !expens.desc
         }));
     }
-    setExpenses(newExpensesList);
+    expensesContext.setExpenses(newExpensesList);
   }
 
   function sortByCat() {
-    let newExpensesList = expenses;
-    if (expenses[0].desc) {
-      newExpensesList = expenses
+    let newExpensesList = expensesContext.expenses;
+    if (expensesContext.expenses[0].desc) {
+      newExpensesList = expensesContext.expenses
         .sort((a, b) =>
           a.category < b.category ? -1 : a.category > b.category ? 1 : 0
         )
@@ -91,7 +89,7 @@ export default function ListOfExpenses({
           desc: !expens.desc
         }));
     } else {
-      newExpensesList = expenses
+      newExpensesList = expensesContext.expenses
         .sort((a, b) =>
           a.category > b.category ? -1 : a.category < b.category ? 1 : 0
         )
@@ -100,7 +98,7 @@ export default function ListOfExpenses({
           desc: !expens.desc
         }));
     }
-    setExpenses(newExpensesList);
+    expensesContext.setExpenses(newExpensesList);
   }
 
   return (
@@ -121,12 +119,15 @@ export default function ListOfExpenses({
           </p>
         </div>
         <ul className={ul}>
-          {expenses
-            .filter(expens => expens.monthYear === selectedMonth.monthYear)
+          {expensesContext.expenses
+            .filter(
+              expens =>
+                expens.monthYear === expensesContext.selectedMonth.monthYear
+            )
             .map(expens => (
               <ExpensesListItem
                 key={expens.id}
-                onRemoveExpense={onRemoveExpense}
+                onRemoveExpense={expensesContext.removeExpense}
                 {...expens}
               />
             ))}

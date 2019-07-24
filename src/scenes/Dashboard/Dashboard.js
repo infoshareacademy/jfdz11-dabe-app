@@ -8,47 +8,22 @@ import {
   ChartBar
 } from "../../components";
 
-export default function Dashboard({
-  selectedMonth,
-  monthlyBudgets,
-  onRemoveMonthlyBudget,
-  onAddMonthlyBudget,
-  expenses,
-  onAddExpense,
-  onRemoveExpense,
-  setExpenses
-}) {
+export default function Dashboard(props) {
   return (
     <div className={dashboard}>
       <div>
-        <BudgetInput
-          selectedMonth={selectedMonth}
-          monthlyBudgets={monthlyBudgets}
-          onAddMonthlyBudget={onAddMonthlyBudget}
-          onRemoveMonthlyBudget={onRemoveMonthlyBudget}
-          expenses={expenses}
-          setExpenses={setExpenses}
-        />
-        <NewOperationForm expenses={expenses} onAddExpense={onAddExpense} />
+        <BudgetInput />
+        <NewOperationForm />
       </div>
       <div>
-        <ListOfExpenses
-          setExpenses={setExpenses}
-          selectedMonth={selectedMonth}
-          expenses={expenses}
-          onRemoveExpense={onRemoveExpense}
-        />
+        <ListOfExpenses />
       </div>
       <div className={charts}>
         <div className={barchart}>
-          <ChartBar
-            selectedMonth={selectedMonth}
-            expenses={expenses}
-            monthlyBudgets={monthlyBudgets}
-          />
+          <ChartBar />
         </div>
         <div className={piechart}>
-          <ChartPie selectedMonth={selectedMonth} expenses={expenses} />
+          <ChartPie />
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import moment from "moment";
 import {
   budgetInput_edit,
@@ -13,16 +13,10 @@ import {
 } from "./BudgetInput.module.css";
 import * as Numeric from "react-numeric-input";
 import { ButtonSubmit } from "../../components";
-export default function BudgetInput({
-  selectedMonth,
-  monthlyBudgets,
-  onAddMonthlyBudget,
-  onRemoveMonthlyBudget,
-  expenses
-}) {
-  const [monthlyBudget, setMonthlyBudget] = useState({
-    budgetPerMonth: 0
-  });
+import { ExpensesContext } from "../../contexts/ExpensesContext";
+
+export default function BudgetInput(props) {
+  const expensesContext = useContext(ExpensesContext);
   const monthArr = [
     "January",
     "February",
@@ -39,8 +33,8 @@ export default function BudgetInput({
   ];
   return (
     <>
-      {monthlyBudgets.filter(
-        budget => budget.monthYear === selectedMonth.monthYear
+      {expensesContext.monthlyBudgets.filter(
+        budget => budget.monthYear === expensesContext.selectedMonth.monthYear
       ).length ? (
         <>
           <div className={budgetInput_edit}>
@@ -48,16 +42,19 @@ export default function BudgetInput({
               Budget in{" "}
               {
                 monthArr[
-                  monthlyBudgets.filter(
-                    budget => budget.monthYear === selectedMonth.monthYear
+                  expensesContext.monthlyBudgets.filter(
+                    budget =>
+                      budget.monthYear ===
+                      expensesContext.selectedMonth.monthYear
                   )[0].month
                 ]
               }
             </p>
             <p className={p2}>
               {new Intl.NumberFormat("de-DE").format(
-                monthlyBudgets.filter(
-                  budget => budget.monthYear === selectedMonth.monthYear
+                expensesContext.monthlyBudgets.filter(
+                  budget =>
+                    budget.monthYear === expensesContext.selectedMonth.monthYear
                 )[0].budgetPerMonth
               )}{" "}
               PLN
@@ -65,16 +62,17 @@ export default function BudgetInput({
             <p className={p3}>
               Saldo{" "}
               {new Intl.NumberFormat("de-DE").format(
-                monthlyBudgets.reduce(
+                expensesContext.monthlyBudgets.reduce(
                   (result, budget) =>
-                    budget.monthYear === selectedMonth.monthYear
+                    budget.monthYear === expensesContext.selectedMonth.monthYear
                       ? (result += budget.budgetPerMonth)
                       : result,
                   0
                 ) -
-                  expenses.reduce(
+                  expensesContext.expenses.reduce(
                     (result, expens) =>
-                      expens.monthYear === selectedMonth.monthYear
+                      expens.monthYear ===
+                      expensesContext.selectedMonth.monthYear
                         ? (result += expens.cost)
                         : result,
                     0
@@ -92,10 +90,11 @@ export default function BudgetInput({
                 alignSelf: "flex-end"
               }}
               onClick={() => {
-                const budgetToRemoveID = monthlyBudgets.find(
-                  budget => budget.monthYear === selectedMonth.monthYear
+                const budgetToRemoveID = expensesContext.monthlyBudgets.find(
+                  budget =>
+                    budget.monthYear === expensesContext.selectedMonth.monthYear
                 ).id;
-                onRemoveMonthlyBudget(budgetToRemoveID);
+                expensesContext.removeMonthlyBudget(budgetToRemoveID);
               }}
             >
               Edit
@@ -115,14 +114,14 @@ export default function BudgetInput({
                 size={8}
                 maxLength={6}
                 precision={0}
-                value={monthlyBudget.budgetPerMonth}
+                value={expensesContext.monthlyBudget.budgetPerMonth}
                 noStyle
                 className={input}
                 onChange={value =>
-                  setMonthlyBudget({
+                  expensesContext.setMonthlyBudget({
                     budgetPerMonth: value,
-                    monthYear: selectedMonth.monthYear,
-                    month: selectedMonth.date.getMonth()
+                    monthYear: expensesContext.selectedMonth.monthYear,
+                    month: expensesContext.selectedMonth.date.getMonth()
                   })
                 }
               />
@@ -131,9 +130,11 @@ export default function BudgetInput({
             <div>
               <ButtonSubmit
                 onClick={() => {
-                  if (monthlyBudget.budgetPerMonth) {
-                    onAddMonthlyBudget(monthlyBudget);
-                    setMonthlyBudget({
+                  if (expensesContext.monthlyBudget.budgetPerMonth) {
+                    expensesContext.addMonthlyBudget(
+                      expensesContext.monthlyBudget
+                    );
+                    expensesContext.setMonthlyBudget({
                       budgetPerMonth: 0
                     });
                   }

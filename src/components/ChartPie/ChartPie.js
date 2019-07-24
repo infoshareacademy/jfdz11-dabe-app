@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { PieChart, Pie, Tooltip, Legend, Cell } from "recharts";
 import { customTooltip } from "./ChartPie.module.css";
+import { ExpensesContext } from "../../contexts/ExpensesContext";
 
 function data(selectedMonth, expenses) {
   const categories = [
@@ -78,7 +79,8 @@ function CustomTooltip({ payload, active }) {
   return null;
 }
 
-export default function ChartPie({ selectedMonth, expenses }) {
+export default function ChartPie(props) {
+  const expensesContext = useContext(ExpensesContext);
   return (
     <>
       <PieChart width={565} height={340}>
@@ -91,7 +93,7 @@ export default function ChartPie({ selectedMonth, expenses }) {
           height={185}
         />
         <Pie
-          data={data(selectedMonth, expenses)}
+          data={data(expensesContext.selectedMonth, expensesContext.expenses)}
           dataKey="value"
           nameKey="name"
           cx={200}
@@ -101,9 +103,11 @@ export default function ChartPie({ selectedMonth, expenses }) {
           label={renderCustomizedLabel}
           labelLine={false}
         >
-          {data(selectedMonth, expenses).map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index]} />
-          ))}
+          {data(expensesContext.selectedMonth, expensesContext.expenses).map(
+            (entry, index) => (
+              <Cell key={`cell-${index}`} fill={COLORS[index]} />
+            )
+          )}
         </Pie>
       </PieChart>
     </>

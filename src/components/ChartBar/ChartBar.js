@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   BarChart,
   Bar,
@@ -9,6 +9,7 @@ import {
   Legend
 } from "recharts";
 import { customTooltip } from "./ChartBar.module.css";
+import { ExpensesContext } from "../../contexts/ExpensesContext";
 
 function data(selectedMonth, monthlyBudgets, expenses) {
   return [
@@ -44,14 +45,19 @@ function CustomTooltip({ payload, active }) {
   return null;
 }
 
-export default function CartBar({ selectedMonth, monthlyBudgets, expenses }) {
+export default function CartBar(props) {
+  const expensesContext = useContext(ExpensesContext);
   return (
     <>
       <BarChart
         layout="vertical"
         width={565}
         height={260}
-        data={data(selectedMonth, monthlyBudgets, expenses)}
+        data={data(
+          expensesContext.selectedMonth,
+          expensesContext.monthlyBudgets,
+          expensesContext.expenses
+        )}
         margin={{
           top: 30,
           right: 20,

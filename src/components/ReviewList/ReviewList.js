@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import MaterialTable from "material-table";
 import Functions from "@material-ui/icons/Functions";
 import DirectionsCar from "@material-ui/icons/DirectionsCar";
@@ -20,6 +20,7 @@ import {
 } from "./ReviewList.module.css";
 import moment from "moment";
 import numeral from "numeral";
+import { ExpensesContext } from "../../contexts/ExpensesContext";
 
 const useStylesPrimary = makeStyles({
   root: {
@@ -45,7 +46,7 @@ const useStyles = makeStyles({
   }
 });
 
-function setLabelClass(categories, rowData) {
+function setLabelClass(rowData) {
   return categories.reduce((r, c) => {
     if (c.cat === rowData.category) {
       r = c.class;
@@ -55,7 +56,7 @@ function setLabelClass(categories, rowData) {
   }, "");
 }
 
-function setLabelShortcut(categories, rowData) {
+function setLabelShortcut(rowData) {
   return categories.reduce((r, c) => {
     if (c.cat === rowData.category) {
       r = c.shortcut;
@@ -75,9 +76,11 @@ const categories = [
   { class: healthAndBeauty, shortcut: "B", cat: "HealthAndBeauty" }
 ];
 
-export default function ReviewList({ expenses, onRemoveExpense }) {
+export default function ReviewList(props) {
   const classesPrimary = useStylesPrimary();
   const classes = useStyles();
+  const expensesContext = useContext(ExpensesContext);
+
   const columns = [
     {
       title: "",
@@ -87,8 +90,8 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
         width: "10%"
       },
       render: rowData => (
-        <div className={setLabelClass(categories, rowData)}>
-          {setLabelShortcut(categories, rowData)}
+        <div className={setLabelClass(rowData)}>
+          {setLabelShortcut(rowData)}
         </div>
       )
     },
@@ -185,7 +188,7 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
   return (
     <MaterialTable
       columns={columns}
-      data={expenses}
+      data={expensesContext.expenses}
       options={{
         filtering: true,
         headerStyle: {
@@ -223,7 +226,10 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
                 </div>
                 <div style={{ fontSize: 24, paddingLeft: 10 }}>
                   {numeral(
-                    expenses.reduce((sum, expense) => (sum += expense.cost), 0)
+                    expensesContext.expenses.reduce(
+                      (sum, expense) => (sum += expense.cost),
+                      0
+                    )
                   ).format("0,0.")}{" "}
                   PLN
                 </div>
@@ -243,7 +249,7 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
                 </div>
                 <div style={{ fontSize: 24, paddingLeft: 10 }}>
                   {numeral(
-                    expenses.reduce(
+                    expensesContext.expenses.reduce(
                       (sum, expense) =>
                         expense.category === "Car"
                           ? (sum += expense.cost)
@@ -268,7 +274,7 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
                 </div>
                 <div style={{ fontSize: 24, paddingLeft: 10 }}>
                   {numeral(
-                    expenses.reduce(
+                    expensesContext.expenses.reduce(
                       (sum, expense) =>
                         expense.category === "House"
                           ? (sum += expense.cost)
@@ -294,7 +300,7 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
                 </div>
                 <div style={{ fontSize: 24, paddingLeft: 10 }}>
                   {numeral(
-                    expenses.reduce(
+                    expensesContext.expenses.reduce(
                       (sum, expense) =>
                         expense.category === "Food"
                           ? (sum += expense.cost)
@@ -320,7 +326,7 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
                 </div>
                 <div style={{ fontSize: 24, paddingLeft: 10 }}>
                   {numeral(
-                    expenses.reduce(
+                    expensesContext.expenses.reduce(
                       (sum, expense) =>
                         expense.category === "Entertainment"
                           ? (sum += expense.cost)
@@ -346,7 +352,7 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
                 </div>
                 <div style={{ fontSize: 24, paddingLeft: 10 }}>
                   {numeral(
-                    expenses.reduce(
+                    expensesContext.expenses.reduce(
                       (sum, expense) =>
                         expense.category === "Clothing"
                           ? (sum += expense.cost)
@@ -372,7 +378,7 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
                 </div>
                 <div style={{ fontSize: 24, paddingLeft: 10 }}>
                   {numeral(
-                    expenses.reduce(
+                    expensesContext.expenses.reduce(
                       (sum, expense) =>
                         expense.category === "HealthAndBeauty"
                           ? (sum += expense.cost)
@@ -398,7 +404,7 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
                 </div>
                 <div style={{ fontSize: 24, paddingLeft: 10 }}>
                   {numeral(
-                    expenses.reduce(
+                    expensesContext.expenses.reduce(
                       (sum, expense) =>
                         expense.category === "Electronics"
                           ? (sum += expense.cost)
@@ -417,7 +423,7 @@ export default function ReviewList({ expenses, onRemoveExpense }) {
         onRowDelete: oldData =>
           new Promise(resolve => {
             setTimeout(() => {
-              onRemoveExpense(oldData.id);
+              expensesContext.removeExpense(oldData.id);
               resolve();
             }, 0);
           })

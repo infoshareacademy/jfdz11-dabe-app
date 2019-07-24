@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { newOperationForm, required } from "./NewOperationForm.module.css";
 import {
   DatePicker,
@@ -7,68 +7,53 @@ import {
   OperationTitle,
   ButtonSubmit
 } from "../../components";
+import { ExpensesContext } from "../../contexts/ExpensesContext";
 
-export default function NewOperationForm({ expenses, onAddExpense }) {
-  const [requirements, setRequirements] = useState(false);
-
-  const [expense, setExpense] = useState({
-    cost: 0,
-    date: new Date(),
-    monthYear: new Date().toLocaleDateString().slice(-7),
-    category: "",
-    title: "",
-    desc: false
-  });
-
-  function addExpenseByClick(expense) {
-    if (
-      expense.cost !== 0 &&
-      expense.category &&
-      expense.category !== "Unassigned" &&
-      expense.title
-    ) {
-      setRequirements(false);
-      onAddExpense(expense);
-      setExpense({
-        cost: 0,
-        date: new Date(),
-        monthYear: new Date().toLocaleDateString().slice(-7),
-        category: "",
-        title: "",
-        desc: false
-      });
-    } else {
-      setRequirements(true);
-      return;
-    }
-  }
+export default function NewOperationForm(props) {
+  const expensesContext = useContext(ExpensesContext);
 
   return (
     <form className={newOperationForm}>
       <NumericInput
-        onChange={value => setExpense({ ...expense, cost: value })}
-        value={expense.cost}
+        onChange={value =>
+          expensesContext.setExpense({
+            ...expensesContext.expense,
+            cost: value
+          })
+        }
+        value={expensesContext.expense.cost}
       />
-      <CategoriesSelect expense={expense} setExpense={setExpense} />
-      <DatePicker expense={expense} setExpense={setExpense} />
+      <CategoriesSelect
+        expense={expensesContext.expense}
+        setExpense={expensesContext.setExpense}
+      />
+      <DatePicker
+        expense={expensesContext.expense}
+        setExpense={expensesContext.setExpense}
+      />
       <OperationTitle
-        value={expense.title}
+        value={expensesContext.expense.title}
         onChange={event =>
-          setExpense({ ...expense, title: event.target.value })
+          expensesContext.setExpense({
+            ...expensesContext.expense,
+            title: event.target.value
+          })
         }
       />
       <ButtonSubmit
         style={{ backgroundColor: "rgba(19, 145, 135, 0.85)" }}
         onClick={() =>
-          addExpenseByClick({
-            ...expense,
-            date: expense.date.toISOString().slice(0, 10)
+          expensesContext.addExpenseByClick({
+            ...expensesContext.expense,
+            date: expensesContext.expense.date.toISOString().slice(0, 10)
           })
         }
       >
         Add
       </ButtonSubmit>
-      {requirements ? <p className={required}>* All fields required</p> : null}
+      {expensesContext.requirements ? (
+        <p className={required}>* All fields required</p>
+      ) : null}
     </form>
   );
 }

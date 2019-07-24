@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Navigation({ selectedMonth, setSelectedMonth }) {
+export default function Navigation(props) {
   const classes = useStyles();
 
   return (
@@ -37,10 +37,7 @@ export default function Navigation({ selectedMonth, setSelectedMonth }) {
           >
             <Menu />
           </IconButton>
-          <MonthYearPicker
-            selectedMonth={selectedMonth}
-            setSelectedMonth={setSelectedMonth}
-          />
+          <MonthYearPicker />
           <SignInForm />
         </Toolbar>
       </AppBar>

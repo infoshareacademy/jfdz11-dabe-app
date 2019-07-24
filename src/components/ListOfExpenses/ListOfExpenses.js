@@ -19,7 +19,7 @@ export default function ListOfExpenses({
 }) {
   const icon = [<SwapVert />];
 
-  function sortByPrice(expenses) {
+  function sortByPrice() {
     let newExpensesList = expenses;
     if (expenses[0].desc) {
       newExpensesList = expenses
@@ -39,7 +39,7 @@ export default function ListOfExpenses({
     setExpenses(newExpensesList);
   }
 
-  function sortByDate(expenses) {
+  function sortByDate() {
     let newExpensesList = expenses;
     if (expenses[0].desc) {
       newExpensesList = expenses
@@ -59,7 +59,7 @@ export default function ListOfExpenses({
     setExpenses(newExpensesList);
   }
 
-  function sortByTitle(expenses) {
+  function sortByTitle() {
     let newExpensesList = expenses;
     if (expenses[0].desc) {
       newExpensesList = expenses
@@ -79,7 +79,7 @@ export default function ListOfExpenses({
     setExpenses(newExpensesList);
   }
 
-  function sortByCat(expenses) {
+  function sortByCat() {
     let newExpensesList = expenses;
     if (expenses[0].desc) {
       newExpensesList = expenses
@@ -107,16 +107,16 @@ export default function ListOfExpenses({
     <div className={listOfExpenses}>
       <div>
         <div className={header}>
-          <p className={p1} onClick={() => sortByDate(expenses)}>
+          <p className={p1} onClick={sortByDate}>
             {icon[0]}date
           </p>
-          <p className={p2} onClick={() => sortByCat(expenses)}>
+          <p className={p2} onClick={sortByCat}>
             {icon[0]}cat.
           </p>
-          <p className={p3} onClick={() => sortByTitle(expenses)}>
+          <p className={p3} onClick={sortByTitle}>
             {icon[0]}title
           </p>
-          <p className={p4} onClick={() => sortByPrice(expenses)}>
+          <p className={p4} onClick={sortByPrice}>
             {icon[0]}cost(PLN)
           </p>
         </div>

@@ -27,8 +27,8 @@ export function ExpensesProvider(props) {
     desc: false
   });
 
-  function getBudgets() {
-    budgetsRef.once("value").then(snapshot => {
+  useEffect(() => {
+    budgetsRef.on("value", snapshot => {
       const json = snapshot.toJSON();
       const ids = Object.keys(json);
       const budgets = Object.values(json);
@@ -39,47 +39,37 @@ export function ExpensesProvider(props) {
       }));
       setMonthlyBudgets(parseBudgets);
     });
-  }
 
-  function getExpenses() {
-    expensesRef.once("value").then(snapshot => {
-      const json = snapshot.toJSON();
-      const ids = Object.keys(json);
-      const expenses = Object.values(json);
-
-      const parseExpenses = expenses.map((expens, index) => ({
-        ...expens,
-        id: ids[index]
+    expensesRef.on("value", snapshot => {
+      const expenses = snapshot.val();
+      const parseExpenses = Object.keys(expenses).map(key => ({
+        ...expenses[key],
+        id: key
       }));
+
       setExpenses(parseExpenses);
     });
-  }
 
-  useEffect(() => {
-    getBudgets();
-    getExpenses();
+    return () => {
+      budgetsRef.off();
+      expensesRef.off();
+    };
   }, []);
 
   function addMonthlyBudget(monthlyBudget) {
-    budgetsRef.push(monthlyBudget).then(() => getBudgets());
+    budgetsRef.push(monthlyBudget);
   }
 
   function removeMonthlyBudget(monthlyBudgetID) {
-    budgetsRef
-      .child(monthlyBudgetID)
-      .remove()
-      .then(() => getBudgets());
+    budgetsRef.child(monthlyBudgetID).remove();
   }
 
   function addExpense(expense) {
-    expensesRef.push(expense).then(() => getExpenses());
+    expensesRef.push(expense);
   }
 
   function removeExpense(expenseID) {
-    expensesRef
-      .child(expenseID)
-      .remove()
-      .then(() => getExpenses());
+    expensesRef.child(expenseID).remove();
   }
 
   function addExpenseByClick(expense) {

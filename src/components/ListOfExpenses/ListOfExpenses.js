@@ -127,7 +127,7 @@ export default function ListOfExpenses(props) {
             .map(expens => (
               <ExpensesListItem
                 key={expens.id}
-                onRemoveExpense={expensesContext.removeExpense}
+                removeExpense={expensesContext.removeExpense}
                 {...expens}
               />
             ))}

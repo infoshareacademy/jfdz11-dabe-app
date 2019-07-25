@@ -17,7 +17,7 @@ import moment from "moment";
 import numeral from "numeral";
 
 export default function ExpensesListItem({
-  onRemoveExpense,
+  removeExpense,
   id,
   category,
   cost,
@@ -51,7 +51,7 @@ export default function ExpensesListItem({
       <button
         className={remove}
         onClick={() => {
-          onRemoveExpense(id);
+          removeExpense(id);
         }}
       />
     </li>

@@ -5,7 +5,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "../Menu";
-import { SignInForm, MonthYearPicker } from "../../components";
+import { MonthYearPicker } from "../../components";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -38,7 +38,6 @@ export default function Navigation(props) {
             <Menu />
           </IconButton>
           <MonthYearPicker />
-          <SignInForm />
         </Toolbar>
       </AppBar>
     </div>

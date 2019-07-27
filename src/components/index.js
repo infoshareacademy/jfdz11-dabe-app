@@ -17,6 +17,7 @@ import ExpensesListItem from "./ExpensesListItem";
 import MonthYearPicker from "./MonthYearPicker";
 import ReviewList from "./ReviewList";
 import Profile from "./Profile";
+import SignIn from "./SignIn";
 
 export {
   Navigation,
@@ -37,5 +38,6 @@ export {
   ExpensesListItem,
   MonthYearPicker,
   ReviewList,
-  Profile
+  Profile,
+  SignIn
 };

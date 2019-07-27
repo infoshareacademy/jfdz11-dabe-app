@@ -18,6 +18,7 @@ import MonthYearPicker from "./MonthYearPicker";
 import ReviewList from "./ReviewList";
 import Profile from "./Profile";
 import SignIn from "./SignIn";
+import SignOut from "./SignOut";
 
 export {
   Navigation,
@@ -39,5 +40,6 @@ export {
   MonthYearPicker,
   ReviewList,
   Profile,
-  SignIn
+  SignIn,
+  SignOut
 };

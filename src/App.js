@@ -1,27 +1,11 @@
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect
-} from "react-router-dom";
-import { Navigation } from "./components";
-import { Dashboard, Review, Summary, Report, NoMatch } from "./scenes";
+import React, { useContext } from "react";
+import ContentApp from "./ContentApp";
+import ContentAuth from "./ContentAuth";
+import { AuthContext } from "./contexts/AuthContext";
 
 function App(props) {
-  return (
-    <Router>
-      <Navigation />
-      <Switch>
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/review" component={Review} />
-        <Route exact path="/summary" component={Summary} />
-        <Route exact path="/report" component={Report} />
-        <Redirect exact from="/" to="/dashboard" />
-        <Route component={NoMatch} />
-      </Switch>
-    </Router>
-  );
+  const authContext = useContext(AuthContext);
+  return authContext.user ? <ContentApp /> : <ContentAuth />;
 }
 
 export default App;

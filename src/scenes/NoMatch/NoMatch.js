@@ -7,7 +7,7 @@ function NoMatch() {
     <div className={styles.container}>
       <h1 className={styles.bigTitle}>404</h1>
       <Link className={styles.link} to="/">
-        Go back to dashboard.
+        Go back to HOME.
       </Link>
     </div>
   );

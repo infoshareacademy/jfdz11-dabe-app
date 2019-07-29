@@ -1,1 +1,1 @@
-# Planer finansowy app.
+# Financial planner.

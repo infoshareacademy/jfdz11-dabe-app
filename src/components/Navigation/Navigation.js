@@ -5,7 +5,8 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "../Menu";
-import { MonthYearPicker } from "../../components";
+import { NavLink } from "react-router-dom";
+import { MonthYearPicker, SignOut } from "../../components";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -38,6 +39,8 @@ export default function Navigation(props) {
             <Menu />
           </IconButton>
           <MonthYearPicker />
+          <NavLink to="/profile">Profile</NavLink>
+          <SignOut />
         </Toolbar>
       </AppBar>
     </div>

@@ -11,26 +11,25 @@ export function AuthProvider(props) {
   const [avatarUrl, setAvatarUrl] = useState("");
 
   useEffect(() => {
-    auth.onAuthStateChanged(user => setUser(user, () => getAvatarUrl()));
-
-    return () => {
-      user && ref();
-    };
+    auth.onAuthStateChanged(user => setUser(user));
   });
 
-  function handleSubmit(event) {
+  function handleSignIn(event) {
     event.preventDefault();
-    if (isSignUp) {
-      auth
-        .createUserWithEmailAndPassword(email, password)
-        .then(() => alert("Successfully registered."))
-        .catch(e => alert(e.message));
-    } else {
-      auth
-        .signInWithEmailAndPassword(email, password)
-        .then(() => alert("Successfully logged."))
-        .catch(e => alert(e.message));
-    }
+
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then(() => alert("Successfully logged."))
+      .catch(e => alert(e.message));
+  }
+
+  function handleSignUp(event) {
+    event.preventDefault();
+
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => alert("Successfully registered."))
+      .catch(e => alert(e.message));
   }
 
   function addAvatar() {
@@ -77,7 +76,8 @@ export function AuthProvider(props) {
         avatarUrl,
         file,
         setFile,
-        handleSubmit,
+        handleSignIn,
+        handleSignUp,
         addAvatar,
         removeAvatar
       }}

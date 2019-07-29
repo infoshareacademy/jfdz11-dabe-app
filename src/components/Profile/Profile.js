@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { withStyles } from "@material-ui/core/styles";
 import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
@@ -8,6 +8,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 import ImageIcon from "@material-ui/icons/Image";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const styles = () => ({
   bigAvatar: {
@@ -18,6 +19,7 @@ const styles = () => ({
 });
 
 function Profile(props) {
+  const authContext = useContext(AuthContext);
   const { classes } = props;
   return (
     <>
@@ -26,7 +28,9 @@ function Profile(props) {
       </Typography>
       <div style={{ margin: "20px" }}>
         <Avatar
-          src={avatarUrl ? avatarUrl : avatarPlaceholder}
+          src={
+            authContext.avatarUrl ? authContext.avatarUrl : avatarPlaceholder
+          }
           className={classes.bigAvatar}
         />
         <div style={{ margin: "20px" }}>
@@ -37,19 +41,19 @@ function Profile(props) {
             id="raised-button-file"
             multiple
             type="file"
-            onChange={event => setFile(event.target.files[0])}
+            onChange={event => authContext.setFile(event.target.files[0])}
           />
           <label htmlFor="raised-button-file">
             <Fab size="small" color="default" component="span">
               <ImageIcon />
             </Fab>
           </label>
-          {file && `${file.name}`}
+          {authContext.file && `${authContext.file.name}`}
           <Fab
             size="small"
             color="primary"
             component="span"
-            onClick={addAvatar}
+            onClick={authContext.addAvatar}
           >
             <AddIcon />
           </Fab>
@@ -57,17 +61,17 @@ function Profile(props) {
             size="small"
             color="secondary"
             component="span"
-            onClick={removeAvatar}
+            onClick={authContext.removeAvatar}
           >
             <RemoveIcon />
           </Fab>
         </div>
       </div>
       <Typography component="h3" variant="h6">
-        {(user && user.email) || "email"}
+        {(authContext.user && authContext.user.email) || "email"}
       </Typography>
       <Typography component="h3" variant="h6">
-        {(user && user.uid) || "user name"}
+        {(authContext.user && authContext.user.uid) || "user name"}
       </Typography>
       <div style={{ margin: "20px" }}>
         <Fab

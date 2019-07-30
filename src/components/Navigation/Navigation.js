@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { toolbar } from "./Navigation.module.css";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -6,7 +6,11 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "../Menu";
 import { NavLink } from "react-router-dom";
-import { MonthYearPicker, SignOut } from "../../components";
+import { SignOut } from "../../components";
+import { AuthContext } from "../../contexts/AuthContext";
+import Avatar from "@material-ui/core/Avatar";
+import avatarPlaceholder from "../../assets/avatar-placeholder.jpg";
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -15,13 +19,20 @@ const useStyles = makeStyles(theme => ({
   menuButton: {
     marginRight: theme.spacing(2)
   },
-  title: {
-    flexGrow: 1
+  typography: {
+    flexGrow: 1,
+    textAlign: "end"
+  },
+  bigAvatar: {
+    width: 60,
+    height: 60,
+    margin: "0 20px"
   }
 }));
 
 export default function Navigation(props) {
   const classes = useStyles();
+  const authContext = useContext(AuthContext);
 
   return (
     <div className={classes.root}>
@@ -38,8 +49,23 @@ export default function Navigation(props) {
           >
             <Menu />
           </IconButton>
-          <MonthYearPicker />
-          <NavLink to="/profile">Profile</NavLink>
+          <Typography
+            className={classes.typography}
+            component="p"
+            variant="body2"
+          >
+            Sign in as <strong>{authContext.user.email}</strong>
+          </Typography>
+          <NavLink to="/profile">
+            <Avatar
+              src={
+                authContext.avatarUrl
+                  ? authContext.avatarUrl
+                  : avatarPlaceholder
+              }
+              className={classes.bigAvatar}
+            />
+          </NavLink>
           <SignOut />
         </Toolbar>
       </AppBar>

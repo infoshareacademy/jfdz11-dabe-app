@@ -5,13 +5,15 @@ import {
   BudgetInput,
   ListOfExpenses,
   ChartPie,
-  ChartBar
+  ChartBar,
+  MonthYearPicker
 } from "../../components";
 
 export default function Dashboard(props) {
   return (
     <div className={dashboard}>
       <div>
+        <MonthYearPicker />
         <BudgetInput />
         <NewOperationForm />
       </div>

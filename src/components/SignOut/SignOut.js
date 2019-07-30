@@ -8,7 +8,7 @@ export default function SignOut(props) {
   }
 
   return (
-    <Button color="secondary" onClick={signOutOnClick}>
+    <Button variant="contained" color="secondary" onClick={signOutOnClick}>
       Sign out
     </Button>
   );

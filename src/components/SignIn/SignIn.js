@@ -10,6 +10,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { AuthContext } from "../../contexts/AuthContext";
+import { NavLink } from "react-router-dom";
 
 const styles = theme => ({
   main: {
@@ -31,7 +32,7 @@ const styles = theme => ({
     padding: `${theme.spacing(2)}px ${theme.spacing(3)}px ${theme.spacing(3)}px`
   },
   avatar: {
-    margin: theme.spacing(),
+    margin: theme.spacing(2),
     backgroundColor: theme.palette.secondary.main
   },
   form: {
@@ -39,7 +40,11 @@ const styles = theme => ({
     marginTop: theme.spacing()
   },
   submit: {
-    marginTop: theme.spacing(3)
+    marginTop: theme.spacing(3),
+    backgroundColor: "rgba(19, 145, 135, 0.85)"
+  },
+  typography: {
+    margin: theme.spacing(2)
   }
 });
 
@@ -54,7 +59,7 @@ function SignIn(props) {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Sign in to Financial Planner
         </Typography>
         <form className={classes.form} onSubmit={authContext.handleSignIn}>
           <FormControl margin="normal" required fullWidth>
@@ -83,12 +88,20 @@ function SignIn(props) {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
+            color="secondary"
             className={classes.submit}
           >
             Sign in
           </Button>
         </form>
+        <Typography
+          className={classes.typography}
+          component="p"
+          variant="body2"
+        >
+          New to Financial Planner?{" "}
+          <NavLink to="/sign-up">Create an account</NavLink>.
+        </Typography>
       </Paper>
     </main>
   );

@@ -36,10 +36,11 @@ const styles = theme => ({
   },
   form: {
     width: "100%",
-    marginTop: theme.spacing()
+    marginTop: theme.spacing(2)
   },
   submit: {
-    marginTop: theme.spacing(3)
+    marginTop: theme.spacing(3),
+    backgroundColor: "rgba(19, 145, 135, 0.85)"
   }
 });
 
@@ -54,7 +55,7 @@ function SignUp(props) {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up
+          Sign up to Financial Planner
         </Typography>
         <form className={classes.form} onSubmit={authContext.handleSignUp}>
           <FormControl margin="normal" required fullWidth>
@@ -83,7 +84,7 @@ function SignUp(props) {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
+            color="secondary"
             className={classes.submit}
           >
             Sign up

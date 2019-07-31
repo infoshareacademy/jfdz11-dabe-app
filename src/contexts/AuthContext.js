@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { auth, storage } from "../firebase";
+import firebase from "firebase";
 
 export const AuthContext = React.createContext();
 
@@ -9,9 +10,11 @@ export function AuthProvider(props) {
   const [password, setPassword] = useState("");
   const [file, setFile] = useState(null);
   const [avatarUrl, setAvatarUrl] = useState("");
+  const [completed, setCompleted] = useState(0);
 
   useEffect(() => {
     auth.onAuthStateChanged(user => setUser(user));
+    getAvatarUrl();
   });
 
   function handleSignIn(event) {
@@ -37,10 +40,37 @@ export function AuthProvider(props) {
       storage
         .ref("avatars/" + user.uid)
         .put(file)
-        .then(() => {
-          alert("Successfully added");
-          getAvatarUrl();
-        });
+        .on(
+          firebase.storage.TaskEvent.STATE_CHANGED,
+          snapshot => {
+            let progress =
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            setCompleted(progress);
+            switch (snapshot.state) {
+              case firebase.storage.TaskState.PAUSED: // or 'paused'
+                console.log("Upload is paused");
+                break;
+              case firebase.storage.TaskState.RUNNING: // or 'running'
+                console.log("Upload is running");
+                break;
+            }
+          },
+          function(error) {
+            switch (error.code) {
+              case "storage/unauthorized":
+                break;
+              case "storage/canceled":
+                break;
+              case "storage/unknown":
+                break;
+            }
+          },
+          function() {
+            alert("Successfully added");
+            setCompleted(0);
+            getAvatarUrl();
+          }
+        );
     }
   }
 
@@ -49,7 +79,7 @@ export function AuthProvider(props) {
       .ref("avatars/" + user.uid)
       .delete()
       .then(() => {
-        alert("Successfully added");
+        alert("Successfully removed");
         getAvatarUrl();
       });
   }
@@ -79,7 +109,8 @@ export function AuthProvider(props) {
         handleSignIn,
         handleSignUp,
         addAvatar,
-        removeAvatar
+        removeAvatar,
+        completed
       }}
       {...props}
     />

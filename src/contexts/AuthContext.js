@@ -11,6 +11,7 @@ export function AuthProvider(props) {
   const [file, setFile] = useState(null);
   const [avatarUrl, setAvatarUrl] = useState("");
   const [completed, setCompleted] = useState(0);
+  const provider = new firebase.auth.GoogleAuthProvider();
 
   useEffect(() => {
     auth.onAuthStateChanged(user => setUser(user));
@@ -24,6 +25,11 @@ export function AuthProvider(props) {
       .signInWithEmailAndPassword(email, password)
       .then(() => alert("Successfully logged."))
       .catch(e => alert(e.message));
+  }
+
+  function handleSignInByGoogle(event) {
+    event.preventDefault();
+    auth.signInWithRedirect(provider);
   }
 
   function handleSignUp(event) {
@@ -110,7 +116,8 @@ export function AuthProvider(props) {
         handleSignUp,
         addAvatar,
         removeAvatar,
-        completed
+        completed,
+        handleSignInByGoogle
       }}
       {...props}
     />

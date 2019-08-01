@@ -102,6 +102,16 @@ function SignIn(props) {
           New to Financial Planner?{" "}
           <NavLink to="/sign-up">Create an account</NavLink>.
         </Typography>
+        <Button
+          type="button"
+          fullWidth
+          variant="contained"
+          color="secondary"
+          className={classes.submit}
+          onClick={authContext.handleSignInByGoogle}
+        >
+          Sign in by google
+        </Button>
       </Paper>
     </main>
   );

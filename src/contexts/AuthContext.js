@@ -14,8 +14,10 @@ export function AuthProvider(props) {
   const provider = new firebase.auth.GoogleAuthProvider();
 
   useEffect(() => {
-    auth.onAuthStateChanged(user => setUser(user));
-    getAvatarUrl();
+    auth.onAuthStateChanged(user => {
+      setUser(user);
+      getAvatarUrl();
+    });
   });
 
   function handleSignIn(event) {
@@ -59,16 +61,29 @@ export function AuthProvider(props) {
               case firebase.storage.TaskState.RUNNING: // or 'running'
                 console.log("Upload is running");
                 break;
+              default:
+                console.log("Upload..");
             }
           },
           function(error) {
             switch (error.code) {
               case "storage/unauthorized":
+                console.log(
+                  `User doesn't have permission to access the object`
+                );
                 break;
               case "storage/canceled":
+                console.log(`User canceled the upload`);
                 break;
               case "storage/unknown":
+                console.log(
+                  `Unknown error occurred, inspect the server response`
+                );
                 break;
+              default:
+                console.log(
+                  `Unknown error occurred, inspect the server response`
+                );
             }
           },
           function() {
@@ -96,7 +111,29 @@ export function AuthProvider(props) {
         .ref("avatars/" + user.uid)
         .getDownloadURL()
         .then(url => setAvatarUrl(url))
-        .catch(() => setAvatarUrl(null));
+        .catch(error => {
+          setAvatarUrl(null);
+          switch (error.code) {
+            case "storage/object-not-found":
+              console.log(`File doesn't exist`);
+              break;
+            case "storage/unauthorized":
+              console.log(`User doesn't have permission to access the object`);
+              break;
+            case "storage/canceled":
+              console.log(`User canceled the upload`);
+              break;
+            case "storage/unknown":
+              console.log(
+                `Unknown error occurred, inspect the server response`
+              );
+              break;
+            default:
+              console.log(
+                `Unknown error occurred, inspect the server response`
+              );
+          }
+        });
     }
   }
 

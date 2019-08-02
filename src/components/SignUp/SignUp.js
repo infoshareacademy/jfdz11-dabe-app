@@ -59,6 +59,16 @@ function SignUp(props) {
         </Typography>
         <form className={classes.form} onSubmit={authContext.handleSignUp}>
           <FormControl margin="normal" required fullWidth>
+            <InputLabel htmlFor="login">Login</InputLabel>
+            <Input
+              id="login"
+              name="login"
+              autoFocus
+              value={authContext.login}
+              onChange={event => authContext.setLogin(event.target.value)}
+            />
+          </FormControl>
+          <FormControl margin="normal" required fullWidth>
             <InputLabel htmlFor="email">Email Address</InputLabel>
             <Input
               id="email"

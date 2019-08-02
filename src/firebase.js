@@ -13,8 +13,6 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const { database } = firebase;
-const db = database();
-export const budgetsRef = db.ref("/budgets");
-export const expensesRef = db.ref("/expenses");
+export const db = database();
 export const auth = firebase.auth();
 export const storage = firebase.storage();

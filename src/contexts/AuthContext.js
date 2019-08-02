@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { auth, storage } from "../firebase";
+import { auth, storage, db } from "../firebase";
 import firebase from "firebase";
 
 export const AuthContext = React.createContext();
@@ -7,17 +7,28 @@ export const AuthContext = React.createContext();
 export function AuthProvider(props) {
   const [user, setUser] = useState(null);
   const [email, setEmail] = useState("");
+  const [login, setLogin] = useState("");
   const [password, setPassword] = useState("");
+  const [password1, setPassword1] = useState("");
+  const [password2, setPassword2] = useState("");
   const [file, setFile] = useState(null);
   const [avatarUrl, setAvatarUrl] = useState("");
   const [completed, setCompleted] = useState(0);
   const provider = new firebase.auth.GoogleAuthProvider();
+  let isInvalid = password1 !== password2 || password1 === "";
 
   useEffect(() => {
-    auth.onAuthStateChanged(user => {
-      setUser(user);
-      getAvatarUrl();
+    let listener = auth.onAuthStateChanged(authUser => {
+      if (authUser) {
+        console.log(authUser);
+        setUser(authUser);
+        getAvatarUrl();
+      } else {
+        setUser(null);
+      }
     });
+
+    return () => listener();
   });
 
   function handleSignIn(event) {
@@ -41,6 +52,18 @@ export function AuthProvider(props) {
       .createUserWithEmailAndPassword(email, password)
       .then(() => alert("Successfully registered."))
       .catch(e => alert(e.message));
+  }
+
+  function userRef(uid) {
+    return db.ref(`users/${uid}`);
+  }
+
+  function passwordReset() {
+    auth.sendPasswordResetEmail(email);
+  }
+
+  function passwordUpdate() {
+    auth.currentUser.updatePassword(password1);
   }
 
   function addAvatar() {

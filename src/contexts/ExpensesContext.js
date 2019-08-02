@@ -1,9 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { budgetsRef, expensesRef } from "../firebase";
+import React, { useState, useEffect, useContext } from "react";
+import { db } from "../firebase";
+import { AuthContext } from "./AuthContext";
 
 export const ExpensesContext = React.createContext();
 
 export function ExpensesProvider(props) {
+  const authContext = useContext(AuthContext);
+  const uid = authContext.user && authContext.user.uid;
+  const expensesRef = db.ref(`expenses/${uid}`);
+  const budgetsRef = db.ref(`budgets/${uid}`);
+
   const [selectedMonth, setSelectedMonth] = useState({
     date: new Date(),
     monthYear: new Date().toLocaleDateString().slice(-7)
@@ -28,33 +34,35 @@ export function ExpensesProvider(props) {
   });
 
   useEffect(() => {
-    budgetsRef.on("value", snapshot => {
-      const json = snapshot.toJSON();
-      const ids = Object.keys(json);
-      const budgets = Object.values(json);
+    if (uid) {
+      budgetsRef.on("value", snapshot => {
+        if (snapshot.val()) {
+          const monthlyBudgets = snapshot.val();
+          const parseMonthlyBudgets = Object.keys(monthlyBudgets).map(key => ({
+            ...monthlyBudgets[key],
+            id: key
+          }));
+          setMonthlyBudgets(parseMonthlyBudgets);
+        }
+      });
 
-      const parseBudgets = budgets.map((budget, index) => ({
-        ...budget,
-        id: ids[index]
-      }));
-      setMonthlyBudgets(parseBudgets);
-    });
-
-    expensesRef.on("value", snapshot => {
-      const expenses = snapshot.val();
-      const parseExpenses = Object.keys(expenses).map(key => ({
-        ...expenses[key],
-        id: key
-      }));
-
-      setExpenses(parseExpenses);
-    });
+      expensesRef.on("value", snapshot => {
+        if (snapshot.val()) {
+          const expenses = snapshot.val();
+          const parseExpenses = Object.keys(expenses).map(key => ({
+            ...expenses[key],
+            id: key
+          }));
+          setExpenses(parseExpenses);
+        }
+      });
+    }
 
     return () => {
       budgetsRef.off();
       expensesRef.off();
     };
-  }, []);
+  }, [uid]);
 
   function addMonthlyBudget(monthlyBudget) {
     budgetsRef.push(monthlyBudget);

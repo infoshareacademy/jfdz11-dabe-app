@@ -12,6 +12,10 @@ import RemoveIcon from "@material-ui/icons/Remove";
 import ImageIcon from "@material-ui/icons/Image";
 import { AuthContext } from "../../contexts/AuthContext";
 import LinearProgress from "@material-ui/core/LinearProgress";
+import FormControl from "@material-ui/core/FormControl";
+import Input from "@material-ui/core/Input";
+import InputLabel from "@material-ui/core/InputLabel";
+import Button from "@material-ui/core/Button";
 
 const styles = theme => ({
   main: {
@@ -102,12 +106,11 @@ function Profile(props) {
           <RemoveIcon />
         </Fab>
         <Typography component="h3" variant="h6">
-          {(authContext.user && authContext.user.email) || "email"}
+          {authContext.user.email}
         </Typography>
         <Typography component="h3" variant="h6">
-          {(authContext.user && authContext.user.uid) || "user name"}
+          {authContext.user.displayName}
         </Typography>
-
         <Fab
           size="small"
           color="primary"
@@ -117,6 +120,45 @@ function Profile(props) {
           <EditIcon />
         </Fab>
       </Paper>
+      <form className={classes.form} onSubmit={authContext.passwordUpdate}>
+        <FormControl margin="normal" required fullWidth>
+          <InputLabel htmlFor="password1">Password</InputLabel>
+          <Input
+            name="password1"
+            type="password"
+            id="password1"
+            autoComplete="current-password"
+            value={authContext.password1}
+            onChange={event => authContext.setPassword1(event.target.value)}
+          />
+        </FormControl>
+        <FormControl margin="normal" required fullWidth>
+          <InputLabel htmlFor="password2">Password</InputLabel>
+          <Input
+            name="password2"
+            type="password"
+            id="password2"
+            autoComplete="current-password"
+            value={authContext.password2}
+            onChange={event => authContext.setPassword2(event.target.value)}
+          />
+        </FormControl>
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          color="secondary"
+          disabled={authContext.isInvalid}
+          className={classes.submit}
+        >
+          Update password
+        </Button>
+        {authContext.isInvalid ? (
+          <Typography component="h3" variant="h6">
+            Passwords must be identical
+          </Typography>
+        ) : null}
+      </form>
     </main>
   );
 }

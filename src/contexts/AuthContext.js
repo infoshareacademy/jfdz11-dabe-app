@@ -50,6 +50,16 @@ export function AuthProvider(props) {
 
     auth
       .createUserWithEmailAndPassword(email, password)
+      .then(authUser => {
+        userRef(authUser.user.uid).set({
+          login,
+          email,
+          date: new Date().toISOString()
+        });
+        authUser.user.updateProfile({
+          displayName: login
+        });
+      })
       .then(() => alert("Successfully registered."))
       .catch(e => alert(e.message));
   }
@@ -167,6 +177,8 @@ export function AuthProvider(props) {
         setUser,
         email,
         setEmail,
+        login,
+        setLogin,
         password,
         setPassword,
         avatarUrl,
@@ -177,7 +189,12 @@ export function AuthProvider(props) {
         addAvatar,
         removeAvatar,
         completed,
-        handleSignInByGoogle
+        handleSignInByGoogle,
+        passwordReset,
+        passwordUpdate,
+        setPassword1,
+        setPassword2,
+        isInvalid
       }}
       {...props}
     />

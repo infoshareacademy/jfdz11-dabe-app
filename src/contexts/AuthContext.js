@@ -20,23 +20,22 @@ export function AuthProvider(props) {
   useEffect(() => {
     let listener = auth.onAuthStateChanged(authUser => {
       if (authUser) {
-        console.log(authUser);
         setUser(authUser);
-        getAvatarUrl();
       } else {
         setUser(null);
       }
     });
-
     return () => listener();
-  });
+  }, []);
 
   function handleSignIn(event) {
     event.preventDefault();
 
     auth
       .signInWithEmailAndPassword(email, password)
-      .then(() => alert("Successfully logged."))
+      .then(() => {
+        alert("Successfully logged.");
+      })
       .catch(e => alert(e.message));
   }
 
@@ -134,7 +133,6 @@ export function AuthProvider(props) {
       .delete()
       .then(() => {
         alert("Successfully removed");
-        getAvatarUrl();
       });
   }
 
@@ -186,6 +184,7 @@ export function AuthProvider(props) {
         setFile,
         handleSignIn,
         handleSignUp,
+        getAvatarUrl,
         addAvatar,
         removeAvatar,
         completed,

@@ -54,7 +54,8 @@ export default function Navigation(props) {
             component="p"
             variant="body2"
           >
-            Sign in as <strong>{authContext.user.displayName}</strong>
+            Sign in as{" "}
+            <strong>{authContext.login || authContext.user.displayName}</strong>
           </Typography>
           <NavLink to="/profile">
             <Avatar

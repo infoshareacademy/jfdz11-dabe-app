@@ -6,7 +6,7 @@ export const ExpensesContext = React.createContext();
 
 export function ExpensesProvider(props) {
   const authContext = useContext(AuthContext);
-  const uid = authContext.user && authContext.user.uid;
+  const uid = authContext.user.uid;
   const expensesRef = db.ref(`expenses/${uid}`);
   const budgetsRef = db.ref(`budgets/${uid}`);
 
@@ -34,35 +34,38 @@ export function ExpensesProvider(props) {
   });
 
   useEffect(() => {
-    if (uid) {
-      budgetsRef.on("value", snapshot => {
-        if (snapshot.val()) {
-          const monthlyBudgets = snapshot.val();
-          const parseMonthlyBudgets = Object.keys(monthlyBudgets).map(key => ({
-            ...monthlyBudgets[key],
-            id: key
-          }));
-          setMonthlyBudgets(parseMonthlyBudgets);
-        }
-      });
+    budgetsRef.on("value", snapshot => {
+      if (snapshot.val()) {
+        const monthlyBudgets = snapshot.val();
+        const parseMonthlyBudgets = Object.keys(monthlyBudgets).map(key => ({
+          ...monthlyBudgets[key],
+          id: key
+        }));
+        setMonthlyBudgets(parseMonthlyBudgets);
+      } else {
+        setMonthlyBudgets([]);
+      }
+    });
 
-      expensesRef.on("value", snapshot => {
-        if (snapshot.val()) {
-          const expenses = snapshot.val();
-          const parseExpenses = Object.keys(expenses).map(key => ({
-            ...expenses[key],
-            id: key
-          }));
-          setExpenses(parseExpenses);
-        }
-      });
-    }
+    expensesRef.on("value", snapshot => {
+      if (snapshot.val()) {
+        const expenses = snapshot.val();
+        const parseExpenses = Object.keys(expenses).map(key => ({
+          ...expenses[key],
+          id: key
+        }));
+        setExpenses(parseExpenses);
+      } else {
+        setExpenses([]);
+      }
+    });
 
+    authContext.getAvatarUrl();
     return () => {
       budgetsRef.off();
       expensesRef.off();
     };
-  }, [uid]);
+  }, []);
 
   function addMonthlyBudget(monthlyBudget) {
     budgetsRef.push(monthlyBudget);

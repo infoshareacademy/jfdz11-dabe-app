@@ -6,7 +6,7 @@ import {
   Redirect
 } from "react-router-dom";
 import { Navigation, Profile } from "./components";
-import { Dashboard, Review, Summary, Report, NoMatch } from "./scenes";
+import { Dashboard, Review, Summary, Report } from "./scenes";
 
 function ContentApp(props) {
   return (
@@ -18,10 +18,7 @@ function ContentApp(props) {
         <Route exact path="/summary" component={Summary} />
         <Route exact path="/report" component={Report} />
         <Route exact path="/profile" component={Profile} />
-        <Redirect exact from="/" to="/dashboard" />
-        <Redirect exact from="/sign-in" to="/dashboard" />
-        <Redirect exact from="/sign-up" to="/dashboard" />
-        <Route component={NoMatch} />
+        <Redirect to="/dashboard" />
       </Switch>
     </Router>
   );

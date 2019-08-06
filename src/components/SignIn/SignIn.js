@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -9,6 +9,8 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
 import { AuthContext } from "../../contexts/AuthContext";
 import { NavLink } from "react-router-dom";
 
@@ -51,6 +53,9 @@ const styles = theme => ({
 function SignIn(props) {
   const authContext = useContext(AuthContext);
   const { classes } = props;
+  const [forgotPassword, setForgotPassword] = useState(false);
+  const handleChange = () => setForgotPassword(!forgotPassword);
+
   return (
     <main className={classes.main}>
       <CssBaseline />
@@ -61,7 +66,14 @@ function SignIn(props) {
         <Typography component="h1" variant="h5">
           Sign in to Financial Planner
         </Typography>
-        <form className={classes.form} onSubmit={authContext.handleSignIn}>
+        <form
+          className={classes.form}
+          onSubmit={
+            forgotPassword
+              ? authContext.resetPasswordViaEmail
+              : authContext.handleSignIn
+          }
+        >
           <FormControl margin="normal" required fullWidth>
             <InputLabel htmlFor="email">Email Address</InputLabel>
             <Input
@@ -73,6 +85,12 @@ function SignIn(props) {
               onChange={event => authContext.setEmail(event.target.value)}
             />
           </FormControl>
+          <FormControlLabel
+            control={
+              <Checkbox checked={forgotPassword} onChange={handleChange} />
+            }
+            label="Forgot your password ?"
+          />
           <FormControl margin="normal" required fullWidth>
             <InputLabel htmlFor="password">Password</InputLabel>
             <Input
@@ -82,6 +100,7 @@ function SignIn(props) {
               autoComplete="current-password"
               value={authContext.password}
               onChange={event => authContext.setPassword(event.target.value)}
+              disabled={forgotPassword}
             />
           </FormControl>
           <Button
@@ -91,7 +110,7 @@ function SignIn(props) {
             color="secondary"
             className={classes.submit}
           >
-            Sign in
+            {forgotPassword ? "Reset password" : "Sign in"}
           </Button>
         </form>
         <Typography

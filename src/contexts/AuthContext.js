@@ -84,12 +84,15 @@ export function AuthProvider(props) {
     return db.ref(`users/${uid}`);
   }
 
-  function passwordReset() {
-    auth.sendPasswordResetEmail(email);
-  }
-
   function passwordUpdate() {
     auth.currentUser.updatePassword(password1);
+  }
+
+  function resetPasswordViaEmail() {
+    auth
+      .sendPasswordResetEmail(email)
+      .then(() => alert("Email sent."))
+      .catch(e => alert(e.message));
   }
 
   function addAvatar() {
@@ -206,12 +209,12 @@ export function AuthProvider(props) {
         removeAvatar,
         completed,
         handleSignInByGoogle,
-        passwordReset,
         passwordUpdate,
         setPassword1,
         setPassword2,
         isInvalid,
-        fetchDataFromGoogleUser
+        fetchDataFromGoogleUser,
+        resetPasswordViaEmail
       }}
       {...props}
     />

@@ -14,7 +14,6 @@ export function AuthProvider(props) {
   const [file, setFile] = useState(null);
   const [avatarUrl, setAvatarUrl] = useState("");
   const [completed, setCompleted] = useState(0);
-  const provider = new firebase.auth.GoogleAuthProvider();
   let isInvalid = password1 !== password2 || password1 === "";
 
   useEffect(() => {
@@ -25,6 +24,7 @@ export function AuthProvider(props) {
         setUser(null);
       }
     });
+
     return () => listener();
   }, []);
 
@@ -40,8 +40,25 @@ export function AuthProvider(props) {
   }
 
   function handleSignInByGoogle(event) {
+    const provider = new firebase.auth.GoogleAuthProvider();
     event.preventDefault();
     auth.signInWithRedirect(provider);
+  }
+
+  function fetchDataFromGoogleUser() {
+    auth
+      .getRedirectResult()
+      .then(result => {
+        if (result.user) {
+          userRef(result.user.uid).set({
+            login: result.user.displayName,
+            email: result.user.email,
+            date: new Date().toISOString()
+          });
+          alert("Successfully logged.");
+        }
+      })
+      .catch(e => alert(e.message));
   }
 
   function handleSignUp(event) {
@@ -193,7 +210,8 @@ export function AuthProvider(props) {
         passwordUpdate,
         setPassword1,
         setPassword2,
-        isInvalid
+        isInvalid,
+        fetchDataFromGoogleUser
       }}
       {...props}
     />

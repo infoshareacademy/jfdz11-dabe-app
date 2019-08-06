@@ -11,6 +11,7 @@ import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import GoogleButton from "react-google-button";
 import { AuthContext } from "../../contexts/AuthContext";
 import { NavLink } from "react-router-dom";
 
@@ -121,16 +122,7 @@ function SignIn(props) {
           New to Financial Planner?{" "}
           <NavLink to="/sign-up">Create an account</NavLink>.
         </Typography>
-        <Button
-          type="button"
-          fullWidth
-          variant="contained"
-          color="secondary"
-          className={classes.submit}
-          onClick={authContext.handleSignInByGoogle}
-        >
-          Sign in by google
-        </Button>
+        <GoogleButton type="light" onClick={authContext.handleSignInByGoogle} />
       </Paper>
     </main>
   );

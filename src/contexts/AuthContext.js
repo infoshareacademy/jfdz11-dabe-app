@@ -40,14 +40,10 @@ export function AuthProvider(props) {
   }
 
   function handleSignInByGoogle(event) {
-    const provider = new firebase.auth.GoogleAuthProvider();
     event.preventDefault();
-    auth.signInWithRedirect(provider);
-  }
-
-  function fetchDataFromGoogleUser() {
+    const provider = new firebase.auth.GoogleAuthProvider();
     auth
-      .getRedirectResult()
+      .signInWithPopup(provider)
       .then(result => {
         if (result.user) {
           userRef(result.user.uid).set({
@@ -153,6 +149,7 @@ export function AuthProvider(props) {
       .delete()
       .then(() => {
         alert("Successfully removed");
+        getAvatarUrl();
       });
   }
 
@@ -213,7 +210,6 @@ export function AuthProvider(props) {
         setPassword1,
         setPassword2,
         isInvalid,
-        fetchDataFromGoogleUser,
         resetPasswordViaEmail
       }}
       {...props}

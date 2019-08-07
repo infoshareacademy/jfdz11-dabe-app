@@ -60,8 +60,6 @@ export function ExpensesProvider(props) {
       }
     });
 
-    authContext.fetchDataFromGoogleUser();
-
     authContext.getAvatarUrl();
 
     return () => {

@@ -60,8 +60,6 @@ export function ExpensesProvider(props) {
       }
     });
 
-    authContext.getAvatarUrl();
-
     return () => {
       budgetsRef.off();
       expensesRef.off();

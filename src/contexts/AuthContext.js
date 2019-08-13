@@ -33,7 +33,8 @@ export function AuthProvider(props) {
 
     auth
       .signInWithEmailAndPassword(email, password)
-      .then(() => {
+      .then(result => {
+        getAvatarUrl(result.user.uid);
         alert("Successfully logged.");
       })
       .catch(e => alert(e.message));
@@ -51,6 +52,8 @@ export function AuthProvider(props) {
             email: result.user.email,
             date: new Date().toISOString()
           });
+          setAvatarUrl(null);
+          getAvatarUrl(result.user.uid);
           alert("Successfully logged.");
         }
       })
@@ -72,6 +75,7 @@ export function AuthProvider(props) {
           displayName: login
         });
       })
+      .then(() => setAvatarUrl(null))
       .then(() => alert("Successfully registered."))
       .catch(e => alert(e.message));
   }
@@ -92,7 +96,7 @@ export function AuthProvider(props) {
   }
 
   function addAvatar() {
-    if (file && user) {
+    if (file) {
       storage
         .ref("avatars/" + user.uid)
         .put(file)
@@ -137,7 +141,7 @@ export function AuthProvider(props) {
           function() {
             alert("Successfully added");
             setCompleted(0);
-            getAvatarUrl();
+            getAvatarUrl(user.uid);
           }
         );
     }
@@ -149,40 +153,34 @@ export function AuthProvider(props) {
       .delete()
       .then(() => {
         alert("Successfully removed");
-        getAvatarUrl();
+        getAvatarUrl(user.uid);
       });
   }
 
-  function getAvatarUrl() {
-    if (user) {
-      storage
-        .ref("avatars/" + user.uid)
-        .getDownloadURL()
-        .then(url => setAvatarUrl(url))
-        .catch(error => {
-          setAvatarUrl(null);
-          switch (error.code) {
-            case "storage/object-not-found":
-              console.log(`File doesn't exist`);
-              break;
-            case "storage/unauthorized":
-              console.log(`User doesn't have permission to access the object`);
-              break;
-            case "storage/canceled":
-              console.log(`User canceled the upload`);
-              break;
-            case "storage/unknown":
-              console.log(
-                `Unknown error occurred, inspect the server response`
-              );
-              break;
-            default:
-              console.log(
-                `Unknown error occurred, inspect the server response`
-              );
-          }
-        });
-    }
+  function getAvatarUrl(uid) {
+    storage
+      .ref("avatars/" + uid)
+      .getDownloadURL()
+      .then(url => setAvatarUrl(url))
+      .catch(error => {
+        setAvatarUrl(null);
+        switch (error.code) {
+          case "storage/object-not-found":
+            console.log(`File doesn't exist`);
+            break;
+          case "storage/unauthorized":
+            console.log(`User doesn't have permission to access the object`);
+            break;
+          case "storage/canceled":
+            console.log(`User canceled the upload`);
+            break;
+          case "storage/unknown":
+            console.log(`Unknown error occurred, inspect the server response`);
+            break;
+          default:
+            console.log(`Unknown error occurred, inspect the server response`);
+        }
+      });
   }
 
   return (

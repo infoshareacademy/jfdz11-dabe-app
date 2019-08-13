@@ -9,6 +9,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Home from "@material-ui/icons/Home";
 import Equalizer from "@material-ui/icons/Equalizer";
 import PieChart from "@material-ui/icons/PieChart";
+import Face from "@material-ui/icons/Face";
 import Style from "@material-ui/icons/Style";
 import { NavLink } from "react-router-dom";
 import { list, navLink, appTitle, versioning } from "./Menu.module.css";
@@ -20,7 +21,7 @@ export default function Menu() {
     bottom: false,
     right: false
   });
-  const icons = [<Home />, <Style />, <Equalizer />, <PieChart />];
+  const icons = [<Home />, <Style />, <Equalizer />, <PieChart />, <Face />];
   const scenesPaths = ["/dashboard", "/review", "/summary", "/report"];
 
   const toggleDrawer = (side, open) => event => {
@@ -53,6 +54,15 @@ export default function Menu() {
             </ListItem>
           </NavLink>
         ))}
+      </List>
+      <Divider />
+      <List>
+        <NavLink key="Profile" to="/profile" className={navLink}>
+          <ListItem button>
+            <ListItemIcon>{icons[icons.length - 1]}</ListItemIcon>
+            <ListItemText primary="Profile" />
+          </ListItem>
+        </NavLink>
       </List>
     </div>
   );

@@ -14,6 +14,10 @@ import Checkbox from "@material-ui/core/Checkbox";
 import GoogleButton from "react-google-button";
 import { AuthContext } from "../../contexts/AuthContext";
 import { NavLink } from "react-router-dom";
+import IconButton from "@material-ui/core/IconButton";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
 const styles = theme => ({
   main: {
@@ -36,7 +40,9 @@ const styles = theme => ({
   },
   avatar: {
     margin: theme.spacing(2),
-    backgroundColor: theme.palette.secondary.main
+    width: 60,
+    height: 60,
+    backgroundColor: "rgba(19, 145, 135, 0.85)"
   },
   form: {
     width: "100%",
@@ -44,25 +50,48 @@ const styles = theme => ({
   },
   submit: {
     marginTop: theme.spacing(3),
-    backgroundColor: "rgba(19, 145, 135, 0.85)"
+    backgroundColor: "rgba(19, 145, 135, 0.65)",
+    color: "white",
+    "&:hover": {
+      backgroundColor: "rgba(19, 145, 135, 0.85)"
+    }
   },
   typography: {
     margin: theme.spacing(2)
+  },
+  navlink: {
+    textDecoration: "none",
+    color: "#0066ff",
+    "&:hover": {
+      color: "#000099"
+    }
   }
 });
 
 function SignIn(props) {
   const authContext = useContext(AuthContext);
   const { classes } = props;
+
   const [forgotPassword, setForgotPassword] = useState(false);
+
   const handleChange = () => setForgotPassword(!forgotPassword);
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleMouseDownPassword = event => {
+    event.preventDefault();
+  };
 
   return (
     <main className={classes.main}>
       <CssBaseline />
       <Paper className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
+          <LockOutlinedIcon fontSize="large" />
         </Avatar>
         <Typography component="h1" variant="h5">
           Sign in to Financial Planner
@@ -96,19 +125,29 @@ function SignIn(props) {
             <InputLabel htmlFor="password">Password</InputLabel>
             <Input
               name="password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               id="password"
               autoComplete="current-password"
               value={authContext.password}
               onChange={event => authContext.setPassword(event.target.value)}
               disabled={forgotPassword}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                  >
+                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              }
             />
           </FormControl>
           <Button
             type="submit"
             fullWidth
             variant="contained"
-            color="secondary"
             className={classes.submit}
           >
             {forgotPassword ? "Reset password" : "Sign in"}
@@ -120,9 +159,15 @@ function SignIn(props) {
           variant="body2"
         >
           New to Financial Planner?{" "}
-          <NavLink to="/sign-up">Create an account</NavLink>.
+          <NavLink className={classes.navlink} to="/sign-up">
+            Create an account.
+          </NavLink>
         </Typography>
-        <GoogleButton type="light" onClick={authContext.handleSignInByGoogle} />
+        <GoogleButton
+          style={{ width: "100%" }}
+          type="light"
+          onClick={authContext.handleSignInByGoogle}
+        />
       </Paper>
     </main>
   );

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -10,6 +10,10 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { AuthContext } from "../../contexts/AuthContext";
+import IconButton from "@material-ui/core/IconButton";
+import InputAdornment from "@material-ui/core/InputAdornment";
+import Visibility from "@material-ui/icons/Visibility";
+import VisibilityOff from "@material-ui/icons/VisibilityOff";
 
 const styles = theme => ({
   main: {
@@ -31,8 +35,10 @@ const styles = theme => ({
     padding: `${theme.spacing(2)}px ${theme.spacing(3)}px ${theme.spacing(3)}px`
   },
   avatar: {
-    margin: theme.spacing(),
-    backgroundColor: theme.palette.secondary.main
+    margin: theme.spacing(2),
+    width: 60,
+    height: 60,
+    backgroundColor: "rgba(19, 145, 135, 0.85)"
   },
   form: {
     width: "100%",
@@ -40,19 +46,32 @@ const styles = theme => ({
   },
   submit: {
     marginTop: theme.spacing(3),
-    backgroundColor: "rgba(19, 145, 135, 0.85)"
+    backgroundColor: "rgba(19, 145, 135, 0.65)",
+    color: "white",
+    "&:hover": {
+      backgroundColor: "rgba(19, 145, 135, 0.85)"
+    }
   }
 });
 
 function SignUp(props) {
   const authContext = useContext(AuthContext);
   const { classes } = props;
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleMouseDownPassword = event => {
+    event.preventDefault();
+  };
   return (
     <main className={classes.main}>
       <CssBaseline />
       <Paper className={classes.paper}>
         <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
+          <LockOutlinedIcon fontSize="large" />
         </Avatar>
         <Typography component="h1" variant="h5">
           Sign up to Financial Planner
@@ -83,18 +102,28 @@ function SignUp(props) {
             <InputLabel htmlFor="password">Password</InputLabel>
             <Input
               name="password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               id="password"
               autoComplete="current-password"
               value={authContext.password}
               onChange={event => authContext.setPassword(event.target.value)}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                  >
+                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              }
             />
           </FormControl>
           <Button
             type="submit"
             fullWidth
             variant="contained"
-            color="secondary"
             className={classes.submit}
           >
             Sign up

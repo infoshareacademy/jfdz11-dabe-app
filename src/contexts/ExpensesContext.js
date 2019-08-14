@@ -6,9 +6,6 @@ export const ExpensesContext = React.createContext();
 
 export function ExpensesProvider(props) {
   const authContext = useContext(AuthContext);
-  const uid = authContext.user.uid;
-  const expensesRef = db.ref(`expenses/${uid}`);
-  const budgetsRef = db.ref(`budgets/${uid}`);
 
   const [selectedMonth, setSelectedMonth] = useState({
     date: new Date(),
@@ -34,7 +31,7 @@ export function ExpensesProvider(props) {
   });
 
   useEffect(() => {
-    budgetsRef.on("value", snapshot => {
+    db.ref(`budgets/${authContext.user.uid}`).on("value", snapshot => {
       if (snapshot.val()) {
         const monthlyBudgets = snapshot.val();
         const parseMonthlyBudgets = Object.keys(monthlyBudgets).map(key => ({
@@ -47,7 +44,7 @@ export function ExpensesProvider(props) {
       }
     });
 
-    expensesRef.on("value", snapshot => {
+    db.ref(`expenses/${authContext.user.uid}`).on("value", snapshot => {
       if (snapshot.val()) {
         const expenses = snapshot.val();
         const parseExpenses = Object.keys(expenses).map(key => ({
@@ -60,26 +57,32 @@ export function ExpensesProvider(props) {
       }
     });
 
+    authContext.getAvatarUrl(authContext.user.uid);
+
     return () => {
-      budgetsRef.off();
-      expensesRef.off();
+      db.ref(`budgets/${authContext.user.uid}`).off();
+      db.ref(`expenses/${authContext.user.uid}`).off();
     };
-  }, []);
+  }, [authContext]);
 
   function addMonthlyBudget(monthlyBudget) {
-    budgetsRef.push(monthlyBudget);
+    db.ref(`budgets/${authContext.user.uid}`).push(monthlyBudget);
   }
 
   function removeMonthlyBudget(monthlyBudgetID) {
-    budgetsRef.child(monthlyBudgetID).remove();
+    db.ref(`budgets/${authContext.user.uid}`)
+      .child(monthlyBudgetID)
+      .remove();
   }
 
   function addExpense(expense) {
-    expensesRef.push(expense);
+    db.ref(`expenses/${authContext.user.uid}`).push(expense);
   }
 
   function removeExpense(expenseID) {
-    expensesRef.child(expenseID).remove();
+    db.ref(`expenses/${authContext.user.uid}`)
+      .child(expenseID)
+      .remove();
   }
 
   function addExpenseByClick(expense) {

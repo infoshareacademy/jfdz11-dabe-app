@@ -34,8 +34,8 @@ export function AuthProvider(props) {
     auth
       .signInWithEmailAndPassword(email, password)
       .then(result => {
-        getAvatarUrl(result.user.uid);
         alert("Successfully logged.");
+        getAvatarUrl(result.user.uid);
       })
       .catch(e => alert(e.message));
   }
@@ -52,7 +52,6 @@ export function AuthProvider(props) {
             email: result.user.email,
             date: new Date().toISOString()
           });
-          setAvatarUrl(null);
           getAvatarUrl(result.user.uid);
           alert("Successfully logged.");
         }
@@ -85,14 +84,13 @@ export function AuthProvider(props) {
   }
 
   function passwordUpdate() {
-    auth.currentUser.updatePassword(password1);
+    auth.currentUser
+      .updatePassword(password1)
+      .catch(e => console.log(e.message));
   }
 
   function resetPasswordViaEmail() {
-    auth
-      .sendPasswordResetEmail(email)
-      .then(() => alert("Email sent."))
-      .catch(e => alert(e.message));
+    auth.sendPasswordResetEmail(email).catch(e => alert(e.message));
   }
 
   function addAvatar() {

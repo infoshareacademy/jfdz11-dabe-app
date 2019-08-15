@@ -41,7 +41,6 @@ export default function NewOperationForm(props) {
         }
       />
       <ButtonSubmit
-        style={{ backgroundColor: "rgba(19, 145, 135, 0.85)" }}
         onClick={() =>
           expensesContext.addExpenseByClick({
             ...expensesContext.expense,

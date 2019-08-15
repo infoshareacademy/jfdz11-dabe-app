@@ -5,7 +5,11 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(theme => ({
   button: {
     height: "40px",
-    backgroundColor: "rgba(27, 87, 82, 0.35)"
+    backgroundColor: "rgba(19, 145, 135, 0.65)",
+    color: "white",
+    "&:hover": {
+      backgroundColor: "rgba(19, 145, 135, 0.85)"
+    }
   }
 }));
 

@@ -83,7 +83,6 @@ export default function BudgetInput(props) {
             <p className={p4}>on {moment().format("MMMM Do, YYYY")}</p>
             <ButtonSubmit
               style={{
-                backgroundColor: "rgba(19, 145, 135, 0.85)",
                 padding: 0,
                 height: 25,
                 width: 40,
@@ -140,7 +139,6 @@ export default function BudgetInput(props) {
                   }
                   return;
                 }}
-                style={{ backgroundColor: "rgba(19, 145, 135, 0.85)" }}
               >
                 Save
               </ButtonSubmit>

@@ -30,6 +30,8 @@ export function ExpensesProvider(props) {
     desc: false
   });
 
+  const [disableMonthYearPicker, setDisableMonthYearPicker] = useState(false);
+
   useEffect(() => {
     db.ref(`budgets/${authContext.user.uid}`).on("value", snapshot => {
       if (snapshot.val()) {
@@ -127,7 +129,9 @@ export function ExpensesProvider(props) {
         setRequirements,
         expense,
         setExpense,
-        addExpenseByClick
+        addExpenseByClick,
+        disableMonthYearPicker,
+        setDisableMonthYearPicker
       }}
       {...props}
     />

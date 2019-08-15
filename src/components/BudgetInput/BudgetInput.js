@@ -93,7 +93,17 @@ export default function BudgetInput(props) {
                   budget =>
                     budget.monthYear === expensesContext.selectedMonth.monthYear
                 ).id;
+                expensesContext.setMonthlyBudget({
+                  budgetPerMonth: expensesContext.monthlyBudgets.find(
+                    budget =>
+                      budget.monthYear ===
+                      expensesContext.selectedMonth.monthYear
+                  ).budgetPerMonth,
+                  monthYear: expensesContext.selectedMonth.monthYear,
+                  month: expensesContext.selectedMonth.date.getMonth()
+                });
                 expensesContext.removeMonthlyBudget(budgetToRemoveID);
+                expensesContext.setDisableMonthYearPicker(true);
               }}
             >
               Edit
@@ -116,13 +126,13 @@ export default function BudgetInput(props) {
                 value={expensesContext.monthlyBudget.budgetPerMonth}
                 noStyle
                 className={input}
-                onChange={value =>
+                onChange={value => {
                   expensesContext.setMonthlyBudget({
                     budgetPerMonth: value,
                     monthYear: expensesContext.selectedMonth.monthYear,
                     month: expensesContext.selectedMonth.date.getMonth()
-                  })
-                }
+                  });
+                }}
               />
               <span>PLN</span>
             </div>
@@ -136,6 +146,7 @@ export default function BudgetInput(props) {
                     expensesContext.setMonthlyBudget({
                       budgetPerMonth: 0
                     });
+                    expensesContext.setDisableMonthYearPicker(false);
                   }
                   return;
                 }}

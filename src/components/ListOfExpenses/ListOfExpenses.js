@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import SwapVert from "@material-ui/icons/SwapVert";
 import {
   listOfExpenses,
@@ -11,10 +11,28 @@ import {
 } from "./ListOfExpenses.module.css";
 import { ExpensesListItem } from "../../components";
 import { ExpensesContext } from "../../contexts/ExpensesContext";
+import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(theme => ({
+  textField: {
+    margin: 0,
+    padding: 0,
+    "& input": {
+      margin: 0,
+      padding: "5px 10px",
+      height: 30
+    },
+    "& label": {
+      transform: "translate(14px, 14px) scale(1);"
+    }
+  }
+}));
 
 export default function ListOfExpenses(props) {
   const expensesContext = useContext(ExpensesContext);
-
+  const classes = useStyles();
+  const [filteredTitle, setFilteredTitle] = useState("");
   const icon = [<SwapVert />];
 
   function sortByPrice() {
@@ -111,9 +129,20 @@ export default function ListOfExpenses(props) {
           <p className={p2} onClick={sortByCat}>
             {icon[0]}cat.
           </p>
-          <p className={p3} onClick={sortByTitle}>
-            {icon[0]}title
-          </p>
+          <div className={p3}>
+            <SwapVert onClick={sortByTitle} />{" "}
+            <TextField
+              id="outlined-search"
+              label="Search by title"
+              type="search"
+              className={classes.textField}
+              margin="normal"
+              variant="outlined"
+              onChange={event => {
+                setFilteredTitle(event.target.value);
+              }}
+            />
+          </div>
           <p className={p4} onClick={sortByPrice}>
             {icon[0]}cost(PLN)
           </p>
@@ -122,7 +151,8 @@ export default function ListOfExpenses(props) {
           {expensesContext.expenses
             .filter(
               expens =>
-                expens.monthYear === expensesContext.selectedMonth.monthYear
+                expens.monthYear === expensesContext.selectedMonth.monthYear &&
+                expens.title.indexOf(filteredTitle) !== -1
             )
             .map(expens => (
               <ExpensesListItem

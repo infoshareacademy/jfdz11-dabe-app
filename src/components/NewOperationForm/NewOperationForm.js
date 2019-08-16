@@ -28,6 +28,7 @@ export default function NewOperationForm(props) {
         setExpense={expensesContext.setExpense}
       />
       <DatePicker
+        selectedDate={expensesContext.selectedMonth.date}
         expense={expensesContext.expense}
         setExpense={expensesContext.setExpense}
       />

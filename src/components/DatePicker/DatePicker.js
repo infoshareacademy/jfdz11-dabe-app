@@ -35,7 +35,7 @@ const materialTheme = createMuiTheme({
   }
 });
 
-export default function DatePicker({ expense, setExpense }) {
+export default function DatePicker({ selectedDate, expense, setExpense }) {
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <ThemeProvider theme={materialTheme}>
@@ -45,7 +45,7 @@ export default function DatePicker({ expense, setExpense }) {
           inputVariant="outlined"
           label="Date"
           format="dd/MM/yyyy"
-          value={expense.date}
+          value={selectedDate}
           InputAdornmentProps={{ position: "end" }}
           onChange={date =>
             setExpense({

@@ -34,6 +34,8 @@ const materialTheme = createMuiTheme({
 const useStyles = makeStyles({
   root: {
     width: 180,
+    margin: "10px 0 0 10px ",
+    borderRadius: 5,
     "& input": {
       color: "white",
       backgroundColor: "rgba(19, 145, 135, 0.65)",
@@ -41,12 +43,24 @@ const useStyles = makeStyles({
       textDecoration: "none",
       padding: 0,
       fontSize: 34,
-      borderStyle: "none",
+      borderRadius: 5,
+      cursor: "pointer"
+    },
+    "& input:hover": {
+      color: "white",
+      backgroundColor: "rgba(19, 145, 135, 0.95)",
+      textAlign: "center",
+      textDecoration: "none",
+      padding: 0,
+      fontSize: 34,
+      borderRadius: 5,
       cursor: "pointer"
     }
   },
   disabled: {
     width: 180,
+    margin: "10px 0 0 20px ",
+    borderRadius: 5,
     "& input": {
       color: "black",
       backgroundColor: "rgb(208, 202, 230)",
@@ -54,7 +68,7 @@ const useStyles = makeStyles({
       textDecoration: "none",
       padding: 0,
       fontSize: 34,
-      borderStyle: "none",
+      borderRadius: 5,
       cursor: "pointer"
     }
   }

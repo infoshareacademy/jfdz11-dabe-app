@@ -1,43 +1,56 @@
 .listOfExpenses {
-  margin-top: 30px;
-  margin-left: 30px;
+  margin-top: 10px;
+  margin-left: 20px;
   padding: 0;
-  height: 596px;
+  height: calc(100vh - 86px);
   width: 560px;
   border: 1px solid grey;
+  border-radius: 5px;
   box-shadow: 1px 1px 10px gray;
   list-style: none;
 }
 .ul {
   margin: 0;
   padding: 0;
-  height: 545px;
+  height: calc(100vh - 87px - 50px);
   overflow-y: scroll;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 .header {
   width: 100%;
   display: flex;
   height: 50px;
   border-bottom: 1px solid black;
-  background-color: rgba(19, 145, 135, 0.85);
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  background-color: rgba(19, 145, 135, 0.65);
 }
 .p1 {
   margin: auto 0;
   flex-basis: 17%;
   cursor: default;
+  display: flex;
+  align-items: center;
 }
 .p2 {
   margin: auto 0;
   flex-basis: 9%;
   cursor: default;
+  display: flex;
+  align-items: center;
 }
 .p3 {
-  margin: auto 0;
+  margin: 0 0;
   flex-basis: 45%;
   cursor: default;
+  display: flex;
+  align-items: center;
 }
 .p4 {
   margin: auto 0;
   flex-basis: 20%;
   cursor: default;
+  display: flex;
+  align-items: center;
 }

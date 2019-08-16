@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   li,
   dates,
@@ -11,10 +11,14 @@ import {
   house,
   clothing,
   electronics,
-  healthAndBeauty
+  healthAndBeauty,
+  approval
 } from "./ExpensesListItem.module.css";
+import Check from "@material-ui/icons/Check";
+import Close from "@material-ui/icons/Close";
 import moment from "moment";
 import numeral from "numeral";
+import IconButton from "@material-ui/core/IconButton";
 
 export default function ExpensesListItem({
   removeExpense,
@@ -24,6 +28,8 @@ export default function ExpensesListItem({
   title,
   date
 }) {
+  const [removeItem, setRemoveItem] = useState(false);
+
   const labelClass = () =>
     categories.reduce((r, c) => {
       if (c.cat === category) {
@@ -44,16 +50,41 @@ export default function ExpensesListItem({
 
   return (
     <li className={li}>
-      <div className={dates}>{moment(date).format("MMM Do")}</div>
-      <div className={labelClass()}>{labelShortcut()}</div>
-      <div className={tit}>{title}</div>
-      <div className={price}>{numeral(cost).format("0,0.00")}</div>
-      <button
-        className={remove}
-        onClick={() => {
-          removeExpense(id);
-        }}
-      />
+      {removeItem ? (
+        <p className={approval}>
+          Are you sure you want to delete this row?{"   "}
+          <IconButton
+            size="small"
+            onClick={() => {
+              removeExpense(id);
+              setRemoveItem(!removeItem);
+            }}
+          >
+            <Check />
+          </IconButton>
+          <IconButton
+            size="small"
+            onClick={() => {
+              setRemoveItem(!removeItem);
+            }}
+          >
+            <Close />
+          </IconButton>
+        </p>
+      ) : (
+        <>
+          <div className={dates}>{moment(date).format("MMM Do")}</div>
+          <div className={labelClass()}>{labelShortcut()}</div>
+          <div className={tit}>{title}</div>
+          <div className={price}>{numeral(cost).format("0,0.00")}</div>
+          <button
+            className={remove}
+            onClick={() => {
+              setRemoveItem(true);
+            }}
+          />
+        </>
+      )}
     </li>
   );
 }

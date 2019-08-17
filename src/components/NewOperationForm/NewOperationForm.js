@@ -41,16 +41,23 @@ export default function NewOperationForm(props) {
           })
         }
       />
-      <ButtonSubmit
-        onClick={() =>
-          expensesContext.addExpenseByClick({
-            ...expensesContext.expense,
-            date: expensesContext.expense.date.toISOString().slice(0, 10)
-          })
-        }
-      >
-        Add
-      </ButtonSubmit>
+      {expensesContext.monthlyBudgets.filter(
+        budget => budget.monthYear === expensesContext.selectedMonth.monthYear
+      ).length &&
+      expensesContext.monthlyBudgets.filter(
+        budget => budget.monthYear === expensesContext.selectedMonth.monthYear
+      )[0].budgetClose ? null : (
+        <ButtonSubmit
+          onClick={() =>
+            expensesContext.addExpenseByClick({
+              ...expensesContext.expense,
+              date: expensesContext.expense.date.toISOString().slice(0, 10)
+            })
+          }
+        >
+          Add
+        </ButtonSubmit>
+      )}
       {expensesContext.requirements ? (
         <p className={required}>* All fields required</p>
       ) : null}

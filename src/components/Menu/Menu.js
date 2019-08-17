@@ -7,7 +7,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import MenuIcon from "@material-ui/icons/Menu";
 import Home from "@material-ui/icons/Home";
-import Equalizer from "@material-ui/icons/Equalizer";
+import AttachMoney from "@material-ui/icons/AttachMoney";
 import PieChart from "@material-ui/icons/PieChart";
 import Face from "@material-ui/icons/Face";
 import Style from "@material-ui/icons/Style";
@@ -21,8 +21,8 @@ export default function Menu() {
     bottom: false,
     right: false
   });
-  const icons = [<Home />, <Style />, <Equalizer />, <PieChart />, <Face />];
-  const scenesPaths = ["/dashboard", "/review", "/summary", "/report"];
+  const icons = [<Home />, <AttachMoney />, <Style />, <PieChart />, <Face />];
+  const scenesPaths = ["/dashboard", "/finances", "/review", "/report"];
 
   const toggleDrawer = (side, open) => event => {
     if (
@@ -46,7 +46,7 @@ export default function Menu() {
       <p className={versioning}>v0.0.0</p>
       <Divider />
       <List>
-        {["Dashboard", "Review", "Summary", "Report"].map((text, index) => (
+        {["Dashboard", "Finances", "Review", "Report"].map((text, index) => (
           <NavLink key={text} to={scenesPaths[index]} className={navLink}>
             <ListItem button>
               <ListItemIcon>{icons[index]}</ListItemIcon>

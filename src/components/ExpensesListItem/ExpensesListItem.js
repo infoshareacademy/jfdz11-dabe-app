@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   li,
   dates,
@@ -19,6 +19,7 @@ import Close from "@material-ui/icons/Close";
 import moment from "moment";
 import numeral from "numeral";
 import IconButton from "@material-ui/core/IconButton";
+import { ExpensesContext } from "../../contexts/ExpensesContext";
 
 export default function ExpensesListItem({
   removeExpense,
@@ -28,6 +29,7 @@ export default function ExpensesListItem({
   title,
   date
 }) {
+  const expensesContext = useContext(ExpensesContext);
   const [removeItem, setRemoveItem] = useState(false);
 
   const labelClass = () =>
@@ -77,12 +79,21 @@ export default function ExpensesListItem({
           <div className={labelClass()}>{labelShortcut()}</div>
           <div className={tit}>{title}</div>
           <div className={price}>{numeral(cost).format("0,0.00")}</div>
-          <button
-            className={remove}
-            onClick={() => {
-              setRemoveItem(true);
-            }}
-          />
+          {expensesContext.monthlyBudgets.filter(
+            budget =>
+              budget.monthYear === expensesContext.selectedMonth.monthYear
+          ).length &&
+          expensesContext.monthlyBudgets.filter(
+            budget =>
+              budget.monthYear === expensesContext.selectedMonth.monthYear
+          )[0].budgetClose ? null : (
+            <button
+              className={remove}
+              onClick={() => {
+                setRemoveItem(true);
+              }}
+            />
+          )}
         </>
       )}
     </li>

@@ -33,7 +33,7 @@ const materialTheme = createMuiTheme({
 
 const useStyles = makeStyles({
   root: {
-    width: 180,
+    width: 330,
     margin: "10px 0 0 10px ",
     borderRadius: 5,
     "& input": {
@@ -58,8 +58,8 @@ const useStyles = makeStyles({
     }
   },
   disabled: {
-    width: 180,
-    margin: "10px 0 0 20px ",
+    width: 330,
+    margin: "10px 0 0 10px ",
     borderRadius: 5,
     "& input": {
       color: "black",

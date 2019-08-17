@@ -77,6 +77,14 @@ export function ExpensesProvider(props) {
       .remove();
   }
 
+  function closeMonthlyBudget(monthlyBudgetID, budgetClose) {
+    const key = `budgets/${
+      authContext.user.uid
+    }/${monthlyBudgetID}/budgetClose`;
+    const value = !budgetClose;
+    db.ref().update({ [key]: value });
+  }
+
   function addExpense(expense) {
     db.ref(`expenses/${authContext.user.uid}`).push(expense);
   }
@@ -131,7 +139,8 @@ export function ExpensesProvider(props) {
         setExpense,
         addExpenseByClick,
         disableMonthYearPicker,
-        setDisableMonthYearPicker
+        setDisableMonthYearPicker,
+        closeMonthlyBudget
       }}
       {...props}
     />

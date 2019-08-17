@@ -81,33 +81,44 @@ export default function BudgetInput(props) {
               PLN
             </p>
             <p className={p4}>on {moment().format("MMMM Do, YYYY")}</p>
-            <ButtonSubmit
-              style={{
-                padding: 0,
-                height: 25,
-                width: 40,
-                alignSelf: "flex-end"
-              }}
-              onClick={() => {
-                const budgetToRemoveID = expensesContext.monthlyBudgets.find(
-                  budget =>
-                    budget.monthYear === expensesContext.selectedMonth.monthYear
-                ).id;
-                expensesContext.setMonthlyBudget({
-                  budgetPerMonth: expensesContext.monthlyBudgets.find(
+            {expensesContext.monthlyBudgets.filter(
+              budget =>
+                budget.monthYear === expensesContext.selectedMonth.monthYear
+            ).length &&
+            expensesContext.monthlyBudgets.filter(
+              budget =>
+                budget.monthYear === expensesContext.selectedMonth.monthYear
+            )[0].budgetClose ? null : (
+              <ButtonSubmit
+                style={{
+                  padding: 0,
+                  height: 25,
+                  width: 40,
+                  alignSelf: "flex-end"
+                }}
+                onClick={() => {
+                  const budgetToRemoveID = expensesContext.monthlyBudgets.find(
                     budget =>
                       budget.monthYear ===
                       expensesContext.selectedMonth.monthYear
-                  ).budgetPerMonth,
-                  monthYear: expensesContext.selectedMonth.monthYear,
-                  month: expensesContext.selectedMonth.date.getMonth()
-                });
-                expensesContext.removeMonthlyBudget(budgetToRemoveID);
-                expensesContext.setDisableMonthYearPicker(true);
-              }}
-            >
-              Edit
-            </ButtonSubmit>
+                  ).id;
+                  expensesContext.setMonthlyBudget({
+                    budgetPerMonth: expensesContext.monthlyBudgets.find(
+                      budget =>
+                        budget.monthYear ===
+                        expensesContext.selectedMonth.monthYear
+                    ).budgetPerMonth,
+                    monthYear: expensesContext.selectedMonth.monthYear,
+                    month: expensesContext.selectedMonth.date.getMonth(),
+                    budgetClose: false
+                  });
+                  expensesContext.removeMonthlyBudget(budgetToRemoveID);
+                  expensesContext.setDisableMonthYearPicker(true);
+                }}
+              >
+                Edit
+              </ButtonSubmit>
+            )}
           </div>
         </>
       ) : (
@@ -130,7 +141,8 @@ export default function BudgetInput(props) {
                   expensesContext.setMonthlyBudget({
                     budgetPerMonth: value,
                     monthYear: expensesContext.selectedMonth.monthYear,
-                    month: expensesContext.selectedMonth.date.getMonth()
+                    month: expensesContext.selectedMonth.date.getMonth(),
+                    budgetClose: false
                   });
                 }}
               />

@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import {
-  LineChart,
+  ComposedChart,
   Line,
+  Bar,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -54,7 +55,7 @@ export default function Chart(props) {
     <React.Fragment>
       <Title>{moment().format("MMMM")}</Title>
       <ResponsiveContainer>
-        <LineChart
+        <ComposedChart
           width={500}
           height={300}
           data={data}
@@ -70,15 +71,13 @@ export default function Chart(props) {
           <YAxis />
           <Tooltip />
           <Legend />
-          <Line
-            type="monotone"
+          <Bar
             dataKey="expensesOnCurrentDay"
-            name="cumulative sum"
-            stroke="#8884d8"
-            activeDot={{ r: 8 }}
+            barSize={20}
+            fill="rgba(19, 145, 135, 0.65)"
           />
           <Line type="monotone" dataKey="budget" stroke="red" />
-        </LineChart>
+        </ComposedChart>
       </ResponsiveContainer>
     </React.Fragment>
   );

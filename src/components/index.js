@@ -20,6 +20,10 @@ import Profile from "./Profile";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import SignOut from "./SignOut";
+import Chart from "./Chart";
+import Title from "./Title";
+import Saldo from "./Saldo";
+import Expenses from "./Expenses";
 
 export {
   Navigation,
@@ -43,5 +47,9 @@ export {
   Profile,
   SignIn,
   SignUp,
-  SignOut
+  SignOut,
+  Chart,
+  Title,
+  Saldo,
+  Expenses
 };

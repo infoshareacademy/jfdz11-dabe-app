@@ -23,7 +23,7 @@ export function ExpensesProvider(props) {
 
   const [expense, setExpense] = useState({
     cost: 0,
-    date: new Date(),
+    date: selectedMonth.date,
     monthYear: new Date().toLocaleDateString().slice(-7),
     category: "",
     title: "",

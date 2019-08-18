@@ -45,7 +45,7 @@ export default function DatePicker({ selectedDate, expense, setExpense }) {
           inputVariant="outlined"
           label="Date"
           format="dd/MM/yyyy"
-          value={selectedDate}
+          value={expense.date}
           InputAdornmentProps={{ position: "end" }}
           onChange={date =>
             setExpense({

@@ -111,6 +111,7 @@ export default function MonthYearPicker(props) {
                 date,
                 monthYear: date.toLocaleDateString().slice(-7)
               });
+              expensesContext.setExpense(...expensesContext.expense, date);
             }}
           />
         )}

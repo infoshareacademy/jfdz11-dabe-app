@@ -14,6 +14,7 @@ export function AuthProvider(props) {
   const [file, setFile] = useState(null);
   const [avatarUrl, setAvatarUrl] = useState("");
   const [completed, setCompleted] = useState(0);
+  const [appUsersList, setAppUsersList] = useState([]);
   let isInvalid = password1 !== password2 || password1 === "";
 
   useEffect(() => {
@@ -22,6 +23,19 @@ export function AuthProvider(props) {
         setUser(authUser);
       } else {
         setUser(null);
+      }
+    });
+    db.ref(`users`).on("value", snapshot => {
+      if (snapshot.val()) {
+        const appUsersList = snapshot.val();
+        const parseAppUsersList = Object.keys(appUsersList).map(userID => ({
+          ...appUsersList[userID],
+          id: userID
+        }));
+        setAppUsersList(parseAppUsersList);
+        console.log(parseAppUsersList);
+      } else {
+        setAppUsersList([]);
       }
     });
 

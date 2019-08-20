@@ -64,12 +64,14 @@ export function AuthProvider(props) {
     auth
       .signInWithPopup(provider)
       .then(result => {
-        if (result.user) {
-          userRef(result.user.uid).set({
+        if (result.additionalUserInfo.isNewUser) {
+          db.ref(`users/${result.user.uid}`).set({
             login: result.user.displayName,
             email: result.user.email,
             date: new Date().toISOString()
           });
+          alert("Successfully registered.");
+        } else {
           getAvatarUrl(result.user.uid);
           alert("Successfully logged.");
         }
@@ -83,7 +85,7 @@ export function AuthProvider(props) {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then(authUser => {
-        userRef(authUser.user.uid).set({
+        db.ref(`users/${authUser.user.uid}`).set({
           login,
           email,
           date: new Date().toISOString()
@@ -92,8 +94,12 @@ export function AuthProvider(props) {
           displayName: login
         });
       })
-      .then(() => setAvatarUrl(null))
       .then(() => alert("Successfully registered."))
+      .then(() => {
+        setEmail("");
+        setPassword("");
+        setLogin("");
+      })
       .catch(e => alert(e.message));
   }
 

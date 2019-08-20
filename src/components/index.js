@@ -24,6 +24,7 @@ import Chart from "./Chart";
 import Title from "./Title";
 import Saldo from "./Saldo";
 import Expenses from "./Expenses";
+import ShareYourBudget from "./ShareYourBudget";
 
 export {
   Navigation,
@@ -51,5 +52,6 @@ export {
   Chart,
   Title,
   Saldo,
-  Expenses
+  Expenses,
+  ShareYourBudget
 };

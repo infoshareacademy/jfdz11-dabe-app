@@ -6,7 +6,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "../Menu";
 import { NavLink } from "react-router-dom";
-import { SignOut } from "../../components";
+import { SignOut, ShareYourBudget } from "../../components";
 import { AuthContext } from "../../contexts/AuthContext";
 import Avatar from "@material-ui/core/Avatar";
 import avatarPlaceholder from "../../assets/avatar-placeholder.jpg";
@@ -49,6 +49,7 @@ export default function Navigation(props) {
           >
             <Menu />
           </IconButton>
+          <ShareYourBudget />
           <Typography
             className={classes.typography}
             component="p"

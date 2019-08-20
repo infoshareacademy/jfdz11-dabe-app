@@ -103,8 +103,55 @@ export function AuthProvider(props) {
       .catch(e => alert(e.message));
   }
 
-  function userRef(uid) {
-    return db.ref(`users/${uid}`);
+  function updateBudgetsSharedByMe(rootRef, childRef, value) {
+    const key = `${rootRef}/${user.uid}/${childRef}`;
+    db.ref().update({ [key]: value });
+  }
+
+  function updateUsersObjectPropertyBudgetsSharedForMe(
+    rootRef,
+    uid,
+    childRef,
+    email,
+    value
+  ) {
+    const key = `${rootRef}/${uid}/${childRef}/${email}`;
+    db.ref().update({ [key]: value });
+    value.forEach(user =>
+      updateUsersObjectPropertyBudgetsSharedForMe(
+        "users",
+        Object.values(user)[0],
+        "budgetsSharedForMe",
+        Object.keys(user)[0],
+        user
+      )
+    );
+  }
+
+  function updateSharedBudgets(
+    previousBudgetsSharedByMe,
+    currentBudgetsSharedByMe
+  ) {
+    if (previousBudgetsSharedByMe.length) {
+      previousBudgetsSharedByMe
+        .filter(
+          previousUser => !currentBudgetsSharedByMe.includes(previousUser)
+        )
+        .forEach(user =>
+          updateUsersObjectPropertyBudgetsSharedForMe(
+            "users",
+            Object.values(user)[0],
+            "budgetsSharedForMe",
+            Object.keys(user)[0],
+            null
+          )
+        );
+    }
+    updateBudgetsSharedByMe(
+      "users",
+      "budgetsSharedByMe",
+      currentBudgetsSharedByMe
+    );
   }
 
   function passwordUpdate() {
@@ -230,7 +277,10 @@ export function AuthProvider(props) {
         setPassword1,
         setPassword2,
         isInvalid,
-        resetPasswordViaEmail
+        resetPasswordViaEmail,
+        appUsersList,
+        setAppUsersList,
+        updateSharedBudgets
       }}
       {...props}
     />

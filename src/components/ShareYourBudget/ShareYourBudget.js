@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Input from "@material-ui/core/Input";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -40,26 +40,24 @@ const MenuProps = {
 export default function ShareYourBudget(props) {
   const classes = useStyles();
   const authContext = useContext(AuthContext);
-  const currentUser = authContext.appUsersList.find(
-    user => user.id === authContext.user.uid
-  );
-  console.log(currentUser);
-  const previousBudgetsSharedByMe =
-    (currentUser.hasOwnProperty("budgetsSharedByMe") &&
-      currentUser.budgetsSharedByMe) ||
-    [];
+  const expensesContext = useContext(ExpensesContext);
 
-  const [currentBudgetsSharedByMe, setCurrentBudgetsSharedByMe] = useState(
-    previousBudgetsSharedByMe
-  );
+  const [currentBudgetsSharedByMe, setCurrentBudgetsSharedByMe] = useState([]);
 
   function handleChange(event) {
     setCurrentBudgetsSharedByMe(event.target.value);
-    authContext.updateSharedBudgets(
-      previousBudgetsSharedByMe,
-      currentBudgetsSharedByMe
-    );
   }
+
+  useEffect(() => {
+    setCurrentBudgetsSharedByMe(
+      authContext.usersList.filter(
+        user1 =>
+          expensesContext.budgetsShareByMe.filter(
+            user2 => user2.id === user1.id
+          ).length > 0
+      )
+    );
+  }, [expensesContext.budgetsShareByMe, authContext.usersList]);
 
   return (
     <div className={classes.root}>
@@ -75,17 +73,20 @@ export default function ShareYourBudget(props) {
           renderValue={() => "Share Your budget"}
           MenuProps={MenuProps}
         >
-          {authContext.appUsersList.map(user => (
-            <MenuItem key={user.id} value={{ [user.email]: user.id }}>
-              <Checkbox
-                checked={
-                  currentBudgetsSharedByMe.indexOf({ [user.email]: user.id }) >
-                  -1
-                }
-              />
-              <ListItemText primary={user.email} />
-            </MenuItem>
-          ))}
+          {authContext.usersList
+            .filter(user => user.email !== authContext.user.email)
+            .map(user => (
+              <MenuItem key={user.id} value={user}>
+                <Checkbox
+                  checked={
+                    currentBudgetsSharedByMe.filter(
+                      share => share.id === user.id
+                    ).length > 0
+                  }
+                />
+                <ListItemText primary={user.email} />
+              </MenuItem>
+            ))}
         </Select>
       </FormControl>
       <Button

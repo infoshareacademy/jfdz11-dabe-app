@@ -8,6 +8,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Select from "@material-ui/core/Select";
 import Checkbox from "@material-ui/core/Checkbox";
 import { AuthContext } from "../../contexts/AuthContext";
+import { ExpensesContext } from "../../contexts/ExpensesContext";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -18,6 +20,9 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(1),
     minWidth: 120,
     maxWidth: 300
+  },
+  button: {
+    margin: theme.spacing(1)
   }
 }));
 
@@ -83,6 +88,16 @@ export default function ShareYourBudget(props) {
           ))}
         </Select>
       </FormControl>
+      <Button
+        onClick={() =>
+          expensesContext.updateBudgetsSharedByMe(currentBudgetsSharedByMe)
+        }
+        variant="contained"
+        color="secondary"
+        className={classes.button}
+      >
+        Submit
+      </Button>
     </div>
   );
 }

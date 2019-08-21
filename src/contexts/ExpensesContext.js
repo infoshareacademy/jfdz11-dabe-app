@@ -32,6 +32,9 @@ export function ExpensesProvider(props) {
 
   const [disableMonthYearPicker, setDisableMonthYearPicker] = useState(false);
 
+  const [budgetsShareByMe, setBudgetsShareByMe] = useState([]);
+  const [budgetsShareForMe, setBudgetsShareForMe] = useState([]);
+
   useEffect(() => {
     db.ref(`budgets/${authContext.user.uid}`).on("value", snapshot => {
       if (snapshot.val()) {
@@ -59,11 +62,42 @@ export function ExpensesProvider(props) {
       }
     });
 
+    db.ref(`budgetsShareByMe/${authContext.user.uid}`).on("value", snapshot => {
+      if (snapshot.val()) {
+        const usersList = snapshot.val();
+        const parseUsersList = Object.keys(usersList).map(key => ({
+          ...usersList[key]
+        }));
+        setBudgetsShareByMe(parseUsersList);
+      } else {
+        setBudgetsShareByMe([]);
+      }
+    });
+
+    db.ref(`budgetsShareForMe/${authContext.user.uid}`).on(
+      "value",
+      snapshot => {
+        if (snapshot.val()) {
+          const budgetsShareForMe = snapshot.val();
+          const parseBudgetsShareForMe = Object.keys(budgetsShareForMe).map(
+            key => ({
+              ...budgetsShareForMe[key]
+            })
+          );
+          setBudgetsShareForMe(parseBudgetsShareForMe);
+        } else {
+          setBudgetsShareForMe([]);
+        }
+      }
+    );
+
     authContext.getAvatarUrl(authContext.user.uid);
 
     return () => {
       db.ref(`budgets/${authContext.user.uid}`).off();
       db.ref(`expenses/${authContext.user.uid}`).off();
+      db.ref(`budgetsShareByMe/${authContext.user.uid}`).off();
+      db.ref(`budgetsShareForMe/${authContext.user.uid}`).off();
     };
   }, [authContext]);
 
@@ -140,7 +174,10 @@ export function ExpensesProvider(props) {
         addExpenseByClick,
         disableMonthYearPicker,
         setDisableMonthYearPicker,
-        closeMonthlyBudget
+        closeMonthlyBudget,
+        budgetsShareByMe,
+        updateBudgetsSharedByMe,
+        budgetsShareForMe
       }}
       {...props}
     />

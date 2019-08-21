@@ -15,6 +15,7 @@ export function AuthProvider(props) {
   const [avatarUrl, setAvatarUrl] = useState("");
   const [completed, setCompleted] = useState(0);
   const [appUsersList, setAppUsersList] = useState([]);
+  const [usersList, setUsersList] = useState([]);
   let isInvalid = password1 !== password2 || password1 === "";
 
   useEffect(() => {
@@ -32,14 +33,22 @@ export function AuthProvider(props) {
           ...appUsersList[userID],
           id: userID
         }));
+        const parseUsersList = Object.keys(appUsersList).map(userID => ({
+          email: appUsersList[userID].email,
+          id: userID
+        }));
         setAppUsersList(parseAppUsersList);
-        console.log(parseAppUsersList);
+        setUsersList(parseUsersList);
       } else {
         setAppUsersList([]);
+        setUsersList([]);
       }
     });
 
-    return () => listener();
+    return () => {
+      listener();
+      db.ref(`users`).off();
+    };
   }, []);
 
   function handleSignIn(event) {
@@ -101,57 +110,6 @@ export function AuthProvider(props) {
         setLogin("");
       })
       .catch(e => alert(e.message));
-  }
-
-  function updateBudgetsSharedByMe(rootRef, childRef, value) {
-    const key = `${rootRef}/${user.uid}/${childRef}`;
-    db.ref().update({ [key]: value });
-  }
-
-  function updateUsersObjectPropertyBudgetsSharedForMe(
-    rootRef,
-    uid,
-    childRef,
-    email,
-    value
-  ) {
-    const key = `${rootRef}/${uid}/${childRef}/${email}`;
-    db.ref().update({ [key]: value });
-    value.forEach(user =>
-      updateUsersObjectPropertyBudgetsSharedForMe(
-        "users",
-        Object.values(user)[0],
-        "budgetsSharedForMe",
-        Object.keys(user)[0],
-        user
-      )
-    );
-  }
-
-  function updateSharedBudgets(
-    previousBudgetsSharedByMe,
-    currentBudgetsSharedByMe
-  ) {
-    if (previousBudgetsSharedByMe.length) {
-      previousBudgetsSharedByMe
-        .filter(
-          previousUser => !currentBudgetsSharedByMe.includes(previousUser)
-        )
-        .forEach(user =>
-          updateUsersObjectPropertyBudgetsSharedForMe(
-            "users",
-            Object.values(user)[0],
-            "budgetsSharedForMe",
-            Object.keys(user)[0],
-            null
-          )
-        );
-    }
-    updateBudgetsSharedByMe(
-      "users",
-      "budgetsSharedByMe",
-      currentBudgetsSharedByMe
-    );
   }
 
   function passwordUpdate() {
@@ -280,7 +238,7 @@ export function AuthProvider(props) {
         resetPasswordViaEmail,
         appUsersList,
         setAppUsersList,
-        updateSharedBudgets
+        usersList
       }}
       {...props}
     />

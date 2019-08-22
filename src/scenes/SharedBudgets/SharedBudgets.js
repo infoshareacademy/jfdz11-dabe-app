@@ -16,21 +16,22 @@ import { Chart, Saldo, Expenses } from "../../components";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex"
+    display: "flex",
+    flexDirection: "column"
   },
   container: {
-    paddingTop: theme.spacing(3),
-    paddingBottom: theme.spacing(3)
+    paddingTop: theme.spacing(0),
+    paddingBottom: theme.spacing(1)
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     display: "flex",
     overflow: "hidden;",
     flexDirection: "column"
   },
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120
+    width: 150
   },
   fixedHeight: {
     height: 260
@@ -93,7 +94,7 @@ export default function SharedBudgets() {
       <CssBaseline />
       <FormControl variant="outlined" className={classes.formControl}>
         <InputLabel ref={inputLabel} htmlFor="outlined-age-simple">
-          Shared budgets
+          Select budget
         </InputLabel>
         <Select
           value={selectedBudget}
@@ -114,7 +115,7 @@ export default function SharedBudgets() {
         </Select>
       </FormControl>
       <Container maxWidth="xl" className={classes.container}>
-        <Grid container spacing={4}>
+        <Grid container spacing={2}>
           <Grid item xs={12} md={8} lg={9}>
             <Paper className={fixedHeightPaper}>
               <Chart expenses={expenses} monthlyBudgets={monthlyBudgets} />
@@ -125,7 +126,7 @@ export default function SharedBudgets() {
               <Saldo expenses={expenses} monthlyBudgets={monthlyBudgets} />
             </Paper>
           </Grid>
-          <Grid item xs={12} md={8} lg={9}>
+          <Grid item xs={12} md={8} lg={12}>
             <Paper className={classes.paper}>
               <Expenses expenses={expenses} />
             </Paper>

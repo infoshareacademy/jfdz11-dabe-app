@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import clsx from "clsx";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
+import { ExpensesContext } from "../../contexts/ExpensesContext";
 import { Chart, Saldo, Expenses } from "../../components";
 
 const useStyles = makeStyles(theme => ({
@@ -27,6 +28,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Dashboard() {
+  const expensesContext = useContext(ExpensesContext);
   const classes = useStyles();
 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
@@ -38,17 +40,23 @@ export default function Dashboard() {
         <Grid container spacing={4}>
           <Grid item xs={12} md={8} lg={9}>
             <Paper className={fixedHeightPaper}>
-              <Chart />
+              <Chart
+                expenses={expensesContext.expenses}
+                monthlyBudgets={expensesContext.monthlyBudgets}
+              />
             </Paper>
           </Grid>
           <Grid item xs={12} md={4} lg={3}>
             <Paper className={fixedHeightPaper}>
-              <Saldo />
+              <Saldo
+                expenses={expensesContext.expenses}
+                monthlyBudgets={expensesContext.monthlyBudgets}
+              />
             </Paper>
           </Grid>
           <Grid item xs={12} md={8} lg={9}>
             <Paper className={classes.paper}>
-              <Expenses />
+              <Expenses expenses={expensesContext.expenses} />
             </Paper>
           </Grid>
         </Grid>

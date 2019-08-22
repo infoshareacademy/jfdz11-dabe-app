@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import {
   ComposedChart,
   Line,
@@ -12,7 +12,6 @@ import {
 } from "recharts";
 import moment from "moment";
 import Title from "../Title";
-import { ExpensesContext } from "../../contexts/ExpensesContext";
 
 function currentMonthData(expenses, budgets) {
   const budget = budgets.filter(
@@ -42,13 +41,9 @@ function currentMonthData(expenses, budgets) {
 }
 
 export default function Chart(props) {
-  const expensesContext = useContext(ExpensesContext);
   const data =
-    expensesContext.expenses.length && expensesContext.monthlyBudgets.length
-      ? currentMonthData(
-          expensesContext.expenses,
-          expensesContext.monthlyBudgets
-        )
+    props.expenses.length && props.monthlyBudgets.length
+      ? currentMonthData(props.expenses, props.monthlyBudgets)
       : [];
 
   return (

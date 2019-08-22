@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -7,12 +7,10 @@ import TableRow from "@material-ui/core/TableRow";
 import Title from "../Title";
 import moment from "moment";
 import numeral from "numeral";
-import { ExpensesContext } from "../../contexts/ExpensesContext";
 
-export default function Expenses() {
-  const expensesContext = useContext(ExpensesContext);
-  const rows = expensesContext.expenses.length
-    ? expensesContext.expenses
+export default function Expenses(props) {
+  const rows = props.expenses.length
+    ? props.expenses
         .filter(
           expense =>
             expense.monthYear === new Date().toLocaleDateString().slice(-7)

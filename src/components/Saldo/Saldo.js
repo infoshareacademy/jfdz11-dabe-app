@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Title from "../Title";
 import moment from "moment";
 import numeral from "numeral";
-import { ExpensesContext } from "../../contexts/ExpensesContext";
 
 const useStyles = makeStyles({
   saldoContext: {
@@ -12,22 +11,21 @@ const useStyles = makeStyles({
   }
 });
 
-export default function Saldo() {
+export default function Saldo(props) {
   const classes = useStyles();
-  const expensesContext = useContext(ExpensesContext);
+
   return (
     <React.Fragment>
       <Title>Saldo</Title>
-      {expensesContext.expenses.length &&
-      expensesContext.monthlyBudgets.length ? (
+      {props.expenses.length && props.monthlyBudgets.length ? (
         <Typography component="p" variant="h4">
           PLN{" "}
           {numeral(
-            expensesContext.monthlyBudgets.filter(
+            props.monthlyBudgets.filter(
               budget =>
                 budget.monthYear === new Date().toLocaleDateString().slice(-7)
             )[0].budgetPerMonth -
-              expensesContext.expenses.reduce(
+              props.expenses.reduce(
                 (result, expens) =>
                   expens.monthYear === new Date().toLocaleDateString().slice(-7)
                     ? (result += expens.cost)

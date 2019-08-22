@@ -16,6 +16,7 @@ export function AuthProvider(props) {
   const [completed, setCompleted] = useState(0);
   const [appUsersList, setAppUsersList] = useState([]);
   const [usersList, setUsersList] = useState([]);
+  const [budgetsSharedForMe, setBudgetsSharedForMe] = useState([]);
   let isInvalid = password1 !== password2 || password1 === "";
 
   useEffect(() => {
@@ -37,6 +38,7 @@ export function AuthProvider(props) {
           email: appUsersList[userID].email,
           id: userID
         }));
+
         setAppUsersList(parseAppUsersList);
         setUsersList(parseUsersList);
       } else {
@@ -44,10 +46,29 @@ export function AuthProvider(props) {
         setUsersList([]);
       }
     });
+    db.ref(`budgetsSharedForMe`).on("value", snapshot => {
+      if (snapshot.val()) {
+        const rawDataFromFirebase = snapshot.val();
+        const budgetsSharedForMe = Object.values(rawDataFromFirebase);
+        const parseBudgetsSharedForMe = budgetsSharedForMe
+          .map(obj =>
+            Object.keys(obj).map(key => ({
+              ...obj[key],
+              key
+            }))
+          )
+          .flat();
+
+        setBudgetsSharedForMe(parseBudgetsSharedForMe);
+      } else {
+        setBudgetsSharedForMe([]);
+      }
+    });
 
     return () => {
       listener();
       db.ref(`users`).off();
+      db.ref(`budgetsSharedForMe`).off();
     };
   }, []);
 
@@ -180,7 +201,7 @@ export function AuthProvider(props) {
       .delete()
       .then(() => {
         alert("Successfully removed");
-        getAvatarUrl(user.uid);
+        setAvatarUrl("");
       });
   }
 
@@ -238,7 +259,8 @@ export function AuthProvider(props) {
         resetPasswordViaEmail,
         appUsersList,
         setAppUsersList,
-        usersList
+        usersList,
+        budgetsSharedForMe
       }}
       {...props}
     />

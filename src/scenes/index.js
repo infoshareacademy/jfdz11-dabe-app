@@ -1,6 +1,6 @@
 import Dashboard from "./Dashboard";
 import Finances from "./Finances";
 import Review from "./Review";
-import Report from "./Report";
+import SharedBudgets from "./SharedBudgets";
 import NoMatch from "./NoMatch";
-export { Dashboard, Finances, Review, Report, NoMatch };
+export { Dashboard, Finances, Review, SharedBudgets, NoMatch };

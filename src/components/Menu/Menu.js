@@ -22,7 +22,7 @@ export default function Menu() {
     right: false
   });
   const icons = [<Home />, <AttachMoney />, <Style />, <PieChart />, <Face />];
-  const scenesPaths = ["/dashboard", "/finances", "/review", "/report"];
+  const scenesPaths = ["/dashboard", "/finances", "/review", "/shared"];
 
   const toggleDrawer = (side, open) => event => {
     if (
@@ -46,14 +46,16 @@ export default function Menu() {
       <p className={versioning}>v0.0.0</p>
       <Divider />
       <List>
-        {["Dashboard", "Finances", "Review", "Report"].map((text, index) => (
-          <NavLink key={text} to={scenesPaths[index]} className={navLink}>
-            <ListItem button>
-              <ListItemIcon>{icons[index]}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          </NavLink>
-        ))}
+        {["Dashboard", "Finances", "Review", "Shared Budgets"].map(
+          (text, index) => (
+            <NavLink key={text} to={scenesPaths[index]} className={navLink}>
+              <ListItem button>
+                <ListItemIcon>{icons[index]}</ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            </NavLink>
+          )
+        )}
       </List>
       <Divider />
       <List>

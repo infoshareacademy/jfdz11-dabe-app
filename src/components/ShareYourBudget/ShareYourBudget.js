@@ -52,12 +52,12 @@ export default function ShareYourBudget(props) {
     setCurrentBudgetsSharedByMe(
       authContext.usersList.filter(
         user1 =>
-          expensesContext.budgetsShareByMe.filter(
+          expensesContext.budgetsSharedByMe.filter(
             user2 => user2.id === user1.id
           ).length > 0
       )
     );
-  }, [expensesContext.budgetsShareByMe, authContext.usersList]);
+  }, [expensesContext.budgetsSharedByMe, authContext.usersList]);
 
   return (
     <div className={classes.root}>

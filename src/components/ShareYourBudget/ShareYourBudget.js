@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Input from "@material-ui/core/Input";
-import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -17,12 +16,10 @@ const useStyles = makeStyles(theme => ({
     flexWrap: "wrap"
   },
   formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-    maxWidth: 300
+    margin: theme.spacing(2)
   },
   button: {
-    margin: theme.spacing(1)
+    margin: theme.spacing(2)
   }
 }));
 
@@ -62,9 +59,6 @@ export default function ShareYourBudget(props) {
   return (
     <div className={classes.root}>
       <FormControl className={classes.formControl}>
-        <InputLabel htmlFor="select-multiple-checkbox">
-          Share Your budget
-        </InputLabel>
         <Select
           multiple
           value={currentBudgetsSharedByMe}
@@ -97,7 +91,7 @@ export default function ShareYourBudget(props) {
         color="secondary"
         className={classes.button}
       >
-        Submit
+        SHARE
       </Button>
     </div>
   );

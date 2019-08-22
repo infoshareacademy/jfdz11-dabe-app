@@ -104,6 +104,41 @@ export function ExpensesProvider(props) {
     };
   }, [authContext]);
 
+  function updateBudgetsSharedByMe(listOfSharedUsers) {
+    const listOfUsersToGiveAccess = listOfSharedUsers.filter(
+      user1 =>
+        !budgetsSharedByMe.filter(user2 => user2.id === user1.id).length > 0
+    );
+    const listOfUsersToRemoveAccess = budgetsSharedByMe.filter(
+      user1 =>
+        !listOfSharedUsers.filter(user2 => user2.id === user1.id).length > 0
+    );
+
+    db.ref(`budgetsSharedByMe/${authContext.user.uid}`)
+      .remove()
+      .then(() =>
+        listOfSharedUsers.forEach(user =>
+          db.ref(`budgetsSharedByMe/${authContext.user.uid}`).push(user)
+        )
+      );
+
+    listOfUsersToGiveAccess.forEach(user =>
+      db.ref(`budgetsSharedForMe/${user.id}`).push({
+        email: authContext.user.email,
+        id: authContext.user.uid
+      })
+    );
+
+    listOfUsersToRemoveAccess.forEach(user => {
+      const key = authContext.budgetsSharedForMe.filter(
+        user1 =>
+          user1.email === authContext.user.email &&
+          user1.id === authContext.user.uid
+      )[0].key;
+      db.ref(`budgetsSharedForMe/${user.id}/${key}`).remove();
+    });
+  }
+
   function addMonthlyBudget(monthlyBudget) {
     db.ref(`budgets/${authContext.user.uid}`).push(monthlyBudget);
   }

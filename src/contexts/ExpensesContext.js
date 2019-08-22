@@ -32,8 +32,8 @@ export function ExpensesProvider(props) {
 
   const [disableMonthYearPicker, setDisableMonthYearPicker] = useState(false);
 
-  const [budgetsShareByMe, setBudgetsShareByMe] = useState([]);
-  const [budgetsShareForMe, setBudgetsShareForMe] = useState([]);
+  const [budgetsSharedByMe, setBudgetsSharedByMe] = useState([]);
+  const [budgetsSharedForMe, setBudgetsSharedForMe] = useState([]);
 
   useEffect(() => {
     db.ref(`budgets/${authContext.user.uid}`).on("value", snapshot => {
@@ -62,31 +62,34 @@ export function ExpensesProvider(props) {
       }
     });
 
-    db.ref(`budgetsShareByMe/${authContext.user.uid}`).on("value", snapshot => {
-      if (snapshot.val()) {
-        const usersList = snapshot.val();
-        const parseUsersList = Object.keys(usersList).map(key => ({
-          ...usersList[key]
-        }));
-        setBudgetsShareByMe(parseUsersList);
-      } else {
-        setBudgetsShareByMe([]);
-      }
-    });
-
-    db.ref(`budgetsShareForMe/${authContext.user.uid}`).on(
+    db.ref(`budgetsSharedByMe/${authContext.user.uid}`).on(
       "value",
       snapshot => {
         if (snapshot.val()) {
-          const budgetsShareForMe = snapshot.val();
-          const parseBudgetsShareForMe = Object.keys(budgetsShareForMe).map(
+          const usersList = snapshot.val();
+          const parseUsersList = Object.keys(usersList).map(key => ({
+            ...usersList[key]
+          }));
+          setBudgetsSharedByMe(parseUsersList);
+        } else {
+          setBudgetsSharedByMe([]);
+        }
+      }
+    );
+
+    db.ref(`budgetsSharedForMe/${authContext.user.uid}`).on(
+      "value",
+      snapshot => {
+        if (snapshot.val()) {
+          const budgetsSharedForMe = snapshot.val();
+          const parseBudgetsSharedForMe = Object.keys(budgetsSharedForMe).map(
             key => ({
-              ...budgetsShareForMe[key]
+              ...budgetsSharedForMe[key]
             })
           );
-          setBudgetsShareForMe(parseBudgetsShareForMe);
+          setBudgetsSharedForMe(parseBudgetsSharedForMe);
         } else {
-          setBudgetsShareForMe([]);
+          setBudgetsSharedForMe([]);
         }
       }
     );
@@ -96,8 +99,8 @@ export function ExpensesProvider(props) {
     return () => {
       db.ref(`budgets/${authContext.user.uid}`).off();
       db.ref(`expenses/${authContext.user.uid}`).off();
-      db.ref(`budgetsShareByMe/${authContext.user.uid}`).off();
-      db.ref(`budgetsShareForMe/${authContext.user.uid}`).off();
+      db.ref(`budgetsSharedByMe/${authContext.user.uid}`).off();
+      db.ref(`budgetsSharedForMe/${authContext.user.uid}`).off();
     };
   }, [authContext]);
 
@@ -175,9 +178,9 @@ export function ExpensesProvider(props) {
         disableMonthYearPicker,
         setDisableMonthYearPicker,
         closeMonthlyBudget,
-        budgetsShareByMe,
+        budgetsSharedByMe,
         updateBudgetsSharedByMe,
-        budgetsShareForMe
+        budgetsSharedForMe
       }}
       {...props}
     />

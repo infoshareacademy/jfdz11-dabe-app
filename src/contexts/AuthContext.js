@@ -98,7 +98,8 @@ export function AuthProvider(props) {
           db.ref(`users/${result.user.uid}`).set({
             login: result.user.displayName,
             email: result.user.email,
-            date: new Date().toISOString()
+            date: new Date().toLocaleDateString(),
+            week: getWeekNumber(new Date())
           });
           alert("Successfully registered.");
         } else {
@@ -118,7 +119,8 @@ export function AuthProvider(props) {
         db.ref(`users/${authUser.user.uid}`).set({
           login,
           email,
-          date: new Date().toISOString()
+          date: new Date().toLocaleDateString(),
+          week: getWeekNumber(new Date())
         });
         authUser.user.updateProfile({
           displayName: login
@@ -265,4 +267,14 @@ export function AuthProvider(props) {
       {...props}
     />
   );
+}
+
+function getWeekNumber(date) {
+  date = new Date(
+    Date.UTC(date.getFullYear(), date.getMonth(), date.getDate())
+  );
+  date.setUTCDate(date.getUTCDate() + 4 - (date.getUTCDay() || 7));
+  const yearStart = new Date(Date.UTC(date.getUTCFullYear(), 0, 1));
+  const weekNo = Math.ceil(((date - yearStart) / 86400000 + 1) / 7);
+  return weekNo;
 }

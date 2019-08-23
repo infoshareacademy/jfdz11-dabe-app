@@ -83,7 +83,7 @@ export default function ReviewList(props) {
 
   const columns = [
     {
-      title: "",
+      title: "Avatar",
       field: "",
       cellStyle: {
         textAlign: "center",
@@ -191,8 +191,14 @@ export default function ReviewList(props) {
       data={expensesContext.expenses}
       options={{
         filtering: true,
+        filterCellStyle: {
+          margin: 0,
+          border: 0,
+          backgroundColor: "rgba(19, 145, 135, 0.35)"
+        },
         headerStyle: {
-          fontSize: "16px",
+          margin: 0,
+          border: 0,
           textAlign: "center",
           backgroundColor: "rgba(19, 145, 135, 0.35)"
         },
@@ -418,15 +424,6 @@ export default function ReviewList(props) {
             </div>
           </div>
         )
-      }}
-      editable={{
-        onRowDelete: oldData =>
-          new Promise(resolve => {
-            setTimeout(() => {
-              expensesContext.removeExpense(oldData.id);
-              resolve();
-            }, 0);
-          })
       }}
     />
   );

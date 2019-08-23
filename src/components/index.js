@@ -25,6 +25,7 @@ import Title from "./Title";
 import Saldo from "./Saldo";
 import Expenses from "./Expenses";
 import ShareYourBudget from "./ShareYourBudget";
+import RegisteredUsersLastWeek from "./RegisteredUsersLastWeek";
 
 export {
   Navigation,
@@ -53,5 +54,6 @@ export {
   Title,
   Saldo,
   Expenses,
-  ShareYourBudget
+  ShareYourBudget,
+  RegisteredUsersLastWeek
 };

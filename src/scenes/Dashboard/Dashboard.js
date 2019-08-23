@@ -6,7 +6,13 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { ExpensesContext } from "../../contexts/ExpensesContext";
-import { Chart, Saldo, Expenses } from "../../components";
+import { AuthContext } from "../../contexts/AuthContext";
+import {
+  Chart,
+  Saldo,
+  Expenses,
+  RegisteredUsersLastWeek
+} from "../../components";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,14 +30,19 @@ const useStyles = makeStyles(theme => ({
   },
   fixedHeight: {
     height: 260
+  },
+  fixedHeight2: {
+    height: 310
   }
 }));
 
 export default function Dashboard() {
   const expensesContext = useContext(ExpensesContext);
+  const authContext = useContext(AuthContext);
   const classes = useStyles();
 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+  const fixedHeightPaper2 = clsx(classes.paper, classes.fixedHeight2);
 
   return (
     <div className={classes.root}>
@@ -54,9 +65,16 @@ export default function Dashboard() {
               />
             </Paper>
           </Grid>
-          <Grid item xs={12} md={8} lg={9}>
-            <Paper className={classes.paper}>
+          <Grid item xs={12} md={7} lg={7}>
+            <Paper className={fixedHeightPaper2}>
               <Expenses expenses={expensesContext.expenses} />
+            </Paper>
+          </Grid>
+          <Grid item xs={12} md={5} lg={5}>
+            <Paper className={fixedHeightPaper2}>
+              <RegisteredUsersLastWeek
+                appUsersList={authContext.appUsersList}
+              />
             </Paper>
           </Grid>
         </Grid>

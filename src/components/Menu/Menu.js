@@ -43,7 +43,7 @@ export default function Menu() {
       onKeyDown={toggleDrawer(side, false)}
     >
       <p className={appTitle}>Financial Planner</p>
-      <p className={versioning}>v0.0.0</p>
+      <p className={versioning}>v1.0.0</p>
       <Divider />
       <List>
         {["Dashboard", "Finances", "Review", "Shared Budgets"].map(

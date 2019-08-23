@@ -100,11 +100,7 @@ export default function SharedBudgets() {
           value={selectedBudget}
           onChange={handleChange}
           input={
-            <OutlinedInput
-              labelWidth={labelWidth}
-              name="age"
-              id="outlined-age-simple"
-            />
+            <OutlinedInput labelWidth={labelWidth} id="outlined-age-simple" />
           }
         >
           {expensesContext.budgetsSharedForMe.map(budget => (
@@ -114,25 +110,27 @@ export default function SharedBudgets() {
           ))}
         </Select>
       </FormControl>
-      <Container maxWidth="xl" className={classes.container}>
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={8} lg={9}>
-            <Paper className={fixedHeightPaper}>
-              <Chart expenses={expenses} monthlyBudgets={monthlyBudgets} />
-            </Paper>
+      {selectedBudget.hasOwnProperty("id") ? (
+        <Container maxWidth="xl" className={classes.container}>
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={8} lg={9}>
+              <Paper className={fixedHeightPaper}>
+                <Chart expenses={expenses} monthlyBudgets={monthlyBudgets} />
+              </Paper>
+            </Grid>
+            <Grid item xs={12} md={4} lg={3}>
+              <Paper className={fixedHeightPaper}>
+                <Saldo expenses={expenses} monthlyBudgets={monthlyBudgets} />
+              </Paper>
+            </Grid>
+            <Grid item xs={12} md={8} lg={12}>
+              <Paper className={classes.paper}>
+                <Expenses expenses={expenses} />
+              </Paper>
+            </Grid>
           </Grid>
-          <Grid item xs={12} md={4} lg={3}>
-            <Paper className={fixedHeightPaper}>
-              <Saldo expenses={expenses} monthlyBudgets={monthlyBudgets} />
-            </Paper>
-          </Grid>
-          <Grid item xs={12} md={8} lg={12}>
-            <Paper className={classes.paper}>
-              <Expenses expenses={expenses} />
-            </Paper>
-          </Grid>
-        </Grid>
-      </Container>
+        </Container>
+      ) : null}
     </div>
   );
 }

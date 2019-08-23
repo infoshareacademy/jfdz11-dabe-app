@@ -29,7 +29,7 @@ function currentMonthData(expenses, budgets) {
 
   return accumulatedDailySum.map((empty, index) => ({
     name: index + 1,
-    expensesOnCurrentDay: expensesInCurrentMonth.reduce(
+    "expenses on current day": expensesInCurrentMonth.reduce(
       (sum, expense) =>
         expense.date.slice(-2) <= index + 1
           ? (sum += expense.cost)
@@ -67,7 +67,7 @@ export default function Chart(props) {
           <Tooltip />
           <Legend />
           <Bar
-            dataKey="expensesOnCurrentDay"
+            dataKey="expenses on current day"
             barSize={20}
             fill="rgba(19, 145, 135, 0.65)"
           />

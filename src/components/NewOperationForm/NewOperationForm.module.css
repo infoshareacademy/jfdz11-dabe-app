@@ -1,0 +1,17 @@
+.newOperationForm {
+  margin: 10px 0 10px 10px;
+  padding: 15px;
+  width: 300px;
+  height: 342px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.required {
+  color: red;
+  font-size: 10px;
+}

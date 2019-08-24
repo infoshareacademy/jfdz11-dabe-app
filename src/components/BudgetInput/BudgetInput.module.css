@@ -1,0 +1,55 @@
+.budgetInput_save {
+  margin: 10px 0 40px 10px;
+  padding: 0 15px;
+  width: 300px;
+}
+.budgetInput_edit {
+  margin: 10px 0 10px 10px;
+  padding: 0 15px 15px;
+  width: 300px;
+  border: 1px solid grey;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px gray;
+  display: flex;
+  flex-direction: column;
+}
+.numericInput {
+  width: 100%;
+  display: flex;
+  font-size: 36px;
+  justify-content: space-between;
+  align-content: center;
+}
+.p1 {
+  margin: 10px;
+  font-size: 26px;
+}
+.p2 {
+  margin: 0 10px;
+  font-size: 30px;
+}
+.p3 {
+  margin: 10px 10px 0 10px;
+  font-size: 26px;
+  color: indianred;
+}
+.p4 {
+  margin: 0 10px;
+  font-size: 18px;
+  color: indianred;
+}
+.inputWrapper {
+  margin-right: 20px;
+  border-bottom: 1px solid black;
+}
+.input {
+  width: 60%;
+  margin-right: 10px;
+  border: 0px;
+  flex-basis: 1;
+  font-size: 36px;
+  text-align: end;
+}
+.input:focus {
+  outline: none;
+}

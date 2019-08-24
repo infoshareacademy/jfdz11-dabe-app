@@ -1,0 +1,1846 @@
+{
+  "expenses": {
+    "6668a367-cd25-4e28-b678-d764d5c164c4": {
+      "cost": 479,
+      "date": "2019-05-05",
+      "monthYear": "05.2019",
+      "category": "HealthAndBeauty",
+      "title": "xevrk",
+
+      "desc": false
+    },
+    "89a81be3-c9cb-47ab-87f0-4cc1dad17305": {
+      "cost": 75,
+      "date": "2019-04-30",
+      "monthYear": "04.2019",
+      "category": "Food",
+      "title": "frxoj",
+
+      "desc": false
+    },
+    "72001927-4766-4ca7-b8ca-b6a3e23c93ad": {
+      "cost": 386,
+      "date": "2019-01-13",
+      "monthYear": "01.2019",
+      "category": "Electronics",
+      "title": "sepyg",
+
+      "desc": false
+    },
+    "2977a107-3767-4d5e-ae81-67a5d099471b": {
+      "cost": 275,
+      "date": "2019-02-23",
+      "monthYear": "02.2019",
+      "category": "Electronics",
+      "title": "hbnfu",
+
+      "desc": false
+    },
+    "4bb2cac6-b7a3-4289-b13d-f775d7437c4b": {
+      "cost": 387,
+      "date": "2019-08-14",
+      "monthYear": "08.2019",
+      "category": "House",
+      "title": "ghxop",
+
+      "desc": false
+    },
+    "21af26e5-f1f6-45dc-abdb-c40646c49d61": {
+      "cost": 371,
+      "date": "2019-08-12",
+      "monthYear": "08.2019",
+      "category": "Clothing",
+      "title": "dblzy",
+
+      "desc": false
+    },
+    "91ae9ee3-5b49-4828-9b27-54ef5693221b": {
+      "cost": 222,
+      "date": "2019-07-28",
+      "monthYear": "07.2019",
+      "category": "HealthAndBeauty",
+      "title": "mycfw",
+
+      "desc": false
+    },
+    "b91b02d9-feff-4312-84fc-4b240d8228f6": {
+      "cost": 339,
+      "date": "2019-03-05",
+      "monthYear": "03.2019",
+      "category": "HealthAndBeauty",
+      "title": "lezp",
+
+      "desc": false
+    },
+    "1cf61d99-5b8e-4468-8dbb-f32272302735": {
+      "cost": 376,
+      "date": "2019-08-30",
+      "monthYear": "08.2019",
+      "category": "Car",
+      "title": "vrhxf",
+
+      "desc": false
+    },
+    "374c5772-1ef7-4137-88aa-e5cfe4643a6d": {
+      "cost": 208,
+      "date": "2019-06-15",
+      "monthYear": "06.2019",
+      "category": "Car",
+      "title": "kokcv",
+
+      "desc": false
+    },
+    "4d61e35b-689b-49d0-932f-adb973fd6530": {
+      "cost": 2,
+      "date": "2019-02-21",
+      "monthYear": "02.2019",
+      "category": "House",
+      "title": "tstw",
+
+      "desc": false
+    },
+    "3d01069d-cbc7-4bb3-969f-9a2f2573bfd7": {
+      "cost": 335,
+      "date": "2019-03-04",
+      "monthYear": "03.2019",
+      "category": "Car",
+      "title": "mkgq",
+
+      "desc": false
+    },
+    "40bb7a15-be3b-4581-b20f-59300f4b3600": {
+      "cost": 52,
+      "date": "2019-04-10",
+      "monthYear": "04.2019",
+      "category": "House",
+      "title": "axnsb",
+
+      "desc": false
+    },
+    "1994f7cc-eabf-4de5-8b45-ceb9cf958e58": {
+      "cost": 150,
+      "date": "2019-01-27",
+      "monthYear": "01.2019",
+      "category": "Car",
+      "title": "hkyhw",
+
+      "desc": false
+    },
+    "f876654e-6d5f-48db-b49c-c8a5b798f062": {
+      "cost": 254,
+      "date": "2019-06-02",
+      "monthYear": "06.2019",
+      "category": "Car",
+      "title": "pvnka",
+
+      "desc": false
+    },
+    "714a3041-1e62-4116-bcc4-344e876d6a9e": {
+      "cost": 68,
+      "date": "2019-01-16",
+      "monthYear": "01.2019",
+      "category": "Clothing",
+      "title": "qggmn",
+
+      "desc": false
+    },
+    "002849ef-8b36-443f-912e-59e9a41173f4": {
+      "cost": 404,
+      "date": "2019-03-26",
+      "monthYear": "03.2019",
+      "category": "HealthAndBeauty",
+      "title": "urafm",
+
+      "desc": false
+    },
+    "17c33551-d9a8-40ce-871b-54e63520b5c4": {
+      "cost": 18,
+      "date": "2019-02-09",
+      "monthYear": "02.2019",
+      "category": "HealthAndBeauty",
+      "title": "nurmm",
+
+      "desc": false
+    },
+    "8b81b53f-7014-4688-bc5d-a8d704d76b4f": {
+      "cost": 389,
+      "date": "2019-07-19",
+      "monthYear": "07.2019",
+      "category": "House",
+      "title": "wfsrh",
+
+      "desc": false
+    },
+    "c5ab89e6-9672-4c0b-ac60-9ec418cc8a11": {
+      "cost": 102,
+      "date": "2019-05-23",
+      "monthYear": "05.2019",
+      "category": "Clothing",
+      "title": "apkem",
+      "budgetPerMonth": 0,
+      "desc": false
+    },
+    "9c969990-e4a3-4af1-8ba9-647e0ba81e61": {
+      "cost": 337,
+      "date": "2019-03-12",
+      "monthYear": "03.2019",
+      "category": "Food",
+      "title": "dugep",
+
+      "desc": false
+    },
+    "3c9621a9-40d5-4072-86c1-c6d87e98e0fe": {
+      "cost": 299,
+      "date": "2019-01-08",
+      "monthYear": "01.2019",
+      "category": "House",
+      "title": "mguee",
+
+      "desc": false
+    },
+    "f682639f-2bf6-42d2-a14c-f446e36800bf": {
+      "cost": 274,
+      "date": "2019-03-20",
+      "monthYear": "03.2019",
+      "category": "HealthAndBeauty",
+      "title": "gqhhm",
+
+      "desc": false
+    },
+    "b46d74ce-d4cf-4db9-880a-74dd7c8c2405": {
+      "cost": 341,
+      "date": "2019-05-17",
+      "monthYear": "05.2019",
+      "category": "Car",
+      "title": "vhbqx",
+
+      "desc": false
+    },
+    "3734169a-aa7c-4a45-913b-0ec5b1391172": {
+      "cost": 297,
+      "date": "2019-04-05",
+      "monthYear": "04.2019",
+      "category": "Entertainment",
+      "title": "krkn",
+
+      "desc": false
+    },
+    "f4be19b1-85ab-4bb6-b4b4-91787fdb46f9": {
+      "cost": 292,
+      "date": "2019-01-17",
+      "monthYear": "01.2019",
+      "category": "HealthAndBeauty",
+      "title": "jaysj",
+
+      "desc": false
+    },
+    "e72a9bd6-04f5-4d94-b440-afff65f2bead": {
+      "cost": 46,
+      "date": "2019-07-21",
+      "monthYear": "07.2019",
+      "category": "House",
+      "title": "wfszg",
+
+      "desc": false
+    },
+    "818ddcef-5681-4323-a92d-36e0a4dbbc68": {
+      "cost": 364,
+      "date": "2019-06-29",
+      "monthYear": "06.2019",
+      "category": "Clothing",
+      "title": "fwjhu",
+
+      "desc": false
+    },
+    "a7aee110-1f2e-44e7-867e-8b52a14a6790": {
+      "cost": 64,
+      "date": "2019-02-02",
+      "monthYear": "02.2019",
+      "category": "Car",
+      "title": "yvznn",
+
+      "desc": false
+    },
+    "3a536803-eb55-4e84-8eab-dd0f89ab9219": {
+      "cost": 391,
+      "date": "2019-05-09",
+      "monthYear": "05.2019",
+      "category": "HealthAndBeauty",
+      "title": "ryaip",
+
+      "desc": false
+    },
+    "83ead378-60ee-4c30-ae82-6df1b2bf974d": {
+      "cost": 110,
+      "date": "2019-07-25",
+      "monthYear": "07.2019",
+      "category": "Car",
+      "title": "xiwnp",
+
+      "desc": false
+    },
+    "eb55de91-c5ca-413c-8926-657348039bf9": {
+      "cost": 336,
+      "date": "2019-01-15",
+      "monthYear": "01.2019",
+      "category": "House",
+      "title": "gcfng",
+
+      "desc": false
+    },
+    "8986850d-0528-46c4-b6f8-424fd69090ff": {
+      "cost": 44,
+      "date": "2019-04-15",
+      "monthYear": "04.2019",
+      "category": "HealthAndBeauty",
+      "title": "tgdcx",
+
+      "desc": false
+    },
+    "cd77f9f4-9819-4542-a3e3-9e7c51cc2793": {
+      "cost": 73,
+      "date": "2019-04-27",
+      "monthYear": "04.2019",
+      "category": "Car",
+      "title": "osbuq",
+
+      "desc": false
+    },
+    "3c2a963e-84e4-448a-bed1-3923a0ea2b0e": {
+      "cost": 216,
+      "date": "2019-06-13",
+      "monthYear": "06.2019",
+      "category": "Entertainment",
+      "title": "vreqt",
+
+      "desc": false
+    },
+    "5eef57ef-1210-4ba2-a4d3-57dcf84e0850": {
+      "cost": 216,
+      "date": "2019-06-20",
+      "monthYear": "06.2019",
+      "category": "Electronics",
+      "title": "hpck",
+
+      "desc": false
+    },
+    "cc202faf-9475-4d28-b066-83a2b5f0915f": {
+      "cost": 6,
+      "date": "2019-04-11",
+      "monthYear": "04.2019",
+      "category": "Clothing",
+      "title": "dodj",
+
+      "desc": false
+    },
+    "08acd52f-2d0f-4648-a7d7-a3c16862c9fe": {
+      "cost": 41,
+      "date": "2019-01-24",
+      "monthYear": "01.2019",
+      "category": "Car",
+      "title": "yxgt",
+
+      "desc": false
+    },
+    "ada22cac-9d3c-490b-8edd-28fd99b93ed1": {
+      "cost": 355,
+      "date": "2019-08-11",
+      "monthYear": "08.2019",
+      "category": "HealthAndBeauty",
+      "title": "zdzze",
+
+      "desc": false
+    },
+    "6c3573bf-94b5-4255-aa36-a4f6985e1356": {
+      "cost": 373,
+      "date": "2019-07-08",
+      "monthYear": "07.2019",
+      "category": "Entertainment",
+      "title": "zcdag",
+
+      "desc": false
+    },
+    "addf88bd-750b-41c5-819a-914455a84174": {
+      "cost": 285,
+      "date": "2019-07-12",
+      "monthYear": "07.2019",
+      "category": "Car",
+      "title": "cjmve",
+
+      "desc": false
+    },
+    "8e9f909d-7b67-4e85-8c5a-c9c3ba6c7450": {
+      "cost": 245,
+      "date": "2019-05-30",
+      "monthYear": "05.2019",
+      "category": "HealthAndBeauty",
+      "title": "kpv",
+
+      "desc": false
+    },
+    "88a0b8c1-2f7b-4812-ae6b-eec4964ebfd6": {
+      "cost": 184,
+      "date": "2019-01-10",
+      "monthYear": "01.2019",
+      "category": "HealthAndBeauty",
+      "title": "rhkbv",
+
+      "desc": false
+    },
+    "44401034-8de0-49ac-a807-672d04a9a921": {
+      "cost": 180,
+      "date": "2019-04-07",
+      "monthYear": "04.2019",
+      "category": "Electronics",
+      "title": "flck",
+
+      "desc": false
+    },
+    "df6650aa-135f-4541-a579-87064d90bca8": {
+      "cost": 410,
+      "date": "2019-05-25",
+      "monthYear": "05.2019",
+      "category": "Entertainment",
+      "title": "lecn",
+
+      "desc": false
+    },
+    "cdea3144-068d-4bd0-b6f4-ade802a5cd07": {
+      "cost": 174,
+      "date": "2019-03-04",
+      "monthYear": "03.2019",
+      "category": "Clothing",
+      "title": "jysxr",
+
+      "desc": false
+    },
+    "27481a93-87d3-40a4-9322-2a287264f6f1": {
+      "cost": 145,
+      "date": "2019-08-25",
+      "monthYear": "08.2019",
+      "category": "Entertainment",
+      "title": "zwymv",
+
+      "desc": false
+    },
+    "87c5c2e2-11c0-42fd-859f-46b9e358dc6d": {
+      "cost": 177,
+      "date": "2019-05-09",
+      "monthYear": "05.2019",
+      "category": "HealthAndBeauty",
+      "title": "zkgf",
+
+      "desc": false
+    },
+    "a79832ed-e690-4134-88af-a33b867f495e": {
+      "cost": 310,
+      "date": "2019-06-21",
+      "monthYear": "06.2019",
+      "category": "Entertainment",
+      "title": "htdci",
+
+      "desc": false
+    },
+    "8079e8c3-df36-4119-a1e2-57198e2e5ea0": {
+      "cost": 299,
+      "date": "2019-04-16",
+      "monthYear": "04.2019",
+      "category": "Clothing",
+      "title": "dfsfr",
+
+      "desc": false
+    },
+    "3bade0ae-7af3-44d5-b713-14c1e0fce54a": {
+      "cost": 368,
+      "date": "2019-05-23",
+      "monthYear": "05.2019",
+      "category": "Car",
+      "title": "ttcdg",
+
+      "desc": false
+    },
+    "e4abcbd0-9f41-4473-b95f-f58545ebccfa": {
+      "cost": 27,
+      "date": "2019-08-28",
+      "monthYear": "08.2019",
+      "category": "Electronics",
+      "title": "ffhrw",
+
+      "desc": false
+    },
+    "c12d5269-cef1-4139-afc8-3f2f892f70ca": {
+      "cost": 191,
+      "date": "2019-04-29",
+      "monthYear": "04.2019",
+      "category": "Electronics",
+      "title": "jfvbo",
+
+      "desc": false
+    },
+    "f1230aaa-77b9-4c65-a6e3-c1cab18053fb": {
+      "cost": 372,
+      "date": "2019-06-18",
+      "monthYear": "06.2019",
+      "category": "Entertainment",
+      "title": "onwsd",
+
+      "desc": false
+    },
+    "579bfacc-cf87-4e9e-a0e8-69feed489e93": {
+      "cost": 88,
+      "date": "2019-08-15",
+      "monthYear": "08.2019",
+      "category": "Electronics",
+      "title": "cesww",
+
+      "desc": false
+    },
+    "5dc9a881-09b9-42dc-86a8-6b8b9c7a3f38": {
+      "cost": 427,
+      "date": "2019-02-04",
+      "monthYear": "02.2019",
+      "category": "House",
+      "title": "xofoz",
+
+      "desc": false
+    },
+    "995fd18c-d542-4b0b-b19b-e9e6fe1f8a54": {
+      "cost": 234,
+      "date": "2019-06-22",
+      "monthYear": "06.2019",
+      "category": "Electronics",
+      "title": "wlgeg",
+
+      "desc": false
+    },
+    "23dd0c1a-7dbc-4ece-b929-de1009506508": {
+      "cost": 498,
+      "date": "2019-08-28",
+      "monthYear": "08.2019",
+      "category": "Entertainment",
+      "title": "xlgrb",
+
+      "desc": false
+    },
+    "a1244df5-64ff-4c55-809b-efe052d3ad27": {
+      "cost": 432,
+      "date": "2019-08-22",
+      "monthYear": "08.2019",
+      "category": "Clothing",
+      "title": "eitkk",
+
+      "desc": false
+    },
+    "59562392-7bae-4d70-9ff5-0260ced30d18": {
+      "cost": 96,
+      "date": "2019-05-11",
+      "monthYear": "05.2019",
+      "category": "Car",
+      "title": "mxmwb",
+
+      "desc": false
+    },
+    "c536c3c5-94a8-4f02-9c37-ad4e70866838": {
+      "cost": 450,
+      "date": "2019-05-03",
+      "monthYear": "05.2019",
+      "category": "Clothing",
+      "title": "mdhcn",
+
+      "desc": false
+    },
+    "bfa7bf22-4e4f-4f16-91ef-2db3aa3776f9": {
+      "cost": 114,
+      "date": "2019-01-28",
+      "monthYear": "01.2019",
+      "category": "Car",
+      "title": "qtnrh",
+
+      "desc": false
+    },
+    "505798da-e7b8-42ac-b886-42431e3edfa1": {
+      "cost": 229,
+      "date": "2019-08-09",
+      "monthYear": "08.2019",
+      "category": "Clothing",
+      "title": "jofch",
+
+      "desc": false
+    },
+    "1b22a6e7-7e6f-43a5-a5d7-1989b52ddf08": {
+      "cost": 3,
+      "date": "2019-05-29",
+      "monthYear": "05.2019",
+      "category": "Clothing",
+      "title": "ecrqu",
+
+      "desc": false
+    },
+    "e093dd75-1040-4777-89d7-820bdb6182c8": {
+      "cost": 393,
+      "date": "2019-01-21",
+      "monthYear": "01.2019",
+      "category": "Car",
+      "title": "ysdoe",
+
+      "desc": false
+    },
+    "0aa40540-97f9-452e-84b8-fc320bca1ec4": {
+      "cost": 200,
+      "date": "2019-08-16",
+      "monthYear": "08.2019",
+      "category": "Clothing",
+      "title": "wfepi",
+
+      "desc": false
+    },
+    "d132f874-f2cb-4b54-9fee-305bdf954c19": {
+      "cost": 349,
+      "date": "2019-02-12",
+      "monthYear": "02.2019",
+      "category": "Clothing",
+      "title": "gbtwm",
+
+      "desc": false
+    },
+    "ef109533-83e2-41f1-a2b8-c324ec9bbb0c": {
+      "cost": 246,
+      "date": "2019-06-23",
+      "monthYear": "06.2019",
+      "category": "House",
+      "title": "mjrxk",
+
+      "desc": false
+    },
+    "adc553b9-cc5c-43a5-b4f8-86639ee094b4": {
+      "cost": 448,
+      "date": "2019-05-29",
+      "monthYear": "05.2019",
+      "category": "Electronics",
+      "title": "uec",
+
+      "desc": false
+    },
+    "bc363ab3-0056-4974-a3e3-8f3c3ebe6a1f": {
+      "cost": 42,
+      "date": "2019-03-17",
+      "monthYear": "03.2019",
+      "category": "Car",
+      "title": "bodj",
+
+      "desc": false
+    },
+    "035fa4d3-ef85-4567-8430-d2f12ecde022": {
+      "cost": 168,
+      "date": "2019-05-10",
+      "monthYear": "05.2019",
+      "category": "Clothing",
+      "title": "kyjrk",
+
+      "desc": false
+    },
+    "8ae333fb-3978-4f2e-9033-87fc9c120727": {
+      "cost": 60,
+      "date": "2019-06-02",
+      "monthYear": "06.2019",
+      "category": "HealthAndBeauty",
+      "title": "qmcvn",
+
+      "desc": false
+    },
+    "e97954c1-38c6-4c5c-8444-4681ec129f6d": {
+      "cost": 372,
+      "date": "2019-07-05",
+      "monthYear": "07.2019",
+      "category": "House",
+      "title": "ltzm",
+
+      "desc": false
+    },
+    "c988981a-295f-4c61-a48b-0b312b0ea7a6": {
+      "cost": 159,
+      "date": "2019-08-14",
+      "monthYear": "08.2019",
+      "category": "Clothing",
+      "title": "yjbxc",
+
+      "desc": false
+    },
+    "69c1626d-7c46-4791-b0d0-443dbecb0b77": {
+      "cost": 328,
+      "date": "2019-04-17",
+      "monthYear": "04.2019",
+      "category": "Electronics",
+      "title": "bsouo",
+
+      "desc": false
+    },
+    "62df3ee0-436f-4a16-824f-284d46852e76": {
+      "cost": 89,
+      "date": "2019-01-25",
+      "monthYear": "01.2019",
+      "category": "Electronics",
+      "title": "semg",
+
+      "desc": false
+    },
+    "c9b841f9-3a2b-432b-b45a-f4019a1b9d9a": {
+      "cost": 474,
+      "date": "2019-05-03",
+      "monthYear": "05.2019",
+      "category": "Car",
+      "title": "xscn",
+
+      "desc": false
+    },
+    "db6f1e70-ee1e-487c-ac26-738358c512ed": {
+      "cost": 411,
+      "date": "2019-08-28",
+      "monthYear": "08.2019",
+      "category": "Electronics",
+      "title": "qqewd",
+
+      "desc": false
+    },
+    "8db31da7-fb21-4bef-a5ee-3f12a15b9b76": {
+      "cost": 264,
+      "date": "2019-03-30",
+      "monthYear": "03.2019",
+      "category": "Clothing",
+      "title": "tjaem",
+
+      "desc": false
+    },
+    "16a049b2-4885-4e6b-bba8-1eb26364c932": {
+      "cost": 120,
+      "date": "2019-01-31",
+      "monthYear": "01.2019",
+      "category": "Car",
+      "title": "wxymn",
+
+      "desc": false
+    },
+    "4c9519c1-ec2e-41af-85a7-f5856dd4b3ba": {
+      "cost": 482,
+      "date": "2019-04-23",
+      "monthYear": "04.2019",
+      "category": "Entertainment",
+      "title": "dwctz",
+
+      "desc": false
+    },
+    "61e5ebd7-ae70-4b04-8c82-a1903ae5f286": {
+      "cost": 489,
+      "date": "2019-06-20",
+      "monthYear": "06.2019",
+      "category": "HealthAndBeauty",
+      "title": "xoes",
+
+      "desc": false
+    },
+    "0472ee98-dcaa-4d79-99dc-44929a7a17fb": {
+      "cost": 231,
+      "date": "2019-06-22",
+      "monthYear": "06.2019",
+      "category": "Clothing",
+      "title": "jue",
+
+      "desc": false
+    },
+    "dda7162c-c2f9-4879-8073-cafacd1e96f0": {
+      "cost": 168,
+      "date": "2019-02-02",
+      "monthYear": "02.2019",
+      "category": "Entertainment",
+      "title": "ymtnk",
+
+      "desc": false
+    },
+    "5bfdcecf-2ccf-497a-a124-ef1214edac3a": {
+      "cost": 301,
+      "date": "2019-07-26",
+      "monthYear": "07.2019",
+      "category": "House",
+      "title": "ltlwh",
+
+      "desc": false
+    },
+    "3d6988ca-2f8b-4452-abce-f42675408831": {
+      "cost": 52,
+      "date": "2019-05-06",
+      "monthYear": "05.2019",
+      "category": "Clothing",
+      "title": "cqtdq",
+
+      "desc": false
+    },
+    "a1c4a7d5-7898-4439-88b3-787ac5f4ac7e": {
+      "cost": 152,
+      "date": "2019-01-27",
+      "monthYear": "01.2019",
+      "category": "Entertainment",
+      "title": "zjnmf",
+
+      "desc": false
+    },
+    "622fccc3-9094-4f69-927a-d98061410418": {
+      "cost": 358,
+      "date": "2019-06-23",
+      "monthYear": "06.2019",
+      "category": "Electronics",
+      "title": "bdfns",
+
+      "desc": false
+    },
+    "f69e2e5d-0366-48c7-a3dd-b016c128b67a": {
+      "cost": 174,
+      "date": "2019-05-17",
+      "monthYear": "05.2019",
+      "category": "HealthAndBeauty",
+      "title": "ixvgi",
+
+      "desc": false
+    },
+    "48a9237d-ba7b-4116-99a8-fd6cfadb5b4b": {
+      "cost": 154,
+      "date": "2019-08-15",
+      "monthYear": "08.2019",
+      "category": "Electronics",
+      "title": "ziyfi",
+
+      "desc": false
+    },
+    "faaeec3e-063b-4847-8347-479caf88910a": {
+      "cost": 99,
+      "date": "2019-05-17",
+      "monthYear": "05.2019",
+      "category": "House",
+      "title": "clxyq",
+
+      "desc": false
+    },
+    "18cc4eb1-204b-4bcc-9db3-18deb117e758": {
+      "cost": 71,
+      "date": "2019-08-23",
+      "monthYear": "08.2019",
+      "category": "Electronics",
+      "title": "hglo",
+
+      "desc": false
+    },
+    "c626b3b7-0996-473c-8836-8b9f45d8e927": {
+      "cost": 14,
+      "date": "2019-06-13",
+      "monthYear": "06.2019",
+      "category": "Food",
+      "title": "tbpia",
+
+      "desc": false
+    },
+    "d7af86ec-9296-43ff-9f0d-0d6909e6b607": {
+      "cost": 179,
+      "date": "2019-01-07",
+      "monthYear": "01.2019",
+      "category": "Electronics",
+      "title": "ohul",
+
+      "desc": false
+    },
+    "618ae78f-b948-4680-a438-9cf6cbbd8c58": {
+      "cost": 170,
+      "date": "2019-01-03",
+      "monthYear": "01.2019",
+      "category": "Electronics",
+      "title": "rwbx",
+
+      "desc": false
+    },
+    "68050230-cee9-4591-aedb-5b9dfd84f88a": {
+      "cost": 477,
+      "date": "2019-05-11",
+      "monthYear": "05.2019",
+      "category": "House",
+      "title": "mxeoy",
+
+      "desc": false
+    },
+    "05b3c533-5088-461f-bc4b-6a39d7931fe1": {
+      "cost": 463,
+      "date": "2019-07-21",
+      "monthYear": "07.2019",
+      "category": "House",
+      "title": "iaczc",
+
+      "desc": false
+    },
+    "334c2895-4ecc-4fb6-bb65-8af389edb345": {
+      "cost": 442,
+      "date": "2019-08-19",
+      "monthYear": "08.2019",
+      "category": "Car",
+      "title": "vkqzh",
+
+      "desc": false
+    },
+    "341de3d1-a0d8-44d4-a4be-8dae113a71bd": {
+      "cost": 402,
+      "date": "2019-07-02",
+      "monthYear": "07.2019",
+      "category": "Clothing",
+      "title": "ohfw",
+
+      "desc": false
+    },
+    "e1d08d22-aa4b-46ee-b0a2-eb154fd6e47a": {
+      "cost": 49,
+      "date": "2019-06-07",
+      "monthYear": "06.2019",
+      "category": "Food",
+      "title": "qbque",
+
+      "desc": false
+    },
+    "fc9f47a6-2f57-4f80-823c-5d6b07ef8449": {
+      "cost": 306,
+      "date": "2019-01-09",
+      "monthYear": "01.2019",
+      "category": "House",
+      "title": "ijksh",
+
+      "desc": false
+    },
+    "c0b8e57a-a18a-4155-90a8-17116120f284": {
+      "cost": 276,
+      "date": "2019-07-01",
+      "monthYear": "07.2019",
+      "category": "Electronics",
+      "title": "ftuxd",
+
+      "desc": false
+    },
+    "acd8e2de-ab9a-4f8b-bdaa-02f51cd0cb67": {
+      "cost": 416,
+      "date": "2019-01-13",
+      "monthYear": "01.2019",
+      "category": "Clothing",
+      "title": "brjnl",
+
+      "desc": false
+    },
+    "605e290c-10b7-4a24-b78d-8a189ce20062": {
+      "cost": 5,
+      "date": "2019-08-04",
+      "monthYear": "08.2019",
+      "category": "Electronics",
+      "title": "oyqgc",
+
+      "desc": false
+    },
+    "998f283f-9d6b-4388-a008-288875371177": {
+      "cost": 437,
+      "date": "2019-06-25",
+      "monthYear": "06.2019",
+      "category": "Car",
+      "title": "hstwm",
+
+      "desc": false
+    },
+    "7b6310d1-3e26-4032-a595-316877accc65": {
+      "cost": 495,
+      "date": "2019-08-17",
+      "monthYear": "08.2019",
+      "category": "Car",
+      "title": "nxbfs",
+
+      "desc": false
+    },
+    "98011f77-f778-461f-ab35-4df20ddd924b": {
+      "cost": 333,
+      "date": "2019-08-10",
+      "monthYear": "08.2019",
+      "category": "Electronics",
+      "title": "bubzs",
+
+      "desc": false
+    },
+    "e748165a-3949-4b40-b6c1-e517d68c3873": {
+      "cost": 158,
+      "date": "2019-07-05",
+      "monthYear": "07.2019",
+      "category": "HealthAndBeauty",
+      "title": "yewoe",
+
+      "desc": false
+    },
+    "01308cf5-8dde-4086-82d7-3cd2dbc1aa35": {
+      "cost": 460,
+      "date": "2019-05-14",
+      "monthYear": "05.2019",
+      "category": "Entertainment",
+      "title": "clsoy",
+
+      "desc": false
+    },
+    "b7a43a81-372f-4270-a4cf-f9c331bee984": {
+      "cost": 147,
+      "date": "2019-06-05",
+      "monthYear": "06.2019",
+      "category": "House",
+      "title": "zlrmu",
+
+      "desc": false
+    },
+    "0b994d2f-6d5b-4963-bc12-ab8624d174df": {
+      "cost": 176,
+      "date": "2019-08-07",
+      "monthYear": "08.2019",
+      "category": "Food",
+      "title": "ynbg",
+
+      "desc": false
+    },
+    "3ac41dec-2236-4a47-90c3-cd9a4a20bc76": {
+      "cost": 36,
+      "date": "2019-05-17",
+      "monthYear": "05.2019",
+      "category": "Car",
+      "title": "lcbwm",
+
+      "desc": false
+    },
+    "874d3ede-9983-4941-8dec-a73be44c15b0": {
+      "cost": 17,
+      "date": "2019-03-16",
+      "monthYear": "03.2019",
+      "category": "Clothing",
+      "title": "tqse",
+
+      "desc": false
+    },
+    "e468ac35-a0ef-4cf6-bf97-770eced0dde9": {
+      "cost": 350,
+      "date": "2019-04-22",
+      "monthYear": "04.2019",
+      "category": "House",
+      "title": "whetx",
+
+      "desc": false
+    },
+    "788ca222-0404-4c79-b132-5df9d46f0ff7": {
+      "cost": 254,
+      "date": "2019-04-19",
+      "monthYear": "04.2019",
+      "category": "HealthAndBeauty",
+      "title": "paicf",
+
+      "desc": false
+    },
+    "49f593ed-cc2a-4404-b020-e8b55eb85016": {
+      "cost": 178,
+      "date": "2019-01-26",
+      "monthYear": "01.2019",
+      "category": "Entertainment",
+      "title": "ohxei",
+
+      "desc": false
+    },
+    "c592165e-5f56-4e11-99d8-fee4c2bc0e77": {
+      "cost": 150,
+      "date": "2019-03-17",
+      "monthYear": "03.2019",
+      "category": "Clothing",
+      "title": "yqyfk",
+
+      "desc": false
+    },
+    "c8507698-89cb-4a9a-ae59-dd12b30faf04": {
+      "cost": 290,
+      "date": "2019-08-28",
+      "monthYear": "08.2019",
+      "category": "Electronics",
+      "title": "xizol",
+
+      "desc": false
+    },
+    "11909d0a-8efa-4c74-ac80-c3fe915d24ba": {
+      "cost": 121,
+      "date": "2019-04-29",
+      "monthYear": "04.2019",
+      "category": "HealthAndBeauty",
+      "title": "xrgbt",
+
+      "desc": false
+    },
+    "35fdd398-c1ee-4e50-9086-cafefd898bef": {
+      "cost": 433,
+      "date": "2019-01-30",
+      "monthYear": "01.2019",
+      "category": "Food",
+      "title": "ykihu",
+
+      "desc": false
+    },
+    "1317b968-670c-4a30-8a57-b3ab01783d3b": {
+      "cost": 343,
+      "date": "2019-02-27",
+      "monthYear": "02.2019",
+      "category": "Clothing",
+      "title": "ytjke",
+
+      "desc": false
+    },
+    "2d471f00-70ee-412f-9ff1-eaf53fd6e019": {
+      "cost": 416,
+      "date": "2019-07-18",
+      "monthYear": "07.2019",
+      "category": "Food",
+      "title": "rsesy",
+
+      "desc": false
+    },
+    "e45dffd9-826c-4d09-9d85-c4bdcee22460": {
+      "cost": 48,
+      "date": "2019-04-12",
+      "monthYear": "04.2019",
+      "category": "Car",
+      "title": "dxgyo",
+
+      "desc": false
+    },
+    "279b9460-5706-4d8c-8144-78bc415b1b2d": {
+      "cost": 124,
+      "date": "2019-08-08",
+      "monthYear": "08.2019",
+      "category": "Electronics",
+      "title": "cqesf",
+
+      "desc": false
+    },
+    "685f007e-2409-4334-b9d8-36975bfa75f0": {
+      "cost": 76,
+      "date": "2019-01-05",
+      "monthYear": "01.2019",
+      "category": "Clothing",
+      "title": "ibddh",
+
+      "desc": false
+    },
+    "17831e80-f5cd-492d-96f9-47f5f15c4a97": {
+      "cost": 259,
+      "date": "2019-02-01",
+      "monthYear": "02.2019",
+      "category": "Clothing",
+      "title": "jslx",
+
+      "desc": false
+    },
+    "12dfb41b-3497-4d8e-9179-99ba98feeca0": {
+      "cost": 252,
+      "date": "2019-05-17",
+      "monthYear": "05.2019",
+      "category": "HealthAndBeauty",
+      "title": "xyfqb",
+
+      "desc": false
+    },
+    "37759ce5-b34e-46a5-9e08-bc4457642090": {
+      "cost": 9,
+      "date": "2019-04-21",
+      "monthYear": "04.2019",
+      "category": "HealthAndBeauty",
+      "title": "eypr",
+
+      "desc": false
+    },
+    "a240db26-937c-4e0c-a689-86667b4a7477": {
+      "cost": 457,
+      "date": "2019-05-25",
+      "monthYear": "05.2019",
+      "category": "HealthAndBeauty",
+      "title": "qztnk",
+
+      "desc": false
+    },
+    "ab63af5a-4e5c-444d-8e35-8c945d440730": {
+      "cost": 163,
+      "date": "2019-03-15",
+      "monthYear": "03.2019",
+      "category": "HealthAndBeauty",
+      "title": "xeivo",
+
+      "desc": false
+    },
+    "58daae06-6413-43b0-b3d6-7ad54b5b8151": {
+      "cost": 481,
+      "date": "2019-05-09",
+      "monthYear": "05.2019",
+      "category": "Entertainment",
+      "title": "eivhm",
+
+      "desc": false
+    },
+    "6c241357-d47f-46d1-a001-8cb2aa7a2b78": {
+      "cost": 147,
+      "date": "2019-02-11",
+      "monthYear": "02.2019",
+      "category": "Entertainment",
+      "title": "zkzhk",
+
+      "desc": false
+    },
+    "857bbfb0-db34-4626-945a-53d628ddce9a": {
+      "cost": 29,
+      "date": "2019-03-27",
+      "monthYear": "03.2019",
+      "category": "HealthAndBeauty",
+      "title": "svtog",
+
+      "desc": false
+    },
+    "d2595c4b-2965-43bd-a38b-bfacc4745896": {
+      "cost": 485,
+      "date": "2019-08-24",
+      "monthYear": "08.2019",
+      "category": "Electronics",
+      "title": "lzooq",
+
+      "desc": false
+    },
+    "d33e0ec0-af98-468c-83e1-fe8255550ac5": {
+      "cost": 276,
+      "date": "2019-03-14",
+      "monthYear": "03.2019",
+      "category": "Car",
+      "title": "kmcmy",
+
+      "desc": false
+    },
+    "0d1e16f0-3e43-471c-b875-8be7cab9db38": {
+      "cost": 283,
+      "date": "2019-01-31",
+      "monthYear": "01.2019",
+      "category": "Electronics",
+      "title": "aevo",
+
+      "desc": false
+    },
+    "685aaad4-6b29-434c-9484-3660bab28f7b": {
+      "cost": 41,
+      "date": "2019-03-02",
+      "monthYear": "03.2019",
+      "category": "Electronics",
+      "title": "wodhr",
+
+      "desc": false
+    },
+    "54ad3ef6-2980-4811-a109-624fe10406ad": {
+      "cost": 351,
+      "date": "2019-04-26",
+      "monthYear": "04.2019",
+      "category": "House",
+      "title": "kqkfm",
+
+      "desc": false
+    },
+    "41827368-0315-48f9-b553-a5b8d833ebcc": {
+      "cost": 316,
+      "date": "2019-03-02",
+      "monthYear": "03.2019",
+      "category": "Electronics",
+      "title": "zoklh",
+
+      "desc": false
+    },
+    "470d37a1-b761-4cc1-8e4d-c980ba1861af": {
+      "cost": 315,
+      "date": "2019-04-13",
+      "monthYear": "04.2019",
+      "category": "Entertainment",
+      "title": "nhsba",
+
+      "desc": false
+    },
+    "c97c579a-7f43-4283-bd05-50e904132c7b": {
+      "cost": 477,
+      "date": "2019-07-29",
+      "monthYear": "07.2019",
+      "category": "House",
+      "title": "rcltc",
+
+      "desc": false
+    },
+    "24ba536d-272d-4e69-b839-593c7c4af9c3": {
+      "cost": 450,
+      "date": "2019-04-21",
+      "monthYear": "04.2019",
+      "category": "Entertainment",
+      "title": "zetfx",
+
+      "desc": false
+    },
+    "fd661fa9-5daa-4898-b8fa-7691ac676c7e": {
+      "cost": 252,
+      "date": "2019-07-10",
+      "monthYear": "07.2019",
+      "category": "Entertainment",
+      "title": "ksrpp",
+
+      "desc": false
+    },
+    "c0db4d9c-ded9-4fce-bea1-02e9eb61123d": {
+      "cost": 407,
+      "date": "2019-08-06",
+      "monthYear": "08.2019",
+      "category": "Food",
+      "title": "onjou",
+
+      "desc": false
+    },
+    "e25b69e8-2571-4f86-aa46-67080742471b": {
+      "cost": 30,
+      "date": "2019-03-26",
+      "monthYear": "03.2019",
+      "category": "Electronics",
+      "title": "oqtrs",
+
+      "desc": false
+    },
+    "accb59bc-96d1-4a00-8982-b6497733a8a7": {
+      "cost": 194,
+      "date": "2019-05-31",
+      "monthYear": "05.2019",
+      "category": "HealthAndBeauty",
+      "title": "fbpi",
+
+      "desc": false
+    },
+    "e43dcc78-673e-4063-a5ce-de2c68efcb98": {
+      "cost": 131,
+      "date": "2019-01-13",
+      "monthYear": "01.2019",
+      "category": "Car",
+      "title": "krfm",
+
+      "desc": false
+    },
+    "6ffaa4a8-df96-47cf-a59c-742c7f4c930a": {
+      "cost": 219,
+      "date": "2019-07-25",
+      "monthYear": "07.2019",
+      "category": "Food",
+      "title": "nfts",
+
+      "desc": false
+    },
+    "8861efd2-bd16-4fb1-88a5-f1a38deffdc2": {
+      "cost": 69,
+      "date": "2019-01-08",
+      "monthYear": "01.2019",
+      "category": "House",
+      "title": "flmcd",
+
+      "desc": false
+    },
+    "5e7ef7eb-e355-4622-b66f-ba285a441fb9": {
+      "cost": 96,
+      "date": "2019-01-19",
+      "monthYear": "01.2019",
+      "category": "Electronics",
+      "title": "tpxkh",
+
+      "desc": false
+    },
+    "204c439e-6e82-4a25-ba73-ca8c2db77f52": {
+      "cost": 239,
+      "date": "2019-04-14",
+      "monthYear": "04.2019",
+      "category": "Clothing",
+      "title": "bzeix",
+
+      "desc": false
+    },
+    "6d8df80d-c32d-4bf0-8f5d-1f1671c8083c": {
+      "cost": 205,
+      "date": "2019-08-29",
+      "monthYear": "08.2019",
+      "category": "Clothing",
+      "title": "bbyjq",
+
+      "desc": false
+    },
+    "348790b0-2663-4cd9-a8f5-d0ce9fdd6079": {
+      "cost": 307,
+      "date": "2019-02-02",
+      "monthYear": "02.2019",
+      "category": "Clothing",
+      "title": "cedes",
+
+      "desc": false
+    },
+    "c429bf48-22fb-4f15-bf22-68c3ebb1de9e": {
+      "cost": 181,
+      "date": "2019-07-18",
+      "monthYear": "07.2019",
+      "category": "Car",
+      "title": "shzkg",
+
+      "desc": false
+    },
+    "318b087e-99c9-4161-b537-cc402817c3f9": {
+      "cost": 375,
+      "date": "2019-03-23",
+      "monthYear": "03.2019",
+      "category": "House",
+      "title": "xgsuh",
+
+      "desc": false
+    },
+    "fde15c16-d24f-4d68-9510-6e09c55ebfa3": {
+      "cost": 175,
+      "date": "2019-02-03",
+      "monthYear": "02.2019",
+      "category": "Car",
+      "title": "votrn",
+
+      "desc": false
+    },
+    "4aeabafd-07ac-4895-94b8-3b2dfdfff695": {
+      "cost": 154,
+      "date": "2019-08-20",
+      "monthYear": "08.2019",
+      "category": "House",
+      "title": "uhbtz",
+
+      "desc": false
+    },
+    "fcbd972a-0fd7-44f3-9c16-eb2bacc71afb": {
+      "cost": 172,
+      "date": "2019-06-14",
+      "monthYear": "06.2019",
+      "category": "Clothing",
+      "title": "znovf",
+
+      "desc": false
+    },
+    "d6ff9049-4361-43a1-92e9-8b69cde1a3be": {
+      "cost": 283,
+      "date": "2019-02-09",
+      "monthYear": "02.2019",
+      "category": "Clothing",
+      "title": "tsvrw",
+
+      "desc": false
+    },
+    "9d4f67c6-e350-4736-af21-cd40eebb93d4": {
+      "cost": 126,
+      "date": "2019-01-04",
+      "monthYear": "01.2019",
+      "category": "Clothing",
+      "title": "mnoho",
+
+      "desc": false
+    },
+    "29aa3250-5b7e-4f78-90ee-d1e20426a22b": {
+      "cost": 364,
+      "date": "2019-02-17",
+      "monthYear": "02.2019",
+      "category": "Clothing",
+      "title": "bnilg",
+
+      "desc": false
+    },
+    "adf9e112-03bb-4d51-affd-bd05d00ea7ec": {
+      "cost": 404,
+      "date": "2019-04-04",
+      "monthYear": "04.2019",
+      "category": "Food",
+      "title": "ebkfh",
+
+      "desc": false
+    },
+    "9e7644db-ffa6-4c97-993a-313611b8cd9c": {
+      "cost": 216,
+      "date": "2019-06-03",
+      "monthYear": "06.2019",
+      "category": "HealthAndBeauty",
+      "title": "mbzol",
+
+      "desc": false
+    },
+    "3dba1aed-146c-49f7-bc24-dcd5dd7c5e74": {
+      "cost": 374,
+      "date": "2019-07-24",
+      "monthYear": "07.2019",
+      "category": "HealthAndBeauty",
+      "title": "kulhj",
+
+      "desc": false
+    },
+    "77128d79-1641-47cb-919b-ac04e99c9c4c": {
+      "cost": 222,
+      "date": "2019-06-09",
+      "monthYear": "06.2019",
+      "category": "House",
+      "title": "knxuj",
+
+      "desc": false
+    },
+    "d1f15016-df2e-4f0f-a52f-29322639a6b8": {
+      "cost": 189,
+      "date": "2019-01-21",
+      "monthYear": "01.2019",
+      "category": "HealthAndBeauty",
+      "title": "ydjnb",
+
+      "desc": false
+    },
+    "ade4eb85-5a33-4c9c-847f-3923bd499885": {
+      "cost": 324,
+      "date": "2019-05-09",
+      "monthYear": "05.2019",
+      "category": "HealthAndBeauty",
+      "title": "elhzo",
+
+      "desc": false
+    },
+    "e5d0d452-0692-4a88-9967-d431f23eff71": {
+      "cost": 230,
+      "date": "2019-06-24",
+      "monthYear": "06.2019",
+      "category": "Entertainment",
+      "title": "olwzx",
+
+      "desc": false
+    },
+    "76561c44-d08b-43d7-bc52-9b35e0ddeb4e": {
+      "cost": 108,
+      "date": "2019-02-01",
+      "monthYear": "02.2019",
+      "category": "Electronics",
+      "title": "mjd",
+
+      "desc": false
+    },
+    "a8de81cc-d883-4a8b-b5fc-fe31ac047b53": {
+      "cost": 388,
+      "date": "2019-04-17",
+      "monthYear": "04.2019",
+      "category": "House",
+      "title": "eoum",
+
+      "desc": false
+    },
+    "95d52163-32b0-4fe1-beea-4ae040489db8": {
+      "cost": 138,
+      "date": "2019-03-07",
+      "monthYear": "03.2019",
+      "category": "Electronics",
+      "title": "qstxh",
+
+      "desc": false
+    },
+    "dcbfc82a-8ac3-4a04-bb3f-2a450cdce6a4": {
+      "cost": 180,
+      "date": "2019-02-03",
+      "monthYear": "02.2019",
+      "category": "Entertainment",
+      "title": "yczyj",
+
+      "desc": false
+    },
+    "45cec7f6-bdb0-4dc0-a01c-2690ee40227a": {
+      "cost": 286,
+      "date": "2019-06-01",
+      "monthYear": "06.2019",
+      "category": "Car",
+      "title": "swzux",
+
+      "desc": false
+    },
+    "0f6100d6-37f3-43b9-808a-0044e4c839b3": {
+      "cost": 172,
+      "date": "2019-02-27",
+      "monthYear": "02.2019",
+      "category": "Electronics",
+      "title": "pfexe",
+
+      "desc": false
+    },
+    "1c4c9b07-b87c-402a-a517-b7c7348f82b2": {
+      "cost": 290,
+      "date": "2019-05-26",
+      "monthYear": "05.2019",
+      "category": "House",
+      "title": "wuncf",
+
+      "desc": false
+    },
+    "7ec4208d-54c3-4912-914b-ff23a8fff887": {
+      "cost": 498,
+      "date": "2019-03-10",
+      "monthYear": "03.2019",
+      "category": "Food",
+      "title": "bbmfs",
+
+      "desc": false
+    },
+    "c520892d-e0a2-4c27-8057-6a95ef10b236": {
+      "cost": 175,
+      "date": "2019-07-31",
+      "monthYear": "07.2019",
+      "category": "Car",
+      "title": "uuztf",
+
+      "desc": false
+    },
+    "6b362e5d-a330-4a77-b907-7ad2b77d0326": {
+      "cost": 380,
+      "date": "2019-01-12",
+      "monthYear": "01.2019",
+      "category": "Clothing",
+      "title": "ggdes",
+
+      "desc": false
+    },
+    "2b703b65-9472-4c09-8be8-613cea64e852": {
+      "cost": 118,
+      "date": "2019-01-11",
+      "monthYear": "01.2019",
+      "category": "Electronics",
+      "title": "skcza",
+
+      "desc": false
+    },
+    "5fc10bc3-e8d5-4f49-a8b8-30a48baf7da8": {
+      "cost": 247,
+      "date": "2019-07-19",
+      "monthYear": "07.2019",
+      "category": "Clothing",
+      "title": "cbit",
+
+      "desc": false
+    },
+    "08c8b0c8-3461-46fe-80d7-cd87c98486e8": {
+      "cost": 404,
+      "date": "2019-06-27",
+      "monthYear": "06.2019",
+      "category": "HealthAndBeauty",
+      "title": "qdubl",
+
+      "desc": false
+    },
+    "b613daa8-79d1-4915-b39e-3eaae1bdc711": {
+      "cost": 35,
+      "date": "2019-03-18",
+      "monthYear": "03.2019",
+      "category": "Entertainment",
+      "title": "nxnyu",
+
+      "desc": false
+    },
+    "a6cf6e1b-43fd-4255-aa2f-2499b3948510": {
+      "cost": 275,
+      "date": "2019-02-05",
+      "monthYear": "02.2019",
+      "category": "Car",
+      "title": "regcz",
+
+      "desc": false
+    },
+    "f65f1690-d018-4bda-b600-abe7855aad23": {
+      "cost": 457,
+      "date": "2019-05-19",
+      "monthYear": "05.2019",
+      "category": "Car",
+      "title": "krqtv",
+
+      "desc": false
+    },
+    "109786ad-9e0d-40d5-8321-b2585037a163": {
+      "cost": 270,
+      "date": "2019-08-07",
+      "monthYear": "08.2019",
+      "category": "Entertainment",
+      "title": "iqwsc",
+
+      "desc": false
+    },
+    "1d46da0e-29ba-4a32-9ea0-3dd30d545d42": {
+      "cost": 77,
+      "date": "2019-08-08",
+      "monthYear": "08.2019",
+      "category": "Clothing",
+      "title": "retif",
+
+      "desc": false
+    },
+    "7b7f9fb8-fbd5-46ee-9da8-724fe4b9c868": {
+      "cost": 69,
+      "date": "2019-06-22",
+      "monthYear": "06.2019",
+      "category": "HealthAndBeauty",
+      "title": "lzkgl",
+
+      "desc": false
+    },
+    "daab058b-150d-4a63-b636-f3a095dda473": {
+      "cost": 201,
+      "date": "2019-01-10",
+      "monthYear": "01.2019",
+      "category": "Clothing",
+      "title": "nchw",
+
+      "desc": false
+    },
+    "fd7a7183-4ce1-42b0-b35e-7aa7f4a3ed15": {
+      "cost": 479,
+      "date": "2019-07-13",
+      "monthYear": "07.2019",
+      "category": "Clothing",
+      "title": "wpvb",
+
+      "desc": false
+    },
+    "cce6bae2-ac4a-48e4-adc3-25aa9398c2c5": {
+      "cost": 215,
+      "date": "2019-07-11",
+      "monthYear": "07.2019",
+      "category": "Clothing",
+      "title": "qwmtu",
+
+      "desc": false
+    },
+    "b8bdb908-99c3-44c0-8552-b47d9d2b137c": {
+      "cost": 496,
+      "date": "2019-07-03",
+      "monthYear": "07.2019",
+      "category": "House",
+      "title": "mtsfb",
+
+      "desc": false
+    },
+    "f3d78289-2ce2-4f3e-a156-ac3612cffdd1": {
+      "cost": 298,
+      "date": "2019-02-17",
+      "monthYear": "02.2019",
+      "category": "HealthAndBeauty",
+      "title": "mzgjq",
+
+      "desc": false
+    },
+    "6b6ed703-59c3-406f-ae18-ff0a4dcf0906": {
+      "cost": 88,
+      "date": "2019-08-15",
+      "monthYear": "08.2019",
+      "category": "HealthAndBeauty",
+      "title": "fjvrx",
+
+      "desc": false
+    },
+    "36f7890a-5af7-4ffe-9cd1-107f57e1b658": {
+      "cost": 327,
+      "date": "2019-08-02",
+      "monthYear": "08.2019",
+      "category": "Entertainment",
+      "title": "gwqqg",
+
+      "desc": false
+    },
+    "06e5cf03-959f-40b8-8a8c-9060fd13c1bc": {
+      "cost": 388,
+      "date": "2019-06-26",
+      "monthYear": "06.2019",
+      "category": "Car",
+      "title": "prtnu",
+
+      "desc": false
+    },
+    "5c97773e-8f75-4a17-a3fd-19c01b559d3f": {
+      "cost": 209,
+      "date": "2019-08-11",
+      "monthYear": "08.2019",
+      "category": "Electronics",
+      "title": "hvpld",
+
+      "desc": false
+    },
+    "0dbbfd18-2a4c-461d-9154-e1cf08e8e62f": {
+      "cost": 242,
+      "date": "2019-04-30",
+      "monthYear": "04.2019",
+      "category": "Electronics",
+      "title": "lphyb",
+
+      "desc": false
+    },
+    "8d8a226c-6a59-4572-a1ad-0036927d6860": {
+      "cost": 171,
+      "date": "2019-03-06",
+      "monthYear": "03.2019",
+      "category": "House",
+      "title": "iryzv",
+
+      "desc": false
+    },
+    "49e1265a-1957-4b3d-ac89-172021269eac": {
+      "cost": 64,
+      "date": "2019-06-16",
+      "monthYear": "06.2019",
+      "category": "HealthAndBeauty",
+      "title": "puejx",
+
+      "desc": false
+    },
+    "76dd3316-e92d-4064-a5b3-2bca48f19a30": {
+      "cost": 45,
+      "date": "2019-06-28",
+      "monthYear": "06.2019",
+      "category": "Clothing",
+      "title": "bpetn",
+
+      "desc": false
+    }
+  },
+  "budgets": {
+    "6123a367-cd25-4e28-b678-d764d5c164c4": {
+      "budgetPerMonth": 5000,
+      "monthYear": "01.2019",
+      "month": 0
+    },
+    "6345a367-cd25-4e28-b678-d764d5c164c4": {
+      "budgetPerMonth": 4500,
+      "monthYear": "02.2019",
+      "month": 1
+    },
+    "6668a367-cd25-4e28-b678-d123d5c164c4": {
+      "budgetPerMonth": 5500,
+      "monthYear": "03.2019",
+      "month": 2
+    },
+    "6668a367-cd25-4e09-b645-d764e3c164c4": {
+      "budgetPerMonth": 4400,
+      "monthYear": "04.2019",
+      "month": 3
+    },
+    "6668a367-cd25-428e-b678-d764d5c164c4": {
+      "budgetPerMonth": 5200,
+      "monthYear": "05.2019",
+      "month": 4
+    },
+    "6668a367-cd99-4e28-b678-d764d5c164c4": {
+      "budgetPerMonth": 5300,
+      "monthYear": "06.2019",
+      "month": 5
+    },
+    "6668a367-cd25-4e28-b678-d734d5D164c4": {
+      "budgetPerMonth": 4300,
+      "monthYear": "07.2019",
+      "month": 6
+    },
+    "6668a367-cd25-4e28-b328-d764d5c164c4": {
+      "budgetPerMonth": 3500,
+      "monthYear": "08.2019",
+      "month": 7
+    }
+  }
+}

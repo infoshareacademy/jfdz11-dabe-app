@@ -1,0 +1,132 @@
+.li {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 50px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+.li:hover {
+  background-color: rgb(243, 243, 243);
+}
+.dates {
+  padding: 0 0 0 10px;
+  font-size: 20px;
+  color: indianred;
+  flex-basis: 17%;
+  text-align: start;
+}
+.tit {
+  flex-basis: 44%;
+  padding-left: 10px;
+}
+.price {
+  color: #af5b5e;
+  flex-basis: 19%;
+  text-align: end;
+}
+.remove {
+  position: absolute;
+  right: 3px;
+  display: none;
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 17.5px;
+  font-size: 24px;
+  color: #cc9a9a;
+  transition: color 0.3s ease-out;
+  outline-style: none;
+}
+.remove:hover {
+  color: #af5b5e;
+}
+.remove:after {
+  content: "×";
+}
+li:hover .remove {
+  display: inline;
+}
+.food {
+  margin: 0 5px;
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 17.5px;
+  font-size: 24px;
+  color: white;
+  background-color: darkslategrey;
+}
+.entertainment {
+  margin: 0 5px;
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 17.5px;
+  font-size: 24px;
+  color: white;
+  background-color: olivedrab;
+}
+.car {
+  margin: 0 5px;
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 17.5px;
+  font-size: 24px;
+  color: white;
+  background-color: royalblue;
+}
+.house {
+  margin: 0 5px;
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 17.5px;
+  font-size: 24px;
+  color: white;
+  background-color: indianred;
+}
+.clothing {
+  margin: 0 5px;
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 17.5px;
+  font-size: 24px;
+  color: white;
+  background-color: rgba(19, 145, 135, 0.85);
+}
+.electronics {
+  margin: 0 5px;
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 17.5px;
+  font-size: 24px;
+  color: white;
+  background-color: saddlebrown;
+}
+.healthAndBeauty {
+  margin: 0 5px;
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 17.5px;
+  font-size: 24px;
+  color: white;
+  background-color: mediumpurple;
+}
+.approval {
+  height: 100%;
+  width: 100%;
+  padding-left: 8%;
+  padding-right: 4%;
+  font-size: 20px;
+  background-color: rgb(248, 242, 242);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

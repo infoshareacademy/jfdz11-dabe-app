@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.bigTitle {
+  color: #333;
+  font-size: 8em;
+  margin: 10px 0;
+}
+
+.link {
+  font-size: 2em;
+  color: #555;
+}

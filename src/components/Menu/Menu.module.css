@@ -1,0 +1,22 @@
+.list {
+  width: 250px;
+}
+
+.navLink {
+  text-decoration: none;
+  color: rgb(75, 74, 74);
+}
+
+.appTitle {
+  margin: 0;
+  padding: 8px 16px 8px 32px;
+  font-size: 18px;
+  color: rgb(75, 74, 74);
+}
+
+.versioning {
+  margin: 0;
+  padding: 0px 16px 8px 32px;
+  font-size: 12px;
+  color: rgb(75, 74, 74);
+}

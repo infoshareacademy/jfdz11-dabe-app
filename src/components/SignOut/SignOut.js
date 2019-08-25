@@ -7,6 +7,8 @@ export default function SignOut(props) {
   const authContext = useContext(AuthContext);
   function signOutOnClick() {
     auth.signOut().then(() => {
+      authContext.setEmail("");
+      authContext.setPassword("");
       authContext.setLogin("");
       authContext.setAvatarUrl("");
     });

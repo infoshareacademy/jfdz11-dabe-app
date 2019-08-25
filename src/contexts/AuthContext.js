@@ -81,10 +81,6 @@ export function AuthProvider(props) {
         alert("Successfully logged.");
         getAvatarUrl(result.user.uid);
       })
-      .then(() => {
-        setEmail("");
-        setPassword("");
-      })
       .catch(e => alert(e.message));
   }
 
@@ -127,12 +123,6 @@ export function AuthProvider(props) {
         });
       })
       .then(() => alert("Successfully registered."))
-      .then(() => {
-        setEmail("");
-        setPassword("");
-        setLogin("");
-        setAvatarUrl("");
-      })
       .catch(e => alert(e.message));
   }
 

@@ -246,6 +246,7 @@ export function AuthProvider(props) {
         password,
         setPassword,
         avatarUrl,
+        setAvatarUrl,
         file,
         setFile,
         handleSignIn,

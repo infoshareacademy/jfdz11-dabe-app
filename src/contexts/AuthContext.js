@@ -131,6 +131,7 @@ export function AuthProvider(props) {
         setEmail("");
         setPassword("");
         setLogin("");
+        setAvatarUrl("");
       })
       .catch(e => alert(e.message));
   }

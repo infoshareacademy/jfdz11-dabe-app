@@ -94,9 +94,7 @@ export function ExpensesProvider(props) {
       }
     );
 
-    if (!authContext.user.metadata.a === Date.now()) {
-      authContext.getAvatarUrl(authContext.user.uid);
-    }
+    authContext.getAvatarUrl(authContext.user.uid);
 
     return () => {
       db.ref(`budgets/${authContext.user.uid}`).off();
@@ -152,7 +150,9 @@ export function ExpensesProvider(props) {
   }
 
   function closeMonthlyBudget(monthlyBudgetID, budgetClose) {
-    const key = `budgets/${authContext.user.uid}/${monthlyBudgetID}/budgetClose`;
+    const key = `budgets/${
+      authContext.user.uid
+    }/${monthlyBudgetID}/budgetClose`;
     const value = !budgetClose;
     db.ref().update({ [key]: value });
   }

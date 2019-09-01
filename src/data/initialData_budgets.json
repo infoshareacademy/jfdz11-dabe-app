@@ -1,0 +1,50 @@
+{
+  "cd77f9f4-9819-4542-a3e3-9e7c51cc2793": {
+    "budgetPerMonth": 5000,
+    "monthYear": "01.2019",
+    "budgetClose": false,
+    "month": 0
+  },
+  "89a81be3-c9cb-47ab-87f0-4cc1dad17305": {
+    "budgetPerMonth": 4500,
+    "monthYear": "02.2019",
+    "budgetClose": false,
+    "month": 1
+  },
+  "72001927-4766-4ca7-b8ca-b6a3e23c93ad": {
+    "budgetPerMonth": 5500,
+    "monthYear": "03.2019",
+    "budgetClose": false,
+    "month": 2
+  },
+  "4bb2cac6-b7a3-4289-b13d-f775d7437c4b": {
+    "budgetPerMonth": 4400,
+    "monthYear": "04.2019",
+    "budgetClose": false,
+    "month": 3
+  },
+  "21af26e5-f1f6-45dc-abdb-c40646c49d61": {
+    "budgetPerMonth": 5200,
+    "monthYear": "05.2019",
+    "budgetClose": false,
+    "month": 4
+  },
+  "91ae9ee3-5b49-4828-9b27-54ef5693221b": {
+    "budgetPerMonth": 5300,
+    "monthYear": "06.2019",
+    "budgetClose": false,
+    "month": 5
+  },
+  "b91b02d9-feff-4312-84fc-4b240d8228f6": {
+    "budgetPerMonth": 4300,
+    "monthYear": "07.2019",
+    "budgetClose": false,
+    "month": 6
+  },
+  "1cf61d99-5b8e-4468-8dbb-f32272302735": {
+    "budgetPerMonth": 3500,
+    "monthYear": "08.2019",
+    "budgetClose": false,
+    "month": 7
+  }
+}

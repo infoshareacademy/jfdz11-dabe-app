@@ -10,6 +10,7 @@
     "date-fns": "^2.0.0-beta.2",
     "firebase": "^6.3.4",
     "formik": "^1.5.7",
+    "gh-pages": "^2.1.1",
     "material-design-icons": "^3.0.1",
     "material-table": "^1.40.1",
     "moment": "^2.24.0",
@@ -27,6 +28,8 @@
     "yup": "^0.27.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -46,5 +49,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "homepage": "https://github.com/infoshareacademy/jfdz11-dabe-app"
 }

@@ -13,6 +13,13 @@ const useStyles = makeStyles({
 
 export default function Saldo(props) {
   const classes = useStyles();
+  const budget = props.monthlyBudgets.filter(
+    budget => budget.monthYear === new Date().toLocaleDateString().slice(-7)
+  ).length
+    ? props.monthlyBudgets.filter(
+        budget => budget.monthYear === new Date().toLocaleDateString().slice(-7)
+      )[0].budgetPerMonth
+    : 0;
 
   return (
     <React.Fragment>
@@ -21,10 +28,7 @@ export default function Saldo(props) {
         <Typography component="p" variant="h4">
           PLN{" "}
           {numeral(
-            props.monthlyBudgets.filter(
-              budget =>
-                budget.monthYear === new Date().toLocaleDateString().slice(-7)
-            )[0].budgetPerMonth -
+            budget -
               props.expenses.reduce(
                 (result, expens) =>
                   expens.monthYear === new Date().toLocaleDateString().slice(-7)

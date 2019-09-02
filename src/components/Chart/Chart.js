@@ -16,7 +16,11 @@ import Title from "../Title";
 function currentMonthData(expenses, budgets) {
   const budget = budgets.filter(
     budget => budget.monthYear === new Date().toLocaleDateString().slice(-7)
-  )[0].budgetPerMonth;
+  ).length
+    ? budgets.filter(
+        budget => budget.monthYear === new Date().toLocaleDateString().slice(-7)
+      )[0].budgetPerMonth
+    : 0;
   const daysInCurrentMonth = new Date(
     new Date().getYear(),
     new Date().getMonth(),
